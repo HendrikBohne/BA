@@ -1,6 +1,8 @@
 """
 SPA Detection Tool - Analyzer Package
+Exportiert Haupt-Analyzer und Helper-Klassen
 """
+
 from .analyzer import SPAAnalyzer, SPAAnalysisResult
 from .cookie_handler import CookieHandler
 from .interaction_strategy import InteractionStrategy

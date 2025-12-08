@@ -1,0 +1,8 @@
+2025-12-08 10:01:28,176 - __main__ - INFO - 📄 2 URLs aus Datei geladen: testurls.txt
+
+2025-12-08 10:01:28,176 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-08 10:01:29,142 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-08 10:01:29,142 - __main__ - INFO - 🌐 Lade URL: https://open.spotify.com/intl-de (Versuch 1/3)
+2025-12-08 10:01:32,289 - __main__ - INFO - ✅ Seite geladen
+
