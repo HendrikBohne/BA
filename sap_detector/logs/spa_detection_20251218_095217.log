@@ -1,0 +1,49 @@
+2025-12-18 09:52:17,863 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-18 09:52:30,015 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-18 09:52:30,016 - __main__ - INFO - 🌐 Lade URL: https://www.tiktok.com (Versuch 1/3)
+2025-12-18 09:52:45,067 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-18 09:52:59,771 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 09:52:59,771 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-18 09:52:59,771 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 09:52:59,771 - analyzer.analyzer - INFO - URL: https://www.tiktok.com/explore
+2025-12-18 09:52:59,771 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-18 09:52:59,771 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-18 09:53:40,811 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-18 09:53:53,709 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-18 09:53:53,747 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-18 09:54:14,804 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-18 09:54:14,806 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-18 09:54:14,806 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-18 09:54:14,806 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-18 09:54:16,807 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-18 09:54:16,807 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-18 09:54:50,957 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-18 09:54:50,957 - analyzer.model_guided_strategy - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen, w_model=25.0)...
+2025-12-18 09:55:31,468 - analyzer.model_guided_strategy - INFO - ✅ Aktion 1: Shows
+2025-12-18 09:56:08,875 - analyzer.model_guided_strategy - INFO - ✅ Aktion 2: Schönheit und Körperpflege
+2025-12-18 09:57:08,200 - analyzer.model_guided_strategy - INFO - ✅ Aktion 3: Anime und Comics
+2025-12-18 09:58:16,795 - analyzer.model_guided_strategy - INFO - ✅ Aktion 4: Schönheit und Körperpflege
+2025-12-18 10:00:28,362 - analyzer.model_guided_strategy - INFO - ✅ Aktion 5: Gefolgt
+2025-12-18 10:02:32,258 - analyzer.model_guided_strategy - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 5 erfolgreiche Aktionen
+2025-12-18 10:02:32,258 - analyzer.model_guided_strategy - INFO - 📊 Model-Stats: 63 Candidates, 4 ausgeführt (6.3%), ∅ 48.8 Nachfolger
+2025-12-18 10:02:32,258 - analyzer.analyzer - INFO - ✅ 5 Interaktionen durchgeführt
+2025-12-18 10:02:34,260 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-18 10:02:44,097 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate
+2025-12-18 10:02:44,115 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt:
+  - Mutations gesamt: 0
+  - Nodes added: 0, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 0
+  - Beobachtungsdauer: 0ms
+2025-12-18 10:02:44,128 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-18 10:02:44,128 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-18 10:02:44,129 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-18 10:02:44,150 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-18 10:02:44,150 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-18 10:02:44,150 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 10:02:50,211 - __main__ - INFO - ✅ Browser bereinigt

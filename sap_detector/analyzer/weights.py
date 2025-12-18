@@ -7,9 +7,9 @@ Zentrale Konfiguration der Signal-Gewichtung für die SPA-Erkennung
 # Die Summe sollte idealerweise 1.0 ergeben
 SIGNAL_WEIGHTS = {
     "History-API Navigation": 0.30,      # Stärkstes SPA-Signal
-    "Network Activity Pattern": 0.25,     # Sehr charakteristisch
+    "Network Activity Pattern": 0.30,     # Sehr charakteristisch
     "DOM Rewriting Pattern": 0.25,        # Sehr charakteristisch
-    "Title Change Pattern": 0.10,         # Unterstützend
+    "Title Change Pattern": 0.05,         # Unterstützend
     "Clickable Element Pattern": 0.10     # Unterstützend
 }
 

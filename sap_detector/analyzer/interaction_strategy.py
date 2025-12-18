@@ -6,6 +6,7 @@ import asyncio
 import random
 import logging
 from playwright.async_api import Page, TimeoutError as PlaywrightTimeout
+from .model_guided_strategy import ModelGuidedStrategy
 
 logger = logging.getLogger(__name__)
 
@@ -268,3 +269,21 @@ class InteractionStrategy:
             
         except Exception as e:
             logger.debug(f"Scroll-Fehler: {e}")
+
+            
+    @staticmethod
+    async def model_guided_random_walk(page: Page, max_actions: int = 10, 
+                                       w_model: float = 25.0) -> int:
+        """
+        Model-Guided Random Walk mit State-Independent Model
+        Delegiert an ModelGuidedStrategy
+        
+        Args:
+            page: Playwright Page object
+            max_actions: Maximale Anzahl Aktionen
+            w_model: Model-Gewichtungsparameter (default: 25 aus Paper)
+            
+        Returns:
+            Anzahl erfolgreicher Aktionen
+        """
+        return await ModelGuidedStrategy.execute(page, max_actions, w_model)

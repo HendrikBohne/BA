@@ -1,0 +1,251 @@
+2025-12-08 11:20:26,141 - __main__ - INFO - 📄 5 URLs aus Datei geladen: testurls.txt
+
+2025-12-08 11:20:26,141 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-08 11:20:27,257 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-08 11:20:27,257 - __main__ - INFO - 🌐 Lade URL: https://open.spotify.com/intl-de (Versuch 1/3)
+2025-12-08 11:20:30,404 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-08 11:20:33,435 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:20:33,435 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-08 11:20:33,435 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:20:33,435 - analyzer.analyzer - INFO - URL: https://open.spotify.com/intl-de
+2025-12-08 11:20:33,435 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-08 11:20:33,435 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-08 11:20:35,651 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("Akzeptieren"))
+2025-12-08 11:20:42,662 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-08 11:20:42,669 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-08 11:20:42,672 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-08 11:20:42,673 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-08 11:20:42,673 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-08 11:20:42,674 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-08 11:20:44,676 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: smart)...
+2025-12-08 11:20:44,676 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-08 11:20:46,684 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-08 11:20:46,684 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-08 11:20:46,930 - analyzer.interaction_strategy - INFO - ✅ Aktion 1: The Power Of Love
+2025-12-08 11:20:48,570 - analyzer.interaction_strategy - INFO - ✅ Aktion 2: Dive - Live
+2025-12-08 11:20:49,601 - analyzer.interaction_strategy - INFO - ✅ Aktion 3: 
+2025-12-08 11:20:50,386 - analyzer.interaction_strategy - INFO - ✅ Aktion 4: 
+2025-12-08 11:20:51,832 - analyzer.interaction_strategy - INFO - ✅ Aktion 5: Registrieren
+2025-12-08 11:20:55,831 - analyzer.interaction_strategy - INFO - ✅ Aktion 6 (JS): Weiter
+2025-12-08 11:20:56,863 - analyzer.interaction_strategy - INFO - ✅ Aktion 7: Nutzungsbedingungen
+2025-12-08 11:20:58,572 - analyzer.interaction_strategy - INFO - ✅ Aktion 8: Nutzungsbedingungen
+2025-12-08 11:20:59,974 - analyzer.interaction_strategy - INFO - ✅ Aktion 9: Weiter
+2025-12-08 11:21:01,245 - analyzer.interaction_strategy - INFO - ✅ Aktion 10: Nutzungsbedingungen
+2025-12-08 11:21:02,698 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 10 erfolgreiche Aktionen (NUR interne Navigation)
+2025-12-08 11:21:02,698 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-08 11:21:04,700 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-08 11:21:04,704 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate
+2025-12-08 11:21:04,708 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt:
+  - Mutations gesamt: 0
+  - Nodes added: 0, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 0
+  - Beobachtungsdauer: 0ms
+2025-12-08 11:21:04,710 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-08 11:21:04,710 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-08 11:21:04,710 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-08 11:21:04,713 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-08 11:21:04,713 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-08 11:21:04,713 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:21:04,871 - __main__ - INFO - 🌐 Lade URL: https://www.tiktok.com (Versuch 1/3)
+2025-12-08 11:21:09,042 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-08 11:21:12,073 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:21:12,074 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-08 11:21:12,074 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:21:12,074 - analyzer.analyzer - INFO - URL: https://www.tiktok.com/explore
+2025-12-08 11:21:12,074 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-08 11:21:12,074 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-08 11:21:19,251 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("OK"))
+2025-12-08 11:21:26,261 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-08 11:21:26,266 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-08 11:21:26,268 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-08 11:21:26,270 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-08 11:21:26,270 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-08 11:21:26,270 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-08 11:21:28,272 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: smart)...
+2025-12-08 11:21:28,272 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-08 11:21:30,388 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-08 11:21:30,388 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-08 11:21:30,886 - analyzer.interaction_strategy - INFO - ✅ Aktion 1: 448.5K
+2025-12-08 11:21:35,274 - analyzer.interaction_strategy - INFO - ✅ Aktion 2 (JS): LIVE
+2025-12-08 11:21:38,848 - analyzer.interaction_strategy - INFO - ✅ Aktion 3 (JS): LIVE
+2025-12-08 11:21:43,053 - analyzer.interaction_strategy - INFO - ✅ Aktion 4 (JS): LIVE
+2025-12-08 11:21:46,725 - analyzer.interaction_strategy - INFO - ✅ Aktion 5 (JS): Mehr
+2025-12-08 11:21:50,399 - analyzer.interaction_strategy - INFO - ✅ Aktion 6 (JS): Will Smith
+2025-12-08 11:21:54,643 - analyzer.interaction_strategy - INFO - ✅ Aktion 7 (JS): Will Smith
+2025-12-08 11:21:59,059 - analyzer.interaction_strategy - INFO - ✅ Aktion 8 (JS): Gefolgt
+2025-12-08 11:22:03,267 - analyzer.interaction_strategy - INFO - ✅ Aktion 9 (JS): TikTok Studio
+2025-12-08 11:22:06,911 - analyzer.interaction_strategy - INFO - ✅ Aktion 10 (JS): LIVE
+2025-12-08 11:22:07,678 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 10 erfolgreiche Aktionen (NUR interne Navigation)
+2025-12-08 11:22:07,678 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-08 11:22:09,680 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-08 11:22:09,684 - detectors.history_api_detector - INFO - History-Daten: 4 pushState, 0 replaceState, 0 popstate
+2025-12-08 11:22:09,689 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt:
+  - Mutations gesamt: 505
+  - Nodes added: 305, removed: 200
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 505
+  - Beobachtungsdauer: 43423ms
+2025-12-08 11:22:09,691 - detectors.title_change_detector - INFO - Title-Daten: 4 Änderungen
+2025-12-08 11:22:09,691 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-08 11:22:09,691 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-08 11:22:09,694 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-08 11:22:09,694 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-08 11:22:09,694 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:22:09,870 - __main__ - INFO - 🌐 Lade URL: https://maps.google.com (Versuch 1/3)
+2025-12-08 11:22:11,325 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-08 11:22:14,356 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:22:14,356 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-08 11:22:14,356 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:22:14,356 - analyzer.analyzer - INFO - URL: https://consent.google.com/m?continue=https://maps.google.com/maps&gl=DE&m=0&pc=m&uxe=eomtm&cm=2&hl=de&src=1
+2025-12-08 11:22:14,356 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-08 11:22:14,356 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-08 11:22:16,677 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("Akzeptieren"))
+2025-12-08 11:22:23,688 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-08 11:22:23,693 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-08 11:22:23,695 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-08 11:22:23,696 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-08 11:22:23,696 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-08 11:22:23,696 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-08 11:22:25,698 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: smart)...
+2025-12-08 11:22:25,698 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-08 11:22:27,706 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-08 11:22:27,706 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-08 11:22:27,808 - analyzer.interaction_strategy - INFO - ✅ Aktion 1: 
+2025-12-08 11:22:28,653 - analyzer.interaction_strategy - INFO - ✅ Aktion 2: Datenschutz
+2025-12-08 11:22:29,845 - analyzer.interaction_strategy - INFO - ✅ Aktion 3: Feedback
+2025-12-08 11:22:31,262 - analyzer.interaction_strategy - INFO - ✅ Aktion 4: 
+2025-12-08 11:22:32,217 - analyzer.interaction_strategy - INFO - ✅ Aktion 5: 
+2025-12-08 11:22:33,231 - analyzer.interaction_strategy - INFO - ✅ Aktion 6: Bilder
+2025-12-08 11:22:37,338 - analyzer.interaction_strategy - INFO - ✅ Aktion 7 (JS): Gmail
+2025-12-08 11:22:41,395 - analyzer.interaction_strategy - INFO - ✅ Aktion 8 (JS): Gmail für Unternehmen ausprobi
+2025-12-08 11:22:42,863 - analyzer.interaction_strategy - INFO - ✅ Aktion 9: Nutzungsbedingungen
+2025-12-08 11:22:44,009 - analyzer.interaction_strategy - INFO - ✅ Aktion 10: Weiter
+2025-12-08 11:22:45,394 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 10 erfolgreiche Aktionen (NUR interne Navigation)
+2025-12-08 11:22:45,394 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-08 11:22:47,396 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-08 11:22:47,400 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate
+2025-12-08 11:22:47,403 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt:
+  - Mutations gesamt: 0
+  - Nodes added: 0, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 0
+  - Beobachtungsdauer: 0ms
+2025-12-08 11:22:47,405 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-08 11:22:47,405 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-08 11:22:47,405 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-08 11:22:47,407 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-08 11:22:47,407 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-08 11:22:47,407 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:22:47,600 - __main__ - INFO - 🌐 Lade URL: https://www.forbes.com (Versuch 1/3)
+2025-12-08 11:22:50,916 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-08 11:22:53,975 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:22:53,975 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-08 11:22:53,975 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:22:53,975 - analyzer.analyzer - INFO - URL: https://www.forbes.com/
+2025-12-08 11:22:53,975 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-08 11:22:53,975 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-08 11:22:55,146 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("Accept"))
+2025-12-08 11:23:02,160 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-08 11:23:02,166 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-08 11:23:02,168 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-08 11:23:02,169 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-08 11:23:02,169 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-08 11:23:02,169 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-08 11:23:04,171 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: smart)...
+2025-12-08 11:23:04,171 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-08 11:23:06,353 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-08 11:23:06,353 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-08 11:23:09,369 - analyzer.interaction_strategy - INFO - ✅ Aktion 1 (JS): 
+2025-12-08 11:23:13,099 - analyzer.interaction_strategy - INFO - ✅ Aktion 2 (JS): Hegseth Violated Pentagon Poli
+2025-12-08 11:23:14,926 - analyzer.interaction_strategy - INFO - ✅ Aktion 3: 15 Top Colleges For Launching 
+2025-12-08 11:23:16,854 - analyzer.interaction_strategy - INFO - ✅ Aktion 4: SportsMoney
+2025-12-08 11:23:21,171 - analyzer.interaction_strategy - INFO - ✅ Aktion 5 (JS): 
+2025-12-08 11:23:22,868 - analyzer.interaction_strategy - INFO - ✅ Aktion 6: Leadership
+2025-12-08 11:23:25,422 - analyzer.interaction_strategy - INFO - ✅ Aktion 7: Justin Birnbaum
+2025-12-08 11:23:29,213 - analyzer.interaction_strategy - INFO - ✅ Aktion 8 (JS): Jorge Mas
+2025-12-08 11:23:31,681 - analyzer.interaction_strategy - INFO - ✅ Aktion 9: 
+2025-12-08 11:23:35,644 - analyzer.interaction_strategy - INFO - ✅ Aktion 10 (JS): Siladitya Ray
+2025-12-08 11:23:36,358 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 10 erfolgreiche Aktionen (NUR interne Navigation)
+2025-12-08 11:23:36,358 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-08 11:23:38,358 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-08 11:23:38,521 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate
+2025-12-08 11:23:38,634 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt:
+  - Mutations gesamt: 0
+  - Nodes added: 0, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 0
+  - Beobachtungsdauer: 0ms
+2025-12-08 11:23:38,728 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-08 11:23:38,728 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-08 11:23:38,728 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-08 11:23:38,834 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-08 11:23:38,834 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-08 11:23:38,834 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:23:39,196 - __main__ - INFO - 🌐 Lade URL: https://www.airbnb.com (Versuch 1/3)
+2025-12-08 11:23:44,125 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-08 11:23:47,175 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:23:47,175 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-08 11:23:47,175 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:23:47,175 - analyzer.analyzer - INFO - URL: https://www.airbnb.de/?_set_bev_on_new_domain=1765193019_EAZjhlMjFhMWVhZW&set_everest_cookie_on_new_domain=1765193019.EAM2JkMDZkNDJmNDRlNm.qIRsN0QgzvwmqXR1cWQKtiLh_Npjmpz8q0HJh3cXqo0
+2025-12-08 11:23:47,175 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-08 11:23:47,175 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-08 11:23:49,337 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("Akzeptieren"))
+2025-12-08 11:23:56,347 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-08 11:23:56,354 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-08 11:23:56,356 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-08 11:23:56,358 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-08 11:23:56,358 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-08 11:23:56,358 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-08 11:23:58,360 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: smart)...
+2025-12-08 11:23:58,360 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-08 11:24:00,432 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-08 11:24:00,432 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-08 11:24:00,645 - analyzer.interaction_strategy - INFO - ✅ Aktion 1: 
+2025-12-08 11:24:02,556 - analyzer.interaction_strategy - INFO - ✅ Aktion 2: 
+2025-12-08 11:24:03,548 - analyzer.interaction_strategy - INFO - ✅ Aktion 3: 90 €Preisaufschlüsselung anzei
+2025-12-08 11:24:04,696 - analyzer.interaction_strategy - INFO - ✅ Aktion 4: 
+2025-12-08 11:24:08,375 - analyzer.interaction_strategy - INFO - ✅ Aktion 5 (JS): 
+2025-12-08 11:24:12,284 - analyzer.interaction_strategy - INFO - ✅ Aktion 6 (JS): 
+2025-12-08 11:24:15,949 - analyzer.interaction_strategy - INFO - ✅ Aktion 7 (JS): 
+2025-12-08 11:24:20,169 - analyzer.interaction_strategy - INFO - ✅ Aktion 8 (JS): 
+2025-12-08 11:24:23,878 - analyzer.interaction_strategy - INFO - ✅ Aktion 9 (JS): 
+2025-12-08 11:24:28,372 - analyzer.interaction_strategy - INFO - ✅ Aktion 10 (JS): 
+2025-12-08 11:24:29,524 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 10 erfolgreiche Aktionen (NUR interne Navigation)
+2025-12-08 11:24:29,524 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-08 11:24:31,524 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-08 11:24:31,577 - detectors.history_api_detector - INFO - History-Daten: 1 pushState, 0 replaceState, 0 popstate
+2025-12-08 11:24:31,598 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt:
+  - Mutations gesamt: 488
+  - Nodes added: 373, removed: 124
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 8
+  - Kleine Mutations (1): 480
+  - Beobachtungsdauer: 35236ms
+2025-12-08 11:24:31,616 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-08 11:24:31,616 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-08 11:24:31,616 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-08 11:24:31,642 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-08 11:24:31,642 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-08 11:24:31,642 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 11:24:32,479 - __main__ - INFO - ✅ Browser bereinigt

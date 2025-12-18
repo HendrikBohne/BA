@@ -1,0 +1,68 @@
+2025-12-18 09:30:26,960 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-18 09:30:40,770 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-18 09:30:40,770 - __main__ - INFO - 🌐 Lade URL: https://react.dev (Versuch 1/3)
+2025-12-18 09:31:10,772 - __main__ - WARNING - ⏱️  Timeout bei Versuch 1
+2025-12-18 09:31:10,772 - __main__ - INFO - 🔄 Versuche erneut...
+2025-12-18 09:31:12,774 - __main__ - INFO - 🌐 Lade URL: https://react.dev (Versuch 2/3)
+2025-12-18 09:31:31,042 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-18 09:31:39,632 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 09:31:39,632 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-18 09:31:39,632 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 09:31:39,632 - analyzer.analyzer - INFO - URL: https://react.dev/
+2025-12-18 09:31:39,632 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-18 09:31:39,632 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-18 09:32:20,672 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-18 09:32:44,566 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-18 09:32:44,571 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-18 09:32:44,573 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-18 09:32:44,575 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-18 09:32:44,575 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-18 09:32:44,575 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-18 09:32:46,577 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-18 09:32:46,577 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-18 09:33:07,517 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-18 09:33:07,517 - analyzer.analyzer - WARNING - Unbekannte Strategie: model_guided, verwende 'smart'
+2025-12-18 09:33:07,517 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-18 09:33:18,784 - analyzer.interaction_strategy - DEBUG - Klicke auf: v19.2 (a, href=/versions)
+2025-12-18 09:33:20,393 - detectors.history_api_detector - DEBUG - Frame-Navigation #1
+2025-12-18 09:33:20,409 - analyzer.interaction_strategy - INFO - ✅ Aktion 1: v19.2
+2025-12-18 09:33:22,803 - analyzer.interaction_strategy - DEBUG - Klicke auf:  (button, href=N/A)
+2025-12-18 09:33:25,854 - analyzer.interaction_strategy - INFO - ✅ Aktion 2 (JS): 
+2025-12-18 09:33:27,615 - analyzer.interaction_strategy - DEBUG - Klicke auf:  (button, href=N/A)
+2025-12-18 09:33:35,319 - analyzer.interaction_strategy - INFO - ✅ Aktion 3 (JS): 
+2025-12-18 09:33:49,683 - analyzer.interaction_strategy - DEBUG - Klicke auf: Search⌘CtrlK (button, href=N/A)
+2025-12-18 09:33:52,689 - analyzer.interaction_strategy - INFO - ✅ Aktion 4 (JS): Search⌘CtrlK
+2025-12-18 09:33:53,813 - analyzer.interaction_strategy - DEBUG - Klicke auf: Search⌘CtrlK (button, href=N/A)
+2025-12-18 09:34:05,138 - analyzer.interaction_strategy - INFO - ✅ Aktion 5 (JS): Search⌘CtrlK
+2025-12-18 09:34:12,436 - analyzer.interaction_strategy - DEBUG - Klicke auf: Search⌘CtrlK (button, href=N/A)
+2025-12-18 09:34:21,263 - analyzer.interaction_strategy - INFO - ✅ Aktion 6 (JS): Search⌘CtrlK
+2025-12-18 09:34:22,144 - analyzer.interaction_strategy - DEBUG - Klicke auf: APIs (a, href=/reference/react-dom)
+2025-12-18 09:34:26,481 - analyzer.interaction_strategy - INFO - ✅ Aktion 7 (JS): APIs
+2025-12-18 09:34:40,277 - analyzer.interaction_strategy - DEBUG - Klicke auf: Search⌘CtrlK (button, href=N/A)
+2025-12-18 09:34:44,817 - analyzer.interaction_strategy - INFO - ✅ Aktion 8 (JS): Search⌘CtrlK
+2025-12-18 09:34:46,004 - analyzer.interaction_strategy - DEBUG - Klicke auf: React Docs (a, href=/)
+2025-12-18 09:34:51,169 - analyzer.interaction_strategy - INFO - ✅ Aktion 9 (JS): React Docs
+2025-12-18 09:34:59,467 - analyzer.interaction_strategy - DEBUG - Klicke auf: Client APIs (a, href=/reference/react-dom/client)
+2025-12-18 09:35:04,743 - analyzer.interaction_strategy - INFO - ✅ Aktion 10 (JS): Client APIs
+2025-12-18 09:35:06,079 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 10 erfolgreiche Aktionen (NUR interne Navigation)
+2025-12-18 09:35:06,079 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-18 09:35:08,082 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-18 09:35:08,463 - detectors.history_api_detector - INFO - History-Daten: 1 pushState, 0 replaceState, 0 popstate
+2025-12-18 09:35:08,472 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt:
+  - Mutations gesamt: 14
+  - Nodes added: 9, removed: 5
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 14
+  - Beobachtungsdauer: 143899ms
+2025-12-18 09:35:08,513 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-18 09:35:08,513 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-18 09:35:08,513 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-18 09:35:08,564 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-18 09:35:08,564 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-18 09:35:08,564 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 09:35:10,741 - __main__ - INFO - ✅ Browser bereinigt

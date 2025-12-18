@@ -100,6 +100,9 @@ class SPAAnalyzer:
             elif strategy == "navigation":
                 actions = await self.interaction_strategy.test_navigation(self.page, max_actions)
                 total_actions += actions
+            elif strategy == "model_guided":  # ← NEU!
+                actions = await self.interaction_strategy.model_guided_random_walk(self.page, max_actions)
+                total_actions += actions
             else:
                 logger.warning(f"Unbekannte Strategie: {strategy}, verwende 'smart'")
                 actions = await self.interaction_strategy.smart_random_walk(self.page, max_actions)
@@ -113,7 +116,7 @@ class SPAAnalyzer:
             self.errors.append(error_msg)
         
         return total_actions
-    
+
     async def collect_all_data(self):
         """Sammelt Daten von allen Detektoren"""
         logger.info("📊 Sammle Daten von allen Detektoren...")

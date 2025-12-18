@@ -6,3 +6,87 @@
 2025-12-08 10:01:29,142 - __main__ - INFO - 🌐 Lade URL: https://open.spotify.com/intl-de (Versuch 1/3)
 2025-12-08 10:01:32,289 - __main__ - INFO - ✅ Seite geladen
 
+2025-12-08 10:01:35,325 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 10:01:35,325 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-08 10:01:35,325 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 10:01:35,325 - analyzer.analyzer - INFO - URL: https://open.spotify.com/intl-de
+2025-12-08 10:01:35,325 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-08 10:01:35,325 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-08 10:01:37,522 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("Akzeptieren"))
+2025-12-08 10:01:44,537 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-08 10:01:44,546 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert
+2025-12-08 10:01:44,548 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-08 10:01:44,550 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-08 10:01:44,550 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-08 10:01:44,550 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-08 10:01:46,552 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: smart)...
+2025-12-08 10:01:46,552 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-08 10:01:48,560 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-08 10:01:48,560 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-08 10:01:51,686 - analyzer.interaction_strategy - INFO - ✅ Aktion 1 (JS): Elton John
+2025-12-08 10:01:56,240 - analyzer.interaction_strategy - INFO - ✅ Aktion 2 (JS): Diskografie
+2025-12-08 10:01:57,570 - analyzer.interaction_strategy - INFO - ✅ Aktion 3: Jan29Hamburgreezy20:00
+2025-12-08 10:01:58,301 - analyzer.interaction_strategy - INFO - ✅ Aktion 4: deutscher hip-hop
+2025-12-08 10:01:58,958 - analyzer.interaction_strategy - INFO - ✅ Aktion 5: In Podcasts stöbern
+2025-12-08 10:01:59,616 - analyzer.interaction_strategy - INFO - ✅ Aktion 6: In Podcasts stöbern
+2025-12-08 10:02:00,567 - analyzer.interaction_strategy - INFO - ✅ Aktion 7: App installieren
+2025-12-08 10:02:01,336 - analyzer.interaction_strategy - INFO - ✅ Aktion 8: In Podcasts stöbern
+2025-12-08 10:02:02,320 - analyzer.interaction_strategy - INFO - ✅ Aktion 9: Beliebt (nach Land)
+2025-12-08 10:02:04,128 - analyzer.interaction_strategy - INFO - ✅ Aktion 10: Richtlinien für Nutzer*innen
+2025-12-08 10:02:05,508 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 10 erfolgreiche Aktionen (NUR interne Navigation)
+2025-12-08 10:02:05,509 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-08 10:02:07,510 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-08 10:02:07,517 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate
+2025-12-08 10:02:07,520 - detectors.dom_rewriting_detector - INFO - DOM-Daten: 0 Mutations, 0 added, 0 removed
+2025-12-08 10:02:07,522 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-08 10:02:07,522 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-08 10:02:07,522 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-08 10:02:07,525 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-08 10:02:07,525 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-08 10:02:07,525 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 10:02:07,661 - __main__ - INFO - 🌐 Lade URL: https://www.tiktok.com (Versuch 1/3)
+2025-12-08 10:02:12,920 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-08 10:02:15,953 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 10:02:15,953 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-08 10:02:15,953 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 10:02:15,953 - analyzer.analyzer - INFO - URL: https://www.tiktok.com/explore
+2025-12-08 10:02:15,953 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-08 10:02:15,953 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-08 10:02:23,147 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("OK"))
+2025-12-08 10:02:30,158 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-08 10:02:30,165 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert
+2025-12-08 10:02:30,168 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-08 10:02:30,169 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-08 10:02:30,169 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-08 10:02:30,169 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-08 10:02:32,170 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: smart)...
+2025-12-08 10:02:32,171 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-08 10:02:34,322 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-08 10:02:34,322 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-08 10:02:37,453 - analyzer.interaction_strategy - INFO - ✅ Aktion 1 (JS): 
+2025-12-08 10:02:38,449 - analyzer.interaction_strategy - INFO - ✅ Aktion 2: Erkunden
+2025-12-08 10:02:42,226 - analyzer.interaction_strategy - INFO - ✅ Aktion 3 (JS): Profil
+2025-12-08 10:02:45,841 - analyzer.interaction_strategy - INFO - ✅ Aktion 4 (JS): Für dich
+2025-12-08 10:02:49,922 - analyzer.interaction_strategy - INFO - ✅ Aktion 5 (JS): Erkunden
+2025-12-08 10:02:53,959 - analyzer.interaction_strategy - INFO - ✅ Aktion 6 (JS): LIVE
+2025-12-08 10:02:57,647 - analyzer.interaction_strategy - INFO - ✅ Aktion 7 (JS): TikTok
+2025-12-08 10:03:01,269 - analyzer.interaction_strategy - INFO - ✅ Aktion 8 (JS): Hochladen
+2025-12-08 10:03:05,267 - analyzer.interaction_strategy - INFO - ✅ Aktion 9 (JS): Münzen holen
+2025-12-08 10:03:09,259 - analyzer.interaction_strategy - INFO - ✅ Aktion 10 (JS): Für dich
+2025-12-08 10:03:10,333 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 10 erfolgreiche Aktionen (NUR interne Navigation)
+2025-12-08 10:03:10,333 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-08 10:03:12,336 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-08 10:03:12,339 - detectors.history_api_detector - INFO - History-Daten: 3 pushState, 0 replaceState, 0 popstate
+2025-12-08 10:03:12,343 - detectors.dom_rewriting_detector - INFO - DOM-Daten: 180 Mutations, 119 added, 61 removed
+2025-12-08 10:03:12,345 - detectors.title_change_detector - INFO - Title-Daten: 6 Änderungen
+2025-12-08 10:03:12,345 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-08 10:03:12,345 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-08 10:03:12,349 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-08 10:03:12,349 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-08 10:03:12,349 - analyzer.analyzer - INFO - ============================================================
+2025-12-08 10:03:12,842 - __main__ - INFO - ✅ Browser bereinigt

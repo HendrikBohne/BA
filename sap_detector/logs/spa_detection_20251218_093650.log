@@ -1,0 +1,14 @@
+2025-12-18 09:36:50,481 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-18 09:36:56,237 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-18 09:36:56,237 - __main__ - INFO - 🌐 Lade URL: https://react.dev (Versuch 1/3)
+2025-12-18 09:37:26,240 - __main__ - WARNING - ⏱️  Timeout bei Versuch 1
+2025-12-18 09:37:26,240 - __main__ - INFO - 🔄 Versuche erneut...
+2025-12-18 09:37:28,242 - __main__ - INFO - 🌐 Lade URL: https://react.dev (Versuch 2/3)
+2025-12-18 09:37:58,244 - __main__ - WARNING - ⏱️  Timeout bei Versuch 2
+2025-12-18 09:37:58,245 - __main__ - INFO - 🔄 Versuche erneut...
+2025-12-18 09:38:00,247 - __main__ - INFO - 🌐 Lade URL: https://react.dev (Versuch 3/3)
+2025-12-18 09:38:30,248 - __main__ - WARNING - ⏱️  Timeout bei Versuch 3
+2025-12-18 09:38:30,248 - __main__ - ERROR - ❌ Alle Versuche fehlgeschlagen (Timeout)
+2025-12-18 09:38:30,248 - __main__ - ERROR - ❌ Konnte https://react.dev nicht laden
+2025-12-18 09:38:30,248 - __main__ - ERROR - ❌ Analyse fehlgeschlagen

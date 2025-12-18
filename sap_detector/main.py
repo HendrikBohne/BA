@@ -327,7 +327,7 @@ Beispiele:
     )
     interaction_group.add_argument(
         '--strategy',
-        choices=['smart', 'random_walk', 'navigation'],
+        choices=['smart', 'random_walk', 'navigation','model_guided'],
         default='smart',
         help='Interaktionsstrategie (default: smart)'
     )
