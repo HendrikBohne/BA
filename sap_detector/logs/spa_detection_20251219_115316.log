@@ -1,0 +1,2258 @@
+2025-12-19 11:53:16,664 - __main__ - INFO - 📄 20 URLs aus Datei geladen: nospaurls.txt
+
+2025-12-19 11:53:16,664 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-19 11:53:20,271 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-19 11:53:20,272 - __main__ - INFO - 🌐 Lade URL: https://www.wikipedia.org/ (Versuch 1/3)
+2025-12-19 11:53:23,414 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 11:53:26,800 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:53:26,800 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 11:53:26,800 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:53:26,800 - analyzer.analyzer - INFO - URL: https://www.wikipedia.org/
+2025-12-19 11:53:26,800 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 11:53:26,800 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 11:54:07,839 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 11:54:13,849 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 11:54:13,854 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 11:54:13,856 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 11:54:14,064 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 11:54:14,066 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 11:54:14,068 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 11:54:14,068 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 11:54:14,068 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 11:54:16,069 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 11:54:16,069 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 11:54:18,076 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 11:54:19,282 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:54:19,285 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 0
+  - Nodes added: 0, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 0
+  - Beobachtungsdauer: 5426ms
+2025-12-19 11:54:19,286 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:54:19,287 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 11:54:22,086 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 0 erfolgreiche Aktionen
+2025-12-19 11:54:22,086 - analyzer.analyzer - INFO - 📊 Model-Stats: 0 Candidates, 0 ausgeführt (0.0%)
+2025-12-19 11:54:22,086 - analyzer.analyzer - INFO - ✅ 0 Interaktionen durchgeführt
+2025-12-19 11:54:24,088 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 11:54:24,594 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:54:24,596 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 0
+  - Nodes added: 0, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 0
+  - Beobachtungsdauer: 10737ms
+2025-12-19 11:54:24,598 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:54:24,598 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 11:54:24,598 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 11:54:24,600 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 11:54:24,600 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 11:54:24,600 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:54:25,280 - __main__ - INFO - 🌐 Lade URL: https://www.amazon.de/ (Versuch 1/3)
+2025-12-19 11:54:29,789 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 11:54:39,225 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:54:39,225 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 11:54:39,225 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:54:39,225 - analyzer.analyzer - INFO - URL: https://www.amazon.de/
+2025-12-19 11:54:39,225 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 11:54:39,225 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 11:55:10,503 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: [aria-label*="Akzeptieren"])
+2025-12-19 11:55:17,510 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 11:55:17,512 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 11:55:17,514 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 11:55:17,721 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 11:55:17,723 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 11:55:17,724 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 11:55:17,724 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 11:55:17,724 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 11:55:19,726 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 11:55:19,726 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 11:55:21,831 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 11:55:23,328 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:55:23,335 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 3561
+  - Nodes added: 3711, removed: 103
+  - Große Mutations (>=5): 11
+  - Mittlere Mutations (2-4): 65
+  - Kleine Mutations (1): 3485
+  - Beobachtungsdauer: 54999ms
+2025-12-19 11:55:23,337 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:55:23,337 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 11:55:24,850 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 0 erfolgreiche Aktionen
+2025-12-19 11:55:24,850 - analyzer.analyzer - INFO - 📊 Model-Stats: 0 Candidates, 0 ausgeführt (0.0%)
+2025-12-19 11:55:24,850 - analyzer.analyzer - INFO - ✅ 0 Interaktionen durchgeführt
+2025-12-19 11:55:26,852 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 11:55:27,358 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:55:27,365 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 3567
+  - Nodes added: 3715, removed: 107
+  - Große Mutations (>=5): 11
+  - Mittlere Mutations (2-4): 67
+  - Kleine Mutations (1): 3489
+  - Beobachtungsdauer: 59029ms
+2025-12-19 11:55:27,367 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:55:27,367 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 11:55:27,367 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 11:55:27,370 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 11:55:27,370 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 11:55:27,370 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:55:28,001 - __main__ - INFO - 🌐 Lade URL: https://www.ebay.de/ (Versuch 1/3)
+2025-12-19 11:55:34,832 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 11:55:38,272 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:55:38,272 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 11:55:38,272 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:55:38,272 - analyzer.analyzer - INFO - URL: https://www.ebay.de/
+2025-12-19 11:55:38,272 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 11:55:38,272 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 11:56:19,300 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 11:56:25,492 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 11:56:25,498 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 11:56:25,500 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 11:56:25,706 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 11:56:25,708 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 11:56:25,710 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 11:56:25,710 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 11:56:25,710 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 11:56:27,712 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 11:56:27,712 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 11:56:30,333 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 11:56:32,588 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:56:32,594 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 9357
+  - Nodes added: 8017, removed: 1357
+  - Große Mutations (>=5): 2
+  - Mittlere Mutations (2-4): 1
+  - Kleine Mutations (1): 9354
+  - Beobachtungsdauer: 61683ms
+2025-12-19 11:56:32,595 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:56:32,595 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 11:56:33,846 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 11:56:35,772 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:56:35,777 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 9357
+  - Nodes added: 8017, removed: 1357
+  - Große Mutations (>=5): 2
+  - Mittlere Mutations (2-4): 1
+  - Kleine Mutations (1): 9354
+  - Beobachtungsdauer: 64867ms
+2025-12-19 11:56:35,779 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:56:35,819 - analyzer.analyzer - INFO - ✅ Aktion 2: 
+2025-12-19 11:56:38,719 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:56:38,725 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 9357
+  - Nodes added: 8017, removed: 1357
+  - Große Mutations (>=5): 2
+  - Mittlere Mutations (2-4): 1
+  - Kleine Mutations (1): 9354
+  - Beobachtungsdauer: 67814ms
+2025-12-19 11:56:38,727 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:56:41,478 - analyzer.analyzer - INFO - ✅ Aktion 3: Verkaufen-Menü einblenden
+2025-12-19 11:56:43,880 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:56:44,261 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 9453
+  - Nodes added: 8091, removed: 1399
+  - Große Mutations (>=5): 4
+  - Mittlere Mutations (2-4): 1
+  - Kleine Mutations (1): 9448
+  - Beobachtungsdauer: 73350ms
+2025-12-19 11:56:44,264 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:56:49,127 - analyzer.analyzer - INFO - ✅ Aktion 4: Finden
+2025-12-19 11:56:55,433 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:56:55,440 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 9580
+  - Nodes added: 9577, removed: 4
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 1
+  - Kleine Mutations (1): 9579
+  - Beobachtungsdauer: 4698ms
+2025-12-19 11:56:55,754 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:56:59,172 - analyzer.analyzer - INFO - ✅ Aktion 5: Verkaufen-Menü einblenden
+2025-12-19 11:57:04,845 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:57:05,080 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 12787
+  - Nodes added: 12338, removed: 460
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 1
+  - Kleine Mutations (1): 12785
+  - Beobachtungsdauer: 14274ms
+2025-12-19 11:57:06,092 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:57:09,882 - analyzer.analyzer - INFO - ✅ Aktion 6: Beobachtungsliste einblenden
+2025-12-19 11:57:12,280 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:57:12,289 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 12850
+  - Nodes added: 12399, removed: 523
+  - Große Mutations (>=5): 2
+  - Mittlere Mutations (2-4): 35
+  - Kleine Mutations (1): 12813
+  - Beobachtungsdauer: 21544ms
+2025-12-19 11:57:12,291 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:57:14,510 - analyzer.analyzer - INFO - ✅ Aktion 7: Finden
+2025-12-19 11:57:26,172 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:57:26,188 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3127
+  - Nodes added: 2694, removed: 433
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 3127
+  - Beobachtungsdauer: 11214ms
+2025-12-19 11:57:26,191 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:57:30,532 - analyzer.analyzer - INFO - ✅ Aktion 8: Beobachtungsliste einblenden
+2025-12-19 11:57:32,089 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:57:32,097 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3177
+  - Nodes added: 2739, removed: 449
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 3176
+  - Beobachtungsdauer: 17121ms
+2025-12-19 11:57:32,099 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:57:32,099 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 8 erfolgreiche Aktionen
+2025-12-19 11:57:32,099 - analyzer.analyzer - INFO - 📊 Model-Stats: 27 Candidates, 4 ausgeführt (14.8%)
+2025-12-19 11:57:32,099 - analyzer.analyzer - INFO - ✅ 8 Interaktionen durchgeführt
+2025-12-19 11:57:34,101 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 11:57:34,607 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:57:34,613 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3177
+  - Nodes added: 2739, removed: 449
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 3176
+  - Beobachtungsdauer: 19640ms
+2025-12-19 11:57:34,615 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:57:34,615 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 11:57:34,615 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 11:57:34,619 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 11:57:34,619 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 11:57:34,619 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:57:35,093 - __main__ - INFO - 🌐 Lade URL: https://www.craigslist.org/ (Versuch 1/3)
+2025-12-19 11:57:43,960 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 11:57:47,025 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:57:47,025 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 11:57:47,025 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:57:47,025 - analyzer.analyzer - INFO - URL: https://hannover.craigslist.org/
+2025-12-19 11:57:47,025 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 11:57:47,025 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 11:58:28,058 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 11:58:34,069 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 11:58:34,073 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 11:58:34,076 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 11:58:34,283 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 11:58:34,285 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 11:58:34,286 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 11:58:34,287 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 11:58:34,287 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 11:58:36,289 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 11:58:36,289 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 11:58:38,825 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 11:58:40,503 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:58:40,507 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2263
+  - Nodes added: 2257, removed: 11
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 2258
+  - Beobachtungsdauer: 57909ms
+2025-12-19 11:58:40,510 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:58:40,510 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 11:58:40,587 - analyzer.analyzer - INFO - ✅ Aktion 1: Hannover
+2025-12-19 11:58:44,802 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:58:44,806 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2303
+  - Nodes added: 2325, removed: 11
+  - Große Mutations (>=5): 2
+  - Mittlere Mutations (2-4): 7
+  - Kleine Mutations (1): 2294
+  - Beobachtungsdauer: 62208ms
+2025-12-19 11:58:44,807 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:58:46,828 - analyzer.analyzer - INFO - ✅ Aktion 2: Hannover
+2025-12-19 11:58:49,263 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:58:49,266 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2457
+  - Nodes added: 2393, removed: 125
+  - Große Mutations (>=5): 4
+  - Mittlere Mutations (2-4): 9
+  - Kleine Mutations (1): 2444
+  - Beobachtungsdauer: 66668ms
+2025-12-19 11:58:49,268 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:58:49,305 - analyzer.analyzer - INFO - ✅ Aktion 3: +−
+2025-12-19 11:58:50,817 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:58:50,820 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2457
+  - Nodes added: 2393, removed: 125
+  - Große Mutations (>=5): 4
+  - Mittlere Mutations (2-4): 9
+  - Kleine Mutations (1): 2444
+  - Beobachtungsdauer: 68222ms
+2025-12-19 11:58:50,822 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:58:52,842 - analyzer.analyzer - INFO - ✅ Aktion 4: Hannover
+2025-12-19 11:58:55,688 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:58:55,691 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2499
+  - Nodes added: 2461, removed: 127
+  - Große Mutations (>=5): 6
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 2482
+  - Beobachtungsdauer: 73092ms
+2025-12-19 11:58:55,693 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:58:57,700 - analyzer.analyzer - INFO - ✅ Aktion 5: 
+2025-12-19 11:58:59,212 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:58:59,215 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2499
+  - Nodes added: 2461, removed: 127
+  - Große Mutations (>=5): 6
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 2482
+  - Beobachtungsdauer: 76617ms
+2025-12-19 11:58:59,217 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:59:01,224 - analyzer.analyzer - INFO - ✅ Aktion 6: 
+2025-12-19 11:59:02,736 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:59:02,739 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2499
+  - Nodes added: 2461, removed: 127
+  - Große Mutations (>=5): 6
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 2482
+  - Beobachtungsdauer: 80141ms
+2025-12-19 11:59:02,741 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:59:04,748 - analyzer.analyzer - INFO - ✅ Aktion 7: 
+2025-12-19 11:59:06,259 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:59:06,262 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2499
+  - Nodes added: 2461, removed: 127
+  - Große Mutations (>=5): 6
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 2482
+  - Beobachtungsdauer: 83664ms
+2025-12-19 11:59:06,264 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:59:08,270 - analyzer.analyzer - INFO - ✅ Aktion 8: 
+2025-12-19 11:59:09,783 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:59:09,786 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2499
+  - Nodes added: 2461, removed: 127
+  - Große Mutations (>=5): 6
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 2482
+  - Beobachtungsdauer: 87188ms
+2025-12-19 11:59:09,788 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:59:11,795 - analyzer.analyzer - INFO - ✅ Aktion 9: 
+2025-12-19 11:59:13,306 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:59:13,309 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2499
+  - Nodes added: 2461, removed: 127
+  - Große Mutations (>=5): 6
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 2482
+  - Beobachtungsdauer: 90710ms
+2025-12-19 11:59:13,311 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:59:15,318 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 9 erfolgreiche Aktionen
+2025-12-19 11:59:15,318 - analyzer.analyzer - INFO - 📊 Model-Stats: 7 Candidates, 3 ausgeführt (42.9%)
+2025-12-19 11:59:15,318 - analyzer.analyzer - INFO - ✅ 9 Interaktionen durchgeführt
+2025-12-19 11:59:17,320 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 11:59:17,826 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:59:17,829 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2499
+  - Nodes added: 2461, removed: 127
+  - Große Mutations (>=5): 6
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 2482
+  - Beobachtungsdauer: 95231ms
+2025-12-19 11:59:17,831 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:59:17,831 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 11:59:17,831 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 11:59:17,833 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 11:59:17,833 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 11:59:17,833 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:59:19,063 - __main__ - INFO - 🌐 Lade URL: https://stackoverflow.com/ (Versuch 1/3)
+2025-12-19 11:59:24,908 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 11:59:30,710 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:59:30,710 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 11:59:30,710 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 11:59:30,710 - analyzer.analyzer - INFO - URL: https://stackoverflow.com/questions
+2025-12-19 11:59:30,711 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 11:59:30,711 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 11:59:33,813 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("Accept all"))
+2025-12-19 11:59:40,822 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 11:59:40,825 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 11:59:40,827 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 11:59:44,992 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 11:59:45,427 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 11:59:45,429 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 11:59:45,429 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 11:59:45,429 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 11:59:47,431 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 11:59:47,431 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 11:59:49,547 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 11:59:51,210 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:59:51,215 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 4325
+  - Nodes added: 4319, removed: 10
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 3
+  - Kleine Mutations (1): 4322
+  - Beobachtungsdauer: 29054ms
+2025-12-19 11:59:51,216 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:59:51,217 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 11:59:51,266 - analyzer.analyzer - INFO - ✅ Aktion 1: Products
+2025-12-19 11:59:53,648 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:59:53,653 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 4325
+  - Nodes added: 4319, removed: 10
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 3
+  - Kleine Mutations (1): 4322
+  - Beobachtungsdauer: 31492ms
+2025-12-19 11:59:53,655 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:59:55,067 - analyzer.analyzer - INFO - ✅ Aktion 2: Products
+2025-12-19 11:59:56,798 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 11:59:56,803 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 4325
+  - Nodes added: 4319, removed: 10
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 3
+  - Kleine Mutations (1): 4322
+  - Beobachtungsdauer: 34642ms
+2025-12-19 11:59:56,805 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 11:59:58,819 - analyzer.analyzer - INFO - ✅ Aktion 3: More
+2025-12-19 12:00:04,747 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 2 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:00:04,751 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 11
+  - Nodes added: 10, removed: 1
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 11
+  - Beobachtungsdauer: 3818ms
+2025-12-19 12:00:04,825 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:00:07,488 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 3 erfolgreiche Aktionen
+2025-12-19 12:00:07,488 - analyzer.analyzer - INFO - 📊 Model-Stats: 3 Candidates, 2 ausgeführt (66.7%)
+2025-12-19 12:00:07,488 - analyzer.analyzer - INFO - ✅ 3 Interaktionen durchgeführt
+2025-12-19 12:00:09,488 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:00:09,995 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 2 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:00:09,998 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 12
+  - Nodes added: 11, removed: 2
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 1
+  - Kleine Mutations (1): 11
+  - Beobachtungsdauer: 9064ms
+2025-12-19 12:00:10,000 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:00:10,000 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:00:10,000 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:00:10,003 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:00:10,003 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:00:10,003 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:00:10,404 - __main__ - INFO - 🌐 Lade URL: https://github.com/ (Versuch 1/3)
+2025-12-19 12:00:16,458 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:00:19,486 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:00:19,487 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:00:19,487 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:00:19,487 - analyzer.analyzer - INFO - URL: https://github.com/
+2025-12-19 12:00:19,487 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:00:19,487 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:01:00,515 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:01:06,832 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:01:07,283 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:01:07,477 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:01:08,336 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:01:08,572 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:01:08,574 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:01:08,574 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:01:08,574 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:01:10,576 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:01:10,576 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:01:12,858 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:01:13,745 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 4 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:01:14,022 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2958
+  - Nodes added: 2909, removed: 69
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 2943
+  - Beobachtungsdauer: 61753ms
+2025-12-19 12:01:14,245 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:01:14,245 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:01:16,689 - analyzer.analyzer - INFO - ✅ Aktion 1: Platform
+2025-12-19 12:01:18,810 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 4 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:01:19,041 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2958
+  - Nodes added: 2909, removed: 69
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 2943
+  - Beobachtungsdauer: 66818ms
+2025-12-19 12:01:19,261 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:01:21,696 - analyzer.analyzer - INFO - ✅ Aktion 2: Open Source
+2025-12-19 12:01:25,164 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 4 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:01:25,375 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2962
+  - Nodes added: 2911, removed: 71
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 2947
+  - Beobachtungsdauer: 73172ms
+2025-12-19 12:01:25,561 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:01:31,749 - analyzer.analyzer - INFO - ✅ Aktion 3: Platform
+2025-12-19 12:01:34,419 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 4 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:01:34,734 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2962
+  - Nodes added: 2911, removed: 71
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 2947
+  - Beobachtungsdauer: 82428ms
+2025-12-19 12:01:35,016 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:01:43,096 - analyzer.analyzer - INFO - ✅ Aktion 4: Open Source
+2025-12-19 12:01:45,037 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 4 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:01:45,261 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2962
+  - Nodes added: 2911, removed: 71
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 2947
+  - Beobachtungsdauer: 93045ms
+2025-12-19 12:01:45,507 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:01:48,020 - analyzer.analyzer - INFO - ✅ Aktion 5: Platform
+2025-12-19 12:01:50,127 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 4 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:01:50,316 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2962
+  - Nodes added: 2911, removed: 71
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 2947
+  - Beobachtungsdauer: 98135ms
+2025-12-19 12:01:50,520 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:01:53,195 - analyzer.analyzer - INFO - ✅ Aktion 6: Platform
+2025-12-19 12:01:55,284 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 4 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:01:55,474 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2962
+  - Nodes added: 2911, removed: 71
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 2947
+  - Beobachtungsdauer: 103292ms
+2025-12-19 12:01:55,799 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:01:58,383 - analyzer.analyzer - INFO - ✅ Aktion 7: Platform
+2025-12-19 12:02:01,654 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 4 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:02:02,447 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2962
+  - Nodes added: 2911, removed: 71
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 2947
+  - Beobachtungsdauer: 110036ms
+2025-12-19 12:02:02,450 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:02:02,450 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 7 erfolgreiche Aktionen
+2025-12-19 12:02:02,450 - analyzer.analyzer - INFO - 📊 Model-Stats: 7 Candidates, 2 ausgeführt (28.6%)
+2025-12-19 12:02:02,450 - analyzer.analyzer - INFO - ✅ 7 Interaktionen durchgeführt
+2025-12-19 12:02:04,453 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:02:05,763 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 4 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:02:06,198 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2962
+  - Nodes added: 2911, removed: 71
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 2947
+  - Beobachtungsdauer: 113771ms
+2025-12-19 12:02:06,504 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:02:06,504 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:02:06,504 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:02:06,816 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:02:06,817 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:02:06,817 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:02:09,076 - __main__ - INFO - 🌐 Lade URL: https://gitlab.com/ (Versuch 1/3)
+2025-12-19 12:02:17,010 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:02:20,799 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:02:20,799 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:02:20,799 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:02:20,799 - analyzer.analyzer - INFO - URL: https://about.gitlab.com/
+2025-12-19 12:02:20,799 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:02:20,799 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:02:36,571 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: #onetrust-accept-btn-handler)
+2025-12-19 12:02:43,583 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:02:43,585 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:02:43,587 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:02:43,793 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:02:43,796 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:02:43,797 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:02:43,797 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:02:43,797 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:02:45,799 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:02:45,800 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:02:47,807 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:02:48,696 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:02:48,700 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2501
+  - Nodes added: 2486, removed: 22
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 2495
+  - Beobachtungsdauer: 36250ms
+2025-12-19 12:02:48,701 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:02:48,702 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:02:50,324 - analyzer.analyzer - INFO - ✅ Aktion 1: Platform
+2025-12-19 12:02:52,303 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:02:52,307 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2501
+  - Nodes added: 2486, removed: 22
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 2495
+  - Beobachtungsdauer: 39858ms
+2025-12-19 12:02:52,310 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:02:53,402 - analyzer.analyzer - INFO - ✅ Aktion 2: Platform
+2025-12-19 12:02:55,352 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:02:55,356 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2501
+  - Nodes added: 2486, removed: 22
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 2495
+  - Beobachtungsdauer: 42907ms
+2025-12-19 12:02:55,359 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:02:56,516 - analyzer.analyzer - INFO - ✅ Aktion 3: 
+2025-12-19 12:02:58,453 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:02:58,457 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2525
+  - Nodes added: 2501, removed: 35
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 8
+  - Kleine Mutations (1): 2517
+  - Beobachtungsdauer: 46007ms
+2025-12-19 12:02:58,459 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-19 12:02:59,908 - analyzer.analyzer - INFO - ✅ Aktion 4: Platform
+2025-12-19 12:03:01,774 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:03:01,777 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2535
+  - Nodes added: 2505, removed: 41
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 8
+  - Kleine Mutations (1): 2527
+  - Beobachtungsdauer: 49328ms
+2025-12-19 12:03:01,779 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-19 12:03:03,781 - analyzer.analyzer - INFO - ✅ Aktion 5: Platform
+2025-12-19 12:03:06,616 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:03:06,621 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2535
+  - Nodes added: 2505, removed: 41
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 8
+  - Kleine Mutations (1): 2527
+  - Beobachtungsdauer: 54171ms
+2025-12-19 12:03:06,622 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-19 12:03:08,479 - analyzer.analyzer - INFO - ✅ Aktion 6: Platform
+2025-12-19 12:03:10,318 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:03:10,323 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2535
+  - Nodes added: 2505, removed: 41
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 8
+  - Kleine Mutations (1): 2527
+  - Beobachtungsdauer: 57873ms
+2025-12-19 12:03:10,325 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-19 12:03:11,923 - analyzer.analyzer - INFO - ✅ Aktion 7: Platform
+2025-12-19 12:03:13,789 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:03:13,794 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2535
+  - Nodes added: 2505, removed: 41
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 8
+  - Kleine Mutations (1): 2527
+  - Beobachtungsdauer: 61345ms
+2025-12-19 12:03:13,796 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-19 12:03:14,789 - analyzer.analyzer - INFO - ✅ Aktion 8: 
+2025-12-19 12:03:16,588 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:03:16,595 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2539
+  - Nodes added: 2507, removed: 43
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 8
+  - Kleine Mutations (1): 2531
+  - Beobachtungsdauer: 64145ms
+2025-12-19 12:03:16,597 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-19 12:03:18,860 - analyzer.analyzer - INFO - ✅ Aktion 9: Platform
+2025-12-19 12:03:22,985 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:03:22,990 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2539
+  - Nodes added: 2507, removed: 43
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 8
+  - Kleine Mutations (1): 2531
+  - Beobachtungsdauer: 70540ms
+2025-12-19 12:03:22,992 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-19 12:03:24,557 - analyzer.analyzer - INFO - ✅ Aktion 10: Platform
+2025-12-19 12:03:26,699 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:03:26,704 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2539
+  - Nodes added: 2507, removed: 43
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 8
+  - Kleine Mutations (1): 2531
+  - Beobachtungsdauer: 74254ms
+2025-12-19 12:03:26,706 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-19 12:03:26,706 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 10 erfolgreiche Aktionen
+2025-12-19 12:03:26,706 - analyzer.analyzer - INFO - 📊 Model-Stats: 10 Candidates, 3 ausgeführt (30.0%)
+2025-12-19 12:03:26,706 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-19 12:03:28,707 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:03:29,213 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 3 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:03:29,217 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2539
+  - Nodes added: 2507, removed: 43
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 8
+  - Kleine Mutations (1): 2531
+  - Beobachtungsdauer: 76768ms
+2025-12-19 12:03:29,219 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen
+2025-12-19 12:03:29,219 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:03:29,219 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:03:29,222 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:03:29,222 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:03:29,222 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:03:31,678 - __main__ - INFO - 🌐 Lade URL: https://old.reddit.com/ (Versuch 1/3)
+2025-12-19 12:03:37,447 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:03:41,105 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:03:41,105 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:03:41,105 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:03:41,105 - analyzer.analyzer - INFO - URL: https://old.reddit.com/
+2025-12-19 12:03:41,105 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:03:41,105 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:03:53,175 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("Continue"))
+2025-12-19 12:04:00,711 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:04:04,564 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:04:04,568 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:04:04,775 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:04:04,777 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:04:04,778 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:04:04,778 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:04:04,778 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:04:06,780 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:04:06,780 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:04:09,616 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:04:10,469 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:04:10,473 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2680
+  - Nodes added: 2539, removed: 141
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 2680
+  - Beobachtungsdauer: 35779ms
+2025-12-19 12:04:10,475 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:04:10,475 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:04:13,941 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 12:04:17,543 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:04:17,551 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 16
+  - Nodes added: 15, removed: 1
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 16
+  - Beobachtungsdauer: 2404ms
+2025-12-19 12:04:20,151 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:04:24,193 - analyzer.analyzer - INFO - ✅ Aktion 2: Weiter
+2025-12-19 12:04:27,933 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:04:27,936 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 44
+  - Nodes added: 40, removed: 7
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 1
+  - Kleine Mutations (1): 43
+  - Beobachtungsdauer: 12792ms
+2025-12-19 12:04:27,938 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:04:34,719 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 2 erfolgreiche Aktionen
+2025-12-19 12:04:34,719 - analyzer.analyzer - INFO - 📊 Model-Stats: 10 Candidates, 2 ausgeführt (20.0%)
+2025-12-19 12:04:34,719 - analyzer.analyzer - INFO - ✅ 2 Interaktionen durchgeführt
+2025-12-19 12:04:36,719 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:04:37,225 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:04:37,228 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 44
+  - Nodes added: 40, removed: 7
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 1
+  - Kleine Mutations (1): 43
+  - Beobachtungsdauer: 22084ms
+2025-12-19 12:04:37,230 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:04:37,230 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:04:37,230 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:04:37,232 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:04:37,232 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:04:37,232 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:04:37,910 - __main__ - INFO - 🌐 Lade URL: https://news.ycombinator.com/ (Versuch 1/3)
+2025-12-19 12:04:42,345 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:04:50,544 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:04:50,544 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:04:50,544 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:04:50,544 - analyzer.analyzer - INFO - URL: https://news.ycombinator.com/
+2025-12-19 12:04:50,544 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:04:50,544 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:05:31,572 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:05:37,580 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:05:37,584 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:05:37,586 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:05:37,796 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:05:37,798 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:05:37,799 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:05:37,799 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:05:37,799 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:05:39,801 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:05:39,801 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:05:41,848 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:05:42,785 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:05:43,140 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 0
+  - Nodes added: 0, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 0
+  - Beobachtungsdauer: 61547ms
+2025-12-19 12:05:43,142 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:05:43,143 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:05:44,654 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 0 erfolgreiche Aktionen
+2025-12-19 12:05:44,654 - analyzer.analyzer - INFO - 📊 Model-Stats: 0 Candidates, 0 ausgeführt (0.0%)
+2025-12-19 12:05:44,654 - analyzer.analyzer - INFO - ✅ 0 Interaktionen durchgeführt
+2025-12-19 12:05:46,657 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:05:47,163 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:05:47,166 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 0
+  - Nodes added: 0, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 0
+  - Beobachtungsdauer: 65923ms
+2025-12-19 12:05:47,167 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:05:47,167 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:05:47,167 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:05:47,170 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:05:47,170 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:05:47,170 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:05:47,801 - __main__ - INFO - 🌐 Lade URL: https://www.bbc.com/news (Versuch 1/3)
+2025-12-19 12:05:51,019 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:05:54,907 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:05:54,907 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:05:54,907 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:05:54,907 - analyzer.analyzer - INFO - URL: https://www.bbc.com/news
+2025-12-19 12:05:54,907 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:05:54,907 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:06:37,949 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:06:43,956 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:06:43,958 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:06:43,962 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:06:44,168 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:06:44,170 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:06:44,172 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:06:44,172 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:06:44,172 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:06:46,174 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:06:46,174 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:06:49,636 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:06:53,556 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:06:53,559 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 36
+  - Nodes added: 11, removed: 25
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 36
+  - Beobachtungsdauer: 63683ms
+2025-12-19 12:06:53,560 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:06:53,560 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:06:56,114 - analyzer.analyzer - INFO - ✅ Aktion 1: Register
+2025-12-19 12:06:59,033 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:06:59,037 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 36
+  - Nodes added: 11, removed: 25
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 36
+  - Beobachtungsdauer: 69160ms
+2025-12-19 12:06:59,038 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:07:02,890 - analyzer.analyzer - INFO - ✅ Aktion 2: Register
+2025-12-19 12:07:04,401 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:07:04,404 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 36
+  - Nodes added: 11, removed: 25
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 36
+  - Beobachtungsdauer: 74528ms
+2025-12-19 12:07:04,406 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:07:06,616 - analyzer.analyzer - INFO - ✅ Aktion 3: Register
+2025-12-19 12:07:08,566 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:07:08,569 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 36
+  - Nodes added: 11, removed: 25
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 36
+  - Beobachtungsdauer: 78692ms
+2025-12-19 12:07:08,571 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:07:10,633 - analyzer.analyzer - INFO - ✅ Aktion 4: Register
+2025-12-19 12:07:12,144 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:07:12,147 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 36
+  - Nodes added: 11, removed: 25
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 36
+  - Beobachtungsdauer: 82271ms
+2025-12-19 12:07:12,149 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:07:14,379 - analyzer.analyzer - INFO - ✅ Aktion 5: Register
+2025-12-19 12:07:15,890 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:07:15,893 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 36
+  - Nodes added: 11, removed: 25
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 36
+  - Beobachtungsdauer: 86016ms
+2025-12-19 12:07:15,894 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:07:18,660 - analyzer.analyzer - INFO - ✅ Aktion 6: 
+2025-12-19 12:07:20,369 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:07:20,373 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 40
+  - Nodes added: 13, removed: 27
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 40
+  - Beobachtungsdauer: 90496ms
+2025-12-19 12:07:20,374 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:07:22,386 - analyzer.analyzer - INFO - ✅ Aktion 7: 
+2025-12-19 12:07:25,306 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:07:25,310 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 44
+  - Nodes added: 15, removed: 29
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 44
+  - Beobachtungsdauer: 95433ms
+2025-12-19 12:07:25,312 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:07:27,892 - analyzer.analyzer - INFO - ✅ Aktion 8: Register
+2025-12-19 12:07:29,402 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:07:29,405 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 44
+  - Nodes added: 15, removed: 29
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 44
+  - Beobachtungsdauer: 99529ms
+2025-12-19 12:07:29,407 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:07:33,626 - analyzer.analyzer - INFO - ✅ Aktion 9: Register
+2025-12-19 12:07:36,208 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:07:36,211 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 44
+  - Nodes added: 15, removed: 29
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 44
+  - Beobachtungsdauer: 106335ms
+2025-12-19 12:07:36,212 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:07:36,213 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 9 erfolgreiche Aktionen
+2025-12-19 12:07:36,213 - analyzer.analyzer - INFO - 📊 Model-Stats: 17 Candidates, 2 ausgeführt (11.8%)
+2025-12-19 12:07:36,213 - analyzer.analyzer - INFO - ✅ 9 Interaktionen durchgeführt
+2025-12-19 12:07:38,215 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:07:38,720 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:07:38,723 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 44
+  - Nodes added: 15, removed: 29
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 44
+  - Beobachtungsdauer: 108846ms
+2025-12-19 12:07:38,724 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:07:38,724 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:07:38,724 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:07:38,727 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:07:38,727 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:07:38,727 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:07:39,530 - __main__ - INFO - 🌐 Lade URL: https://www.theguardian.com/ (Versuch 1/3)
+2025-12-19 12:07:42,994 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:07:47,008 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:07:47,008 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:07:47,008 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:07:47,008 - analyzer.analyzer - INFO - URL: https://www.theguardian.com/europe
+2025-12-19 12:07:47,008 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:07:47,008 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:08:28,036 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:08:34,043 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:08:34,046 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:08:34,050 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:08:34,256 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:08:34,258 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:08:34,259 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:08:34,259 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:08:34,259 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:08:36,261 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:08:36,262 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:08:38,268 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:08:38,773 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:08:38,779 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 46
+  - Nodes added: 25, removed: 21
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 46
+  - Beobachtungsdauer: 56845ms
+2025-12-19 12:08:38,781 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:08:38,781 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:08:40,789 - analyzer.analyzer - INFO - ✅ Aktion 1: Hide
+2025-12-19 12:08:42,302 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:08:42,307 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 46
+  - Nodes added: 25, removed: 21
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 46
+  - Beobachtungsdauer: 60372ms
+2025-12-19 12:08:42,308 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:08:46,322 - analyzer.analyzer - INFO - ✅ Aktion 2: Hide
+2025-12-19 12:08:47,834 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:08:47,839 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 46
+  - Nodes added: 25, removed: 21
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 46
+  - Beobachtungsdauer: 65905ms
+2025-12-19 12:08:47,840 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:08:51,853 - analyzer.analyzer - INFO - ✅ Aktion 3: Hide
+2025-12-19 12:08:53,367 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:08:53,372 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 46
+  - Nodes added: 25, removed: 21
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 46
+  - Beobachtungsdauer: 71438ms
+2025-12-19 12:08:53,374 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:08:55,381 - analyzer.analyzer - INFO - ✅ Aktion 4: Hide
+2025-12-19 12:08:56,892 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:08:56,898 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 46
+  - Nodes added: 25, removed: 21
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 46
+  - Beobachtungsdauer: 74964ms
+2025-12-19 12:08:56,900 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:08:58,910 - analyzer.analyzer - INFO - ✅ Aktion 5: Show moreHide expanded menu
+2025-12-19 12:09:00,439 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:09:00,444 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 46
+  - Nodes added: 25, removed: 21
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 46
+  - Beobachtungsdauer: 78510ms
+2025-12-19 12:09:00,446 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:09:02,452 - analyzer.analyzer - INFO - ✅ Aktion 6: Hide
+2025-12-19 12:09:03,965 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:09:03,970 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 46
+  - Nodes added: 25, removed: 21
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 46
+  - Beobachtungsdauer: 82036ms
+2025-12-19 12:09:03,971 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:09:05,979 - analyzer.analyzer - INFO - ✅ Aktion 7: Hide
+2025-12-19 12:09:07,491 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:09:07,497 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 46
+  - Nodes added: 25, removed: 21
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 46
+  - Beobachtungsdauer: 85562ms
+2025-12-19 12:09:07,499 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:09:09,505 - analyzer.analyzer - INFO - ✅ Aktion 8: Hide
+2025-12-19 12:09:11,017 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:09:11,021 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 46
+  - Nodes added: 25, removed: 21
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 46
+  - Beobachtungsdauer: 89088ms
+2025-12-19 12:09:11,023 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:09:11,023 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 8 erfolgreiche Aktionen
+2025-12-19 12:09:11,023 - analyzer.analyzer - INFO - 📊 Model-Stats: 4 Candidates, 2 ausgeführt (50.0%)
+2025-12-19 12:09:11,023 - analyzer.analyzer - INFO - ✅ 8 Interaktionen durchgeführt
+2025-12-19 12:09:13,025 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:09:13,531 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:09:13,547 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 46
+  - Nodes added: 25, removed: 21
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 46
+  - Beobachtungsdauer: 91614ms
+2025-12-19 12:09:13,549 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:09:13,549 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:09:13,549 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:09:13,553 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:09:13,553 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:09:13,553 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:09:14,356 - __main__ - INFO - 🌐 Lade URL: https://www.nytimes.com/ (Versuch 1/3)
+2025-12-19 12:09:44,358 - __main__ - WARNING - ⏱️  Timeout bei Versuch 1
+2025-12-19 12:09:44,358 - __main__ - INFO - 🔄 Versuche erneut...
+2025-12-19 12:09:46,361 - __main__ - INFO - 🌐 Lade URL: https://www.nytimes.com/ (Versuch 2/3)
+2025-12-19 12:10:16,362 - __main__ - WARNING - ⏱️  Timeout bei Versuch 2
+2025-12-19 12:10:16,362 - __main__ - INFO - 🔄 Versuche erneut...
+2025-12-19 12:10:18,363 - __main__ - INFO - 🌐 Lade URL: https://www.nytimes.com/ (Versuch 3/3)
+2025-12-19 12:10:43,389 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:11:03,512 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:11:03,512 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:11:03,512 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:11:03,512 - analyzer.analyzer - INFO - URL: https://www.nytimes.com/
+2025-12-19 12:11:03,512 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:11:03,512 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:11:44,539 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:12:02,269 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:12:26,623 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:12:36,563 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:12:49,436 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:12:50,896 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:12:50,898 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:12:50,898 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:12:50,898 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:12:52,899 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:12:52,899 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:13:22,675 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:13:38,620 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:13:39,526 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 702
+  - Nodes added: 421, removed: 377
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 96
+  - Kleine Mutations (1): 606
+  - Beobachtungsdauer: 180173ms
+2025-12-19 12:13:39,726 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:13:39,726 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:13:46,915 - analyzer.analyzer - INFO - ✅ Aktion 1: Español
+2025-12-19 12:13:49,399 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:13:49,491 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 732
+  - Nodes added: 441, removed: 399
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 632
+  - Beobachtungsdauer: 190367ms
+2025-12-19 12:13:49,653 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:13:51,413 - analyzer.analyzer - INFO - ✅ Aktion 2: Consent
+2025-12-19 12:13:54,052 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:13:54,151 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 742
+  - Nodes added: 449, removed: 407
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 642
+  - Beobachtungsdauer: 195021ms
+2025-12-19 12:13:54,153 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:13:54,927 - analyzer.analyzer - INFO - ✅ Aktion 3: Vendors
+2025-12-19 12:13:56,697 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:13:56,734 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 756
+  - Nodes added: 459, removed: 417
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 656
+  - Beobachtungsdauer: 197666ms
+2025-12-19 12:13:56,819 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:13:58,984 - analyzer.analyzer - INFO - ✅ Aktion 4: 6sense
+2025-12-19 12:14:00,599 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:14:00,771 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 766
+  - Nodes added: 467, removed: 425
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 666
+  - Beobachtungsdauer: 201729ms
+2025-12-19 12:14:00,911 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:14:02,272 - analyzer.analyzer - INFO - ✅ Aktion 5: Features
+2025-12-19 12:14:06,480 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:14:06,666 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 780
+  - Nodes added: 477, removed: 435
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 680
+  - Beobachtungsdauer: 207541ms
+2025-12-19 12:14:06,773 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:14:08,867 - analyzer.analyzer - INFO - ✅ Aktion 6: Use precise geolocation data
+2025-12-19 12:14:12,415 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:14:12,486 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 790
+  - Nodes added: 485, removed: 443
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 690
+  - Beobachtungsdauer: 213384ms
+2025-12-19 12:14:12,523 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:14:18,802 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 6 erfolgreiche Aktionen
+2025-12-19 12:14:18,802 - analyzer.analyzer - INFO - 📊 Model-Stats: 31 Candidates, 6 ausgeführt (19.4%)
+2025-12-19 12:14:18,802 - analyzer.analyzer - INFO - ✅ 6 Interaktionen durchgeführt
+2025-12-19 12:14:20,805 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:14:22,328 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:14:22,401 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 810
+  - Nodes added: 501, removed: 459
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 710
+  - Beobachtungsdauer: 223296ms
+2025-12-19 12:14:22,486 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:14:22,486 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:14:22,486 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:14:22,558 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:14:22,558 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:14:22,558 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:14:28,646 - __main__ - INFO - 🌐 Lade URL: https://www.reuters.com/ (Versuch 1/3)
+2025-12-19 12:14:42,563 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:14:45,605 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:14:45,605 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:14:45,605 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:14:45,605 - analyzer.analyzer - INFO - URL: https://www.reuters.com/
+2025-12-19 12:14:45,605 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:14:45,605 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:14:47,745 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("Akzeptieren"))
+2025-12-19 12:14:55,465 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:14:55,496 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:14:55,848 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:14:59,825 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:14:59,855 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:14:59,857 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:14:59,857 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:14:59,857 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:15:01,857 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:15:01,858 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:15:07,517 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:15:09,635 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:09,680 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 262
+  - Nodes added: 217, removed: 57
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 255
+  - Beobachtungsdauer: 40221ms
+2025-12-19 12:15:09,697 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:09,697 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:15:11,844 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 12:15:13,404 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:13,411 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 368
+  - Nodes added: 291, removed: 89
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 361
+  - Beobachtungsdauer: 43952ms
+2025-12-19 12:15:13,414 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:15,443 - analyzer.analyzer - INFO - ✅ Aktion 2: 
+2025-12-19 12:15:16,955 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:16,960 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 382
+  - Nodes added: 291, removed: 103
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 375
+  - Beobachtungsdauer: 47501ms
+2025-12-19 12:15:16,962 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:18,972 - analyzer.analyzer - INFO - ✅ Aktion 3: 
+2025-12-19 12:15:20,486 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:20,491 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 382
+  - Nodes added: 291, removed: 103
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 375
+  - Beobachtungsdauer: 51032ms
+2025-12-19 12:15:20,493 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:22,510 - analyzer.analyzer - INFO - ✅ Aktion 4: 
+2025-12-19 12:15:24,025 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:24,031 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 382
+  - Nodes added: 291, removed: 103
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 375
+  - Beobachtungsdauer: 54571ms
+2025-12-19 12:15:24,033 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:28,049 - analyzer.analyzer - INFO - ✅ Aktion 5: 
+2025-12-19 12:15:29,562 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:29,568 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 382
+  - Nodes added: 291, removed: 103
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 375
+  - Beobachtungsdauer: 60108ms
+2025-12-19 12:15:29,570 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:31,589 - analyzer.analyzer - INFO - ✅ Aktion 6: 
+2025-12-19 12:15:33,101 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:33,107 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 382
+  - Nodes added: 291, removed: 103
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 375
+  - Beobachtungsdauer: 63648ms
+2025-12-19 12:15:33,109 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:35,123 - analyzer.analyzer - INFO - ✅ Aktion 7: 
+2025-12-19 12:15:36,635 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:36,640 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 382
+  - Nodes added: 291, removed: 103
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 375
+  - Beobachtungsdauer: 67181ms
+2025-12-19 12:15:36,642 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:38,658 - analyzer.analyzer - INFO - ✅ Aktion 8: 
+2025-12-19 12:15:40,374 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:40,380 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 398
+  - Nodes added: 303, removed: 107
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 391
+  - Beobachtungsdauer: 70920ms
+2025-12-19 12:15:40,382 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:42,396 - analyzer.analyzer - INFO - ✅ Aktion 9: 
+2025-12-19 12:15:43,908 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:43,912 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 398
+  - Nodes added: 303, removed: 107
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 391
+  - Beobachtungsdauer: 74454ms
+2025-12-19 12:15:43,915 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:43,916 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 9 erfolgreiche Aktionen
+2025-12-19 12:15:43,916 - analyzer.analyzer - INFO - 📊 Model-Stats: 4 Candidates, 1 ausgeführt (25.0%)
+2025-12-19 12:15:43,916 - analyzer.analyzer - INFO - ✅ 9 Interaktionen durchgeführt
+2025-12-19 12:15:45,917 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:15:46,424 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:15:46,429 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 398
+  - Nodes added: 303, removed: 107
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 6
+  - Kleine Mutations (1): 391
+  - Beobachtungsdauer: 76970ms
+2025-12-19 12:15:46,431 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:15:46,431 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:15:46,431 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:15:46,434 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:15:46,434 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:15:46,435 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:15:46,897 - __main__ - INFO - 🌐 Lade URL: https://www.spiegel.de/ (Versuch 1/3)
+2025-12-19 12:15:50,453 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:15:58,494 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:15:58,494 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:15:58,494 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:15:58,494 - analyzer.analyzer - INFO - URL: https://www.spiegel.de/
+2025-12-19 12:15:58,494 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:15:58,494 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:16:39,526 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:16:45,535 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:16:45,538 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:16:45,542 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:16:45,754 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:16:45,757 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:16:45,758 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:16:45,758 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:16:45,758 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:16:47,760 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:16:47,760 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:16:49,767 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:16:50,273 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:16:50,288 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23795
+  - Nodes added: 23790, removed: 141
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23695
+  - Beobachtungsdauer: 61190ms
+2025-12-19 12:16:50,290 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:16:50,290 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:16:52,308 - analyzer.analyzer - INFO - ✅ Aktion 1: Zur Merkliste hinzufügen
+2025-12-19 12:16:54,047 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:16:54,061 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23803
+  - Nodes added: 23798, removed: 143
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23703
+  - Beobachtungsdauer: 64964ms
+2025-12-19 12:16:54,064 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:16:56,077 - analyzer.analyzer - INFO - ✅ Aktion 2: Suche öffnen
+2025-12-19 12:16:57,618 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:16:57,630 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23803
+  - Nodes added: 23798, removed: 143
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23703
+  - Beobachtungsdauer: 68535ms
+2025-12-19 12:16:57,633 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:16:59,645 - analyzer.analyzer - INFO - ✅ Aktion 3: Zur Merkliste hinzufügen
+2025-12-19 12:17:01,162 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:17:01,177 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23805
+  - Nodes added: 23800, removed: 145
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23705
+  - Beobachtungsdauer: 72080ms
+2025-12-19 12:17:01,179 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:17:03,190 - analyzer.analyzer - INFO - ✅ Aktion 4: Dialog schließen
+2025-12-19 12:17:04,704 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:17:04,716 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23807
+  - Nodes added: 23802, removed: 147
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23707
+  - Beobachtungsdauer: 75621ms
+2025-12-19 12:17:04,718 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:17:06,728 - analyzer.analyzer - INFO - ✅ Aktion 5: Zur Merkliste hinzufügen
+2025-12-19 12:17:08,242 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:17:08,253 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23809
+  - Nodes added: 23804, removed: 149
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23709
+  - Beobachtungsdauer: 79160ms
+2025-12-19 12:17:08,255 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:17:10,264 - analyzer.analyzer - INFO - ✅ Aktion 6: Dialog schließen
+2025-12-19 12:17:11,777 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:17:11,789 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23811
+  - Nodes added: 23806, removed: 151
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23711
+  - Beobachtungsdauer: 82695ms
+2025-12-19 12:17:11,791 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:17:13,801 - analyzer.analyzer - INFO - ✅ Aktion 7: Zur Merkliste hinzufügen
+2025-12-19 12:17:15,314 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:17:15,326 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23813
+  - Nodes added: 23808, removed: 153
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23713
+  - Beobachtungsdauer: 86232ms
+2025-12-19 12:17:15,327 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:17:17,338 - analyzer.analyzer - INFO - ✅ Aktion 8: Suche starten
+2025-12-19 12:17:18,851 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:17:18,864 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23813
+  - Nodes added: 23808, removed: 153
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23713
+  - Beobachtungsdauer: 89770ms
+2025-12-19 12:17:18,866 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:17:20,875 - analyzer.analyzer - INFO - ✅ Aktion 9: Dialog schließen
+2025-12-19 12:17:22,389 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:17:22,400 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23815
+  - Nodes added: 23810, removed: 155
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23715
+  - Beobachtungsdauer: 93306ms
+2025-12-19 12:17:22,402 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:17:24,412 - analyzer.analyzer - INFO - ✅ Aktion 10: Dialog schließen
+2025-12-19 12:17:25,926 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:17:25,939 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23817
+  - Nodes added: 23812, removed: 157
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23717
+  - Beobachtungsdauer: 96843ms
+2025-12-19 12:17:25,941 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:17:25,941 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 10 erfolgreiche Aktionen
+2025-12-19 12:17:25,941 - analyzer.analyzer - INFO - 📊 Model-Stats: 5 Candidates, 4 ausgeführt (80.0%)
+2025-12-19 12:17:25,941 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-19 12:17:27,943 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:17:28,449 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:17:28,460 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 23817
+  - Nodes added: 23812, removed: 157
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 100
+  - Kleine Mutations (1): 23717
+  - Beobachtungsdauer: 99366ms
+2025-12-19 12:17:28,461 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:17:28,461 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:17:28,461 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:17:28,468 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:17:28,468 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:17:28,468 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:17:28,895 - __main__ - INFO - 🌐 Lade URL: https://www.zeit.de/ (Versuch 1/3)
+2025-12-19 12:17:31,716 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:17:36,600 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:17:36,600 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:17:36,600 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:17:36,600 - analyzer.analyzer - INFO - URL: https://www.zeit.de/index
+2025-12-19 12:17:36,600 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:17:36,600 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:18:19,686 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:18:25,694 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:18:25,696 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:18:25,700 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:18:25,907 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:18:25,909 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:18:25,910 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:18:25,911 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:18:25,911 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:18:27,913 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:18:27,913 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:18:29,919 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:18:30,425 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:18:30,433 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 13047
+  - Nodes added: 13045, removed: 35
+  - Große Mutations (>=5): 2
+  - Mittlere Mutations (2-4): 7
+  - Kleine Mutations (1): 13038
+  - Beobachtungsdauer: 59559ms
+2025-12-19 12:18:30,435 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:18:30,435 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:18:32,454 - analyzer.analyzer - INFO - ✅ Aktion 1: Merkliste
+2025-12-19 12:18:34,218 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:18:34,226 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 13055
+  - Nodes added: 13067, removed: 35
+  - Große Mutations (>=5): 4
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 13040
+  - Beobachtungsdauer: 63352ms
+2025-12-19 12:18:34,626 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:18:38,702 - analyzer.analyzer - INFO - ✅ Aktion 2: Merkliste
+2025-12-19 12:18:41,406 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:18:41,415 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 13065
+  - Nodes added: 13089, removed: 37
+  - Große Mutations (>=5): 6
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 13044
+  - Beobachtungsdauer: 70540ms
+2025-12-19 12:18:41,417 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:18:43,429 - analyzer.analyzer - INFO - ✅ Aktion 3: Wiedergabe
+2025-12-19 12:18:45,462 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:18:45,470 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 13073
+  - Nodes added: 13111, removed: 37
+  - Große Mutations (>=5): 8
+  - Mittlere Mutations (2-4): 19
+  - Kleine Mutations (1): 13046
+  - Beobachtungsdauer: 74596ms
+2025-12-19 12:18:45,471 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:18:47,481 - analyzer.analyzer - INFO - ✅ Aktion 4: Wiedergabe
+2025-12-19 12:18:49,602 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:18:49,610 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 13081
+  - Nodes added: 13133, removed: 37
+  - Große Mutations (>=5): 10
+  - Mittlere Mutations (2-4): 23
+  - Kleine Mutations (1): 13048
+  - Beobachtungsdauer: 78737ms
+2025-12-19 12:18:49,612 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:18:51,623 - analyzer.analyzer - INFO - ✅ Aktion 5: Wiedergabe
+2025-12-19 12:18:53,718 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:18:53,727 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 13089
+  - Nodes added: 13155, removed: 37
+  - Große Mutations (>=5): 12
+  - Mittlere Mutations (2-4): 27
+  - Kleine Mutations (1): 13050
+  - Beobachtungsdauer: 82853ms
+2025-12-19 12:18:53,729 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:18:57,749 - analyzer.analyzer - INFO - ✅ Aktion 6: Wiedergabe
+2025-12-19 12:18:59,556 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:18:59,564 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 13097
+  - Nodes added: 13177, removed: 37
+  - Große Mutations (>=5): 14
+  - Mittlere Mutations (2-4): 31
+  - Kleine Mutations (1): 13052
+  - Beobachtungsdauer: 88690ms
+2025-12-19 12:18:59,566 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:19:03,591 - analyzer.analyzer - INFO - ✅ Aktion 7: Merkliste
+2025-12-19 12:19:05,328 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:19:05,336 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 13107
+  - Nodes added: 13199, removed: 39
+  - Große Mutations (>=5): 16
+  - Mittlere Mutations (2-4): 35
+  - Kleine Mutations (1): 13056
+  - Beobachtungsdauer: 94462ms
+2025-12-19 12:19:05,338 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:19:05,338 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 7 erfolgreiche Aktionen
+2025-12-19 12:19:05,338 - analyzer.analyzer - INFO - 📊 Model-Stats: 5 Candidates, 2 ausgeführt (40.0%)
+2025-12-19 12:19:05,338 - analyzer.analyzer - INFO - ✅ 7 Interaktionen durchgeführt
+2025-12-19 12:19:07,341 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:19:07,846 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:19:07,854 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 13107
+  - Nodes added: 13199, removed: 39
+  - Große Mutations (>=5): 16
+  - Mittlere Mutations (2-4): 35
+  - Kleine Mutations (1): 13056
+  - Beobachtungsdauer: 96981ms
+2025-12-19 12:19:07,856 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:19:07,856 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:19:07,856 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:19:07,861 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:19:07,861 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:19:07,861 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:19:08,656 - __main__ - INFO - 🌐 Lade URL: https://www.heise.de/ (Versuch 1/3)
+2025-12-19 12:19:12,101 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:19:15,221 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:19:15,221 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:19:15,221 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:19:15,221 - analyzer.analyzer - INFO - URL: https://www.heise.de/
+2025-12-19 12:19:15,221 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:19:15,221 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:19:56,250 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:20:02,259 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:20:02,262 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:20:02,266 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:20:02,473 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:20:02,475 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:20:02,476 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:20:02,476 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:20:02,477 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:20:04,479 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:20:04,479 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:20:06,485 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:20:06,992 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:20:06,998 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 55
+  - Nodes added: 56, removed: 28
+  - Große Mutations (>=5): 3
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 47
+  - Beobachtungsdauer: 55579ms
+2025-12-19 12:20:07,000 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:20:07,000 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:20:09,008 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 12:20:12,312 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:20:12,319 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 55
+  - Nodes added: 56, removed: 28
+  - Große Mutations (>=5): 3
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 47
+  - Beobachtungsdauer: 60900ms
+2025-12-19 12:20:12,321 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:20:16,339 - analyzer.analyzer - INFO - ✅ Aktion 2: IT News
+2025-12-19 12:20:17,852 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:20:17,859 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 55
+  - Nodes added: 56, removed: 28
+  - Große Mutations (>=5): 3
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 47
+  - Beobachtungsdauer: 66440ms
+2025-12-19 12:20:17,861 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:20:19,869 - analyzer.analyzer - INFO - ✅ Aktion 3: Services
+2025-12-19 12:20:21,383 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:20:21,390 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 55
+  - Nodes added: 56, removed: 28
+  - Große Mutations (>=5): 3
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 47
+  - Beobachtungsdauer: 69970ms
+2025-12-19 12:20:21,391 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:20:25,407 - analyzer.analyzer - INFO - ✅ Aktion 4: 
+2025-12-19 12:20:26,922 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:20:26,928 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 55
+  - Nodes added: 56, removed: 28
+  - Große Mutations (>=5): 3
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 47
+  - Beobachtungsdauer: 75509ms
+2025-12-19 12:20:26,930 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:20:28,939 - analyzer.analyzer - INFO - ✅ Aktion 5: 
+2025-12-19 12:20:31,180 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:20:31,543 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 55
+  - Nodes added: 56, removed: 28
+  - Große Mutations (>=5): 3
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 47
+  - Beobachtungsdauer: 80124ms
+2025-12-19 12:20:31,545 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:20:33,554 - analyzer.analyzer - INFO - ✅ Aktion 6: 
+2025-12-19 12:20:36,223 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:20:36,227 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 55
+  - Nodes added: 56, removed: 28
+  - Große Mutations (>=5): 3
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 47
+  - Beobachtungsdauer: 84810ms
+2025-12-19 12:20:36,229 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:20:38,237 - analyzer.analyzer - INFO - ✅ Aktion 7: 
+2025-12-19 12:20:39,749 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:20:39,755 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 55
+  - Nodes added: 56, removed: 28
+  - Große Mutations (>=5): 3
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 47
+  - Beobachtungsdauer: 88336ms
+2025-12-19 12:20:39,756 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:20:41,763 - analyzer.analyzer - INFO - ✅ Aktion 8: 
+2025-12-19 12:20:43,396 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:20:43,402 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 55
+  - Nodes added: 56, removed: 28
+  - Große Mutations (>=5): 3
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 47
+  - Beobachtungsdauer: 91984ms
+2025-12-19 12:20:43,404 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:20:43,404 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 8 erfolgreiche Aktionen
+2025-12-19 12:20:43,404 - analyzer.analyzer - INFO - 📊 Model-Stats: 8 Candidates, 5 ausgeführt (62.5%)
+2025-12-19 12:20:43,404 - analyzer.analyzer - INFO - ✅ 8 Interaktionen durchgeführt
+2025-12-19 12:20:45,406 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:20:45,912 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:20:45,917 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 55
+  - Nodes added: 56, removed: 28
+  - Große Mutations (>=5): 3
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 47
+  - Beobachtungsdauer: 94499ms
+2025-12-19 12:20:45,919 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:20:45,919 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:20:45,919 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:20:45,923 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:20:45,923 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:20:45,923 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:20:46,330 - __main__ - INFO - 🌐 Lade URL: https://www.bundesregierung.de/ (Versuch 1/3)
+2025-12-19 12:20:56,205 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:20:59,249 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:20:59,249 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:20:59,249 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:20:59,249 - analyzer.analyzer - INFO - URL: https://www.bundesregierung.de/breg-de
+2025-12-19 12:20:59,249 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:20:59,249 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:21:23,320 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: [class*="accept"][class*="all"])
+2025-12-19 12:21:30,764 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:21:30,766 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:21:30,770 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:21:31,792 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:21:32,161 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:21:32,163 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:21:32,163 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:21:32,163 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:21:34,165 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:21:34,165 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:21:36,218 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:21:37,270 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:21:38,280 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 4635
+  - Nodes added: 4623, removed: 23
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 3
+  - Kleine Mutations (1): 4631
+  - Beobachtungsdauer: 49560ms
+2025-12-19 12:21:38,733 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:21:38,733 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:21:41,720 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 12:21:47,392 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:21:47,720 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 8
+  - Nodes added: 8, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 8
+  - Beobachtungsdauer: 5542ms
+2025-12-19 12:21:47,944 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:21:49,085 - analyzer.analyzer - INFO - ✅ Aktion 2: Zeitraum
+2025-12-19 12:21:52,368 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:21:52,376 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 9
+  - Nodes added: 9, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 9
+  - Beobachtungsdauer: 10288ms
+2025-12-19 12:21:52,377 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:21:52,438 - analyzer.analyzer - INFO - ✅ Aktion 3: Zeitraum
+2025-12-19 12:21:54,534 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:21:54,878 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 10
+  - Nodes added: 9, removed: 1
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 10
+  - Beobachtungsdauer: 12454ms
+2025-12-19 12:21:55,836 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:21:55,897 - analyzer.analyzer - INFO - ✅ Aktion 4: Zeitraum
+2025-12-19 12:21:58,462 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:21:58,470 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 11
+  - Nodes added: 10, removed: 1
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 11
+  - Beobachtungsdauer: 16382ms
+2025-12-19 12:21:58,471 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:21:59,263 - analyzer.analyzer - INFO - ✅ Aktion 5: Format
+2025-12-19 12:22:01,724 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:22:01,731 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 13
+  - Nodes added: 11, removed: 2
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 13
+  - Beobachtungsdauer: 19644ms
+2025-12-19 12:22:01,733 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:22:02,484 - analyzer.analyzer - INFO - ✅ Aktion 6: Zeitraum
+2025-12-19 12:22:05,340 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:22:05,348 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 15
+  - Nodes added: 12, removed: 3
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 15
+  - Beobachtungsdauer: 23260ms
+2025-12-19 12:22:05,350 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:22:06,132 - analyzer.analyzer - INFO - ✅ Aktion 7: Zeitraum
+2025-12-19 12:22:07,922 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:22:07,928 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 16
+  - Nodes added: 12, removed: 4
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 16
+  - Beobachtungsdauer: 25843ms
+2025-12-19 12:22:07,930 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:22:07,988 - analyzer.analyzer - INFO - ✅ Aktion 8: Menü
+
+
+
+
+
+schließen
+2025-12-19 12:22:10,526 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:22:10,532 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 22
+  - Nodes added: 15, removed: 7
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 22
+  - Beobachtungsdauer: 28445ms
+2025-12-19 12:22:10,534 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:22:15,127 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 8 erfolgreiche Aktionen
+2025-12-19 12:22:15,127 - analyzer.analyzer - INFO - 📊 Model-Stats: 6 Candidates, 4 ausgeführt (66.7%)
+2025-12-19 12:22:15,127 - analyzer.analyzer - INFO - ✅ 8 Interaktionen durchgeführt
+2025-12-19 12:22:17,129 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:22:17,634 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:22:17,641 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 22
+  - Nodes added: 15, removed: 7
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 22
+  - Beobachtungsdauer: 35554ms
+2025-12-19 12:22:17,642 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:22:17,642 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:22:17,642 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:22:17,647 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:22:17,647 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:22:17,647 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:22:18,480 - __main__ - INFO - 🌐 Lade URL: https://www.dhl.de/de/privatkunden/dhl-sendungsverfolgung.html (Versuch 1/3)
+2025-12-19 12:22:25,930 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:22:29,638 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:22:29,638 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:22:29,638 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:22:29,638 - analyzer.analyzer - INFO - URL: https://www.dhl.de/de/privatkunden/dhl-sendungsverfolgung.html
+2025-12-19 12:22:29,638 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:22:29,638 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:22:36,357 - analyzer.cookie_handler - INFO - ✅ Cookie-Banner akzeptiert (Selector: button:has-text("Alle akzeptieren"))
+2025-12-19 12:22:43,367 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:22:43,369 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:22:43,373 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:22:43,580 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:22:43,582 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:22:43,583 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:22:43,584 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:22:43,584 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:22:45,586 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:22:45,586 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:22:48,622 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:22:49,376 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:22:49,381 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2887
+  - Nodes added: 2864, removed: 38
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 2875
+  - Beobachtungsdauer: 28767ms
+2025-12-19 12:22:49,382 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:22:49,382 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:22:51,405 - analyzer.analyzer - INFO - ✅ Aktion 1: Suche starten
+2025-12-19 12:22:55,381 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:22:55,388 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3107
+  - Nodes added: 3095, removed: 20
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 7
+  - Kleine Mutations (1): 3100
+  - Beobachtungsdauer: 3635ms
+2025-12-19 12:22:55,390 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:22:55,812 - analyzer.analyzer - INFO - ✅ Aktion 2: Pakete versenden
+2025-12-19 12:23:01,736 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:23:01,740 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3128
+  - Nodes added: 3114, removed: 26
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 3117
+  - Beobachtungsdauer: 9986ms
+2025-12-19 12:23:01,742 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:23:01,807 - analyzer.analyzer - INFO - ✅ Aktion 3: Pakete versenden
+2025-12-19 12:23:03,562 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:23:03,566 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3128
+  - Nodes added: 3114, removed: 26
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 3117
+  - Beobachtungsdauer: 11811ms
+2025-12-19 12:23:03,567 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:23:06,536 - analyzer.analyzer - INFO - ✅ Aktion 4: Pakete empfangen
+2025-12-19 12:23:08,048 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:23:08,052 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3128
+  - Nodes added: 3114, removed: 26
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 3117
+  - Beobachtungsdauer: 16298ms
+2025-12-19 12:23:08,054 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:23:08,096 - analyzer.analyzer - INFO - ✅ Aktion 5: Pakete versenden
+2025-12-19 12:23:09,614 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:23:09,618 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3128
+  - Nodes added: 3114, removed: 26
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 3117
+  - Beobachtungsdauer: 17863ms
+2025-12-19 12:23:09,619 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:23:09,670 - analyzer.analyzer - INFO - ✅ Aktion 6: Pakete versenden
+2025-12-19 12:23:11,572 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:23:11,576 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3128
+  - Nodes added: 3114, removed: 26
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 3117
+  - Beobachtungsdauer: 19822ms
+2025-12-19 12:23:11,577 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:23:12,447 - analyzer.analyzer - INFO - ✅ Aktion 7: Pakete empfangen
+2025-12-19 12:23:13,959 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:23:13,962 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3128
+  - Nodes added: 3114, removed: 26
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 3117
+  - Beobachtungsdauer: 22209ms
+2025-12-19 12:23:13,964 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:23:15,975 - analyzer.analyzer - INFO - ✅ Aktion 8: Suche starten
+2025-12-19 12:23:17,487 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:23:17,491 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3128
+  - Nodes added: 3114, removed: 26
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 3117
+  - Beobachtungsdauer: 25737ms
+2025-12-19 12:23:17,493 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:23:17,529 - analyzer.analyzer - INFO - ✅ Aktion 9: Pakete versenden
+2025-12-19 12:23:19,041 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:23:19,045 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3128
+  - Nodes added: 3114, removed: 26
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 3117
+  - Beobachtungsdauer: 27291ms
+2025-12-19 12:23:19,046 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:23:19,046 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 9 erfolgreiche Aktionen
+2025-12-19 12:23:19,046 - analyzer.analyzer - INFO - 📊 Model-Stats: 5 Candidates, 3 ausgeführt (60.0%)
+2025-12-19 12:23:19,046 - analyzer.analyzer - INFO - ✅ 9 Interaktionen durchgeführt
+2025-12-19 12:23:21,049 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:23:21,554 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:23:21,557 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 3128
+  - Nodes added: 3114, removed: 26
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 11
+  - Kleine Mutations (1): 3117
+  - Beobachtungsdauer: 29804ms
+2025-12-19 12:23:21,559 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:23:21,559 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:23:21,559 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:23:21,562 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:23:21,562 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:23:21,562 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:23:22,283 - __main__ - INFO - 🌐 Lade URL: https://www.bahn.de/ (Versuch 1/3)
+2025-12-19 12:23:26,714 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:24:19,393 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:24:19,393 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:24:19,393 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:24:19,393 - analyzer.analyzer - INFO - URL: https://www.bahn.de/
+2025-12-19 12:24:19,393 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:24:19,393 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:25:00,416 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:25:23,166 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:25:50,316 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:26:01,052 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:26:11,143 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:26:11,657 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:26:11,658 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:26:11,658 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:26:11,658 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:26:13,661 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:26:13,661 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:26:16,898 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:26:18,811 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:26:19,689 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 766
+  - Nodes added: 733, removed: 106
+  - Große Mutations (>=5): 12
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 749
+  - Beobachtungsdauer: 174317ms
+2025-12-19 12:26:20,546 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:26:20,546 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:26:28,391 - analyzer.analyzer - INFO - ✅ Aktion 1: Reisende, Fahrräder, Ermäßigun
+2025-12-19 12:26:30,737 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:26:30,742 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 834
+  - Nodes added: 829, removed: 198
+  - Große Mutations (>=5): 36
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 793
+  - Beobachtungsdauer: 186238ms
+2025-12-19 12:26:30,744 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:26:32,770 - analyzer.analyzer - INFO - ✅ Aktion 2: Reisende, Fahrräder, Ermäßigun
+2025-12-19 12:26:34,283 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:26:34,288 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 858
+  - Nodes added: 859, removed: 222
+  - Große Mutations (>=5): 42
+  - Mittlere Mutations (2-4): 5
+  - Kleine Mutations (1): 811
+  - Beobachtungsdauer: 189783ms
+2025-12-19 12:26:34,290 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:26:40,312 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 2 erfolgreiche Aktionen
+2025-12-19 12:26:40,312 - analyzer.analyzer - INFO - 📊 Model-Stats: 25 Candidates, 1 ausgeführt (4.0%)
+2025-12-19 12:26:40,312 - analyzer.analyzer - INFO - ✅ 2 Interaktionen durchgeführt
+2025-12-19 12:26:42,314 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:26:42,820 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:26:42,826 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 894
+  - Nodes added: 923, removed: 284
+  - Große Mutations (>=5): 50
+  - Mittlere Mutations (2-4): 15
+  - Kleine Mutations (1): 829
+  - Beobachtungsdauer: 198321ms
+2025-12-19 12:26:42,828 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:26:42,828 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:26:42,828 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:26:42,831 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:26:42,831 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:26:42,831 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:26:43,288 - __main__ - INFO - 🌐 Lade URL: https://www.imdb.com/ (Versuch 1/3)
+2025-12-19 12:26:59,645 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:27:03,139 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:27:03,139 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 12:27:03,139 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:27:03,139 - analyzer.analyzer - INFO - URL: https://www.imdb.com/de/
+2025-12-19 12:27:03,139 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:27:03,139 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 12:27:45,345 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:27:51,728 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:27:51,730 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:27:51,736 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 12:27:52,114 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 12:27:52,117 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:27:52,119 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 12:27:52,119 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 12:27:52,119 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 12:27:54,121 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-19 12:27:54,121 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:27:56,173 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:27:56,750 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 2 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:27:57,071 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2476
+  - Nodes added: 2461, removed: 104
+  - Große Mutations (>=5): 5
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 2471
+  - Beobachtungsdauer: 70242ms
+2025-12-19 12:27:57,500 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:27:57,501 - analyzer.analyzer - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen)...
+2025-12-19 12:28:01,645 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 12:28:04,110 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 2 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:28:04,120 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 2):
+  - Mutations gesamt: 2480
+  - Nodes added: 2463, removed: 106
+  - Große Mutations (>=5): 5
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 2475
+  - Beobachtungsdauer: 77602ms
+2025-12-19 12:28:04,122 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:28:14,843 - analyzer.analyzer - INFO - ✅ Aktion 2: 
+2025-12-19 12:28:18,806 - detectors.history_api_detector - INFO - History-Daten: 2 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:28:19,642 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 1092
+  - Nodes added: 1081, removed: 32
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 1091
+  - Beobachtungsdauer: 15498ms
+2025-12-19 12:28:19,645 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:28:19,726 - analyzer.analyzer - INFO - ✅ Aktion 3: Melde dich bei einem bestehend
+2025-12-19 12:28:22,931 - detectors.history_api_detector - INFO - History-Daten: 3 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:28:22,936 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 1112
+  - Nodes added: 1091, removed: 42
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 1111
+  - Beobachtungsdauer: 18794ms
+2025-12-19 12:28:22,938 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:28:23,398 - analyzer.analyzer - INFO - ✅ Aktion 4: Accept
+2025-12-19 12:28:27,043 - detectors.history_api_detector - INFO - History-Daten: 3 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:28:27,047 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 1113
+  - Nodes added: 1091, removed: 43
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 1112
+  - Beobachtungsdauer: 22907ms
+2025-12-19 12:28:27,049 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:28:27,089 - analyzer.analyzer - INFO - ✅ Aktion 5: 
+2025-12-19 12:28:29,821 - detectors.history_api_detector - INFO - History-Daten: 4 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:28:29,825 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 1133
+  - Nodes added: 1101, removed: 53
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 1132
+  - Beobachtungsdauer: 25684ms
+2025-12-19 12:28:29,826 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:28:35,824 - analyzer.analyzer - INFO - ✅ Aktion 6: 
+2025-12-19 12:28:38,291 - detectors.history_api_detector - INFO - History-Daten: 6 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:28:38,295 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 1173
+  - Nodes added: 1121, removed: 73
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 1172
+  - Beobachtungsdauer: 34154ms
+2025-12-19 12:28:38,297 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:28:38,341 - analyzer.analyzer - INFO - ✅ Aktion 7: Melde dich bei einem bestehend
+2025-12-19 12:28:41,938 - detectors.history_api_detector - INFO - History-Daten: 7 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:28:41,942 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 1193
+  - Nodes added: 1131, removed: 83
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 1192
+  - Beobachtungsdauer: 37801ms
+2025-12-19 12:28:41,944 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:28:41,944 - analyzer.analyzer - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 7 erfolgreiche Aktionen
+2025-12-19 12:28:41,944 - analyzer.analyzer - INFO - 📊 Model-Stats: 13 Candidates, 4 ausgeführt (30.8%)
+2025-12-19 12:28:41,944 - analyzer.analyzer - INFO - ✅ 7 Interaktionen durchgeführt
+2025-12-19 12:28:43,946 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:28:44,452 - detectors.history_api_detector - INFO - History-Daten: 7 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:28:44,456 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: True, Injections: 1):
+  - Mutations gesamt: 1193
+  - Nodes added: 1131, removed: 83
+  - Große Mutations (>=5): 1
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 1192
+  - Beobachtungsdauer: 40315ms
+2025-12-19 12:28:44,458 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 12:28:44,458 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:28:44,458 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:28:44,460 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:28:44,460 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 12:28:44,460 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:28:45,290 - __main__ - INFO - ✅ Browser bereinigt
