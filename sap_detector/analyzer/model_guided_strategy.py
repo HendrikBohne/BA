@@ -1,7 +1,10 @@
 """
-SPA Detection Tool - Model-Guided Random Walk Strategy
+SPA Detection Tool - Model-Guided Random Walk Strategy (FIXED v2)
 Implementierung basierend auf: "Improving Behavioral Program Analysis with Environment Models"
-https://link.springer.com/chapter/10.1007/978-3-031-49187-0_9
+
+FIXES:
+1. Bevorzugt SPA-typische Elemente (Buttons, role="button")
+2. Bessere Filterung von externen Links
 """
 import asyncio
 import random
@@ -21,19 +24,10 @@ class ModelGuidedStrategy:
     
     @staticmethod
     def create_candidate_id(element: dict) -> str:
-        """
-        Erstellt eindeutigen Identifier für Action Candidate
-        
-        Args:
-            element: Dictionary mit Element-Informationen (tag, text, selector)
-            
-        Returns:
-            Eindeutiger Candidate-ID String
-        """
+        """Erstellt eindeutigen Identifier für Action Candidate"""
         tag = element.get('tag', 'unknown')
-        text = element.get('text', '')[:30]  # Erste 30 Zeichen
-        selector = element.get('selector', '')[:50]  # Erste 50 Zeichen
-        
+        text = element.get('text', '')[:30]
+        selector = element.get('selector', '')[:50]
         return f"{tag}:{text}:{selector}"
     
     @staticmethod
@@ -41,19 +35,12 @@ class ModelGuidedStrategy:
         """
         Führt Model-Guided Random Walk aus
         
-        Args:
-            page: Playwright Page object
-            max_actions: Maximale Anzahl Aktionen
-            w_model: Model-Gewichtungsparameter (default: 25 aus Paper)
-            
-        Returns:
-            Anzahl erfolgreicher Aktionen
+        VERBESSERUNG: Bevorzugt SPA-typische Elemente
         """
         actions_performed = 0
         failed_attempts = 0
         max_failures = 5
         
-        # Initialisiere Model
         model = StateIndependentModel(w_model=w_model)
         
         logger.info(f"🧠 Starte Model-Guided Random-Walk (max {max_actions} Aktionen, w_model={w_model})...")
@@ -64,24 +51,38 @@ class ModelGuidedStrategy:
                 break
             
             try:
-                # Finde klickbare Elemente (nur interne Links)
+                # Finde klickbare Elemente - BEVORZUGE SPA-TYPISCHE!
                 clickables = await page.evaluate("""
                     () => {
                         const currentHostname = window.location.hostname;
                         const currentOrigin = window.location.origin;
                         
-                        const elements = [
-                            ...document.querySelectorAll('a, button, [role="button"], [onclick], nav a, .nav-link'),
-                            ...document.querySelectorAll('[class*="menu"], [class*="nav"], [class*="link"]')
+                        // SPA-typische Elemente zuerst
+                        const spaElements = [
+                            ...document.querySelectorAll('button:not([type="submit"])'),
+                            ...document.querySelectorAll('[role="button"]'),
+                            ...document.querySelectorAll('[role="tab"]'),
+                            ...document.querySelectorAll('[role="menuitem"]'),
+                            ...document.querySelectorAll('[onclick]'),
+                            ...document.querySelectorAll('[routerlink]'),
+                            ...document.querySelectorAll('[data-route]'),
                         ];
                         
-                        return elements
+                        // Dann interne Links
+                        const linkElements = [
+                            ...document.querySelectorAll('nav a'),
+                            ...document.querySelectorAll('a[href^="#"]'),
+                            ...document.querySelectorAll('a[href^="/"]'),
+                        ];
+                        
+                        const allElements = [...spaElements, ...linkElements];
+                        
+                        return allElements
                             .filter(el => {
                                 try {
                                     const rect = el.getBoundingClientRect();
                                     const style = window.getComputedStyle(el);
                                     
-                                    // Sichtbarkeits-Check
                                     if (rect.width <= 0 || rect.height <= 0 || 
                                         rect.top < 0 || rect.left < 0 ||
                                         rect.top >= window.innerHeight ||
@@ -91,19 +92,17 @@ class ModelGuidedStrategy:
                                         return false;
                                     }
                                     
-                                    // Filter externe Links
                                     if (el.tagName.toLowerCase() === 'a') {
                                         const href = el.getAttribute('href');
                                         if (!href) return true;
                                         if (href.startsWith('mailto:') || 
                                             href.startsWith('tel:') || 
-                                            href.startsWith('javascript:') ||
                                             href.startsWith('file:')) {
                                             return false;
                                         }
                                         if (href.startsWith('#')) return true;
                                         if (href.startsWith('/') && !href.startsWith('//')) return true;
-                                        if (!href.includes('://') && !href.startsWith('//')) return true;
+                                        
                                         try {
                                             const url = new URL(href, currentOrigin);
                                             return url.hostname === currentHostname;
@@ -125,13 +124,20 @@ class ModelGuidedStrategy:
                                     if (classes[0]) selector += '.' + classes[0];
                                 }
                                 
+                                const href = el.getAttribute('href');
+                                const isSpaElement = el.tagName.toLowerCase() !== 'a' ||
+                                                    href?.startsWith('#') ||
+                                                    el.hasAttribute('onclick') ||
+                                                    el.hasAttribute('routerlink');
+                                
                                 return {
                                     index: idx,
                                     selector: selector,
                                     text: (el.textContent || '').trim().substring(0, 50),
                                     tag: el.tagName.toLowerCase(),
                                     hasHref: el.hasAttribute('href'),
-                                    href: el.getAttribute('href') || ''
+                                    href: href || '',
+                                    isSpaElement: isSpaElement
                                 };
                             })
                             .slice(0, 50);
@@ -144,41 +150,36 @@ class ModelGuidedStrategy:
                     await asyncio.sleep(0.5)
                     continue
                 
-                # Erstelle Candidate-IDs
                 candidate_ids = [ModelGuidedStrategy.create_candidate_id(c) for c in clickables]
-                
-                # Registriere beobachtete Candidates im Model
                 model.observe_candidates(candidate_ids)
                 
-                # Berechne Gewichte für alle Candidates
+                # Berechne Gewichte mit SPA-Element Bonus
                 weights = []
                 for idx, c_id in enumerate(candidate_ids):
                     clickable = clickables[idx]
                     
-                    # Basis-Gewicht (Random-Walk Heuristik)
+                    # Basis-Gewicht
                     base_weight = 1.0
                     
-                    # Bevorzuge Links über Buttons
-                    if clickable['hasHref']:
-                        base_weight = 1.5
+                    # BONUS für SPA-Elemente (wichtigste Änderung!)
+                    if clickable.get('isSpaElement'):
+                        base_weight = 2.5  # Deutlicher Bonus für SPA-Elemente
+                    elif clickable['hasHref']:
+                        base_weight = 1.2  # Kleiner Bonus für Links
                     
-                    # Model-basiertes Gewicht berechnen
+                    # Model-basiertes Gewicht
                     if c_id in model.executed_candidates:
-                        # Bereits ausgeführt → gewichte nach unerforschten Nachfolgern
                         final_weight = model.calculate_weight(c_id, base_weight)
                     else:
-                        # Noch nicht ausgeführt → höheres Basis-Gewicht (Exploration)
                         final_weight = base_weight * 2.0
                     
                     weights.append(final_weight)
                 
-                # Wähle Candidate basierend auf Gewichten (probabilistisch)
+                # Weighted random choice
                 total_weight = sum(weights)
                 if total_weight == 0:
-                    # Fallback: Zufällige Auswahl
                     target_idx = random.randint(0, len(clickables) - 1)
                 else:
-                    # Weighted random choice
                     rand = random.uniform(0, total_weight)
                     cumsum = 0
                     target_idx = 0
@@ -191,19 +192,17 @@ class ModelGuidedStrategy:
                 target = clickables[target_idx]
                 target_id = candidate_ids[target_idx]
                 
-                # Status-Markierung für Logging
                 executed = target_id in model.executed_candidates
+                element_type = "SPA" if target.get('isSpaElement') else "Link"
                 status = "✓" if executed else "NEW"
-                logger.debug(f"[{status}] Wähle: {target['text'][:30]} (Gewicht: {weights[target_idx]:.2f})")
+                logger.debug(f"[{status}][{element_type}] Wähle: {target['text'][:30]} (Gewicht: {weights[target_idx]:.2f})")
                 
                 # Klick-Versuche
                 click_success = False
                 try:
-                    # Methode 1: Direkter Klick
                     await page.click(target['selector'], timeout=3000)
                     click_success = True
                 except PlaywrightTimeout:
-                    # Methode 2: JavaScript Klick
                     try:
                         await page.evaluate(f"""
                             () => {{
@@ -223,14 +222,14 @@ class ModelGuidedStrategy:
                     failed_attempts = 0
                     logger.info(f"✅ Aktion {actions_performed}: {target['text'][:30]}")
                     
-                    # Warte kurz und beobachte Nachfolger-State
                     await asyncio.sleep(random.uniform(0.5, 1.0))
                     
-                    # Erfasse verfügbare Nachfolger nach der Aktion
+                    # Erfasse Nachfolger
                     successors_raw = await page.evaluate("""
                         () => {
                             const elements = [
-                                ...document.querySelectorAll('a, button, [role="button"]')
+                                ...document.querySelectorAll('button, [role="button"]'),
+                                ...document.querySelectorAll('a[href^="#"], a[href^="/"]')
                             ].slice(0, 50);
                             
                             return elements.map(el => {
@@ -250,11 +249,8 @@ class ModelGuidedStrategy:
                     """)
                     
                     successor_ids = [ModelGuidedStrategy.create_candidate_id(s) for s in successors_raw]
-                    
-                    # Update Model mit ausgeführtem Candidate und seinen Nachfolgern
                     model.execute_candidate(target_id, successor_ids)
                 
-                # Warte zwischen Aktionen (variabel)
                 await asyncio.sleep(random.uniform(0.5, 1.5))
                 
             except Exception as e:
@@ -263,12 +259,10 @@ class ModelGuidedStrategy:
                 await asyncio.sleep(0.5)
                 continue
         
-        # Finale Statistiken
         stats = model.get_stats()
         logger.info(f"✅ Model-Guided Random-Walk abgeschlossen: {actions_performed} erfolgreiche Aktionen")
         logger.info(f"📊 Model-Stats: {stats['total_candidates']} Candidates, "
                    f"{stats['executed_candidates']} ausgeführt "
-                   f"({stats['execution_rate']:.1%}), "
-                   f"∅ {stats['avg_successors']:.1f} Nachfolger")
+                   f"({stats['execution_rate']:.1%})")
         
         return actions_performed

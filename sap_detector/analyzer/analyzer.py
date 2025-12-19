@@ -1,6 +1,11 @@
 """
-SPA Detection Tool - Main Analyzer
+SPA Detection Tool - Main Analyzer (FIXED v3)
 Haupt-Analyzer der alle Detektoren koordiniert
+
+FIXES v3:
+- Kontinuierliche Datensammlung während der Interaktionen
+- Re-Injection nach jeder Navigation
+- Robustere Fehlerbehandlung
 """
 import asyncio
 import logging
@@ -41,13 +46,14 @@ class SPAAnalysisResult:
 class SPAAnalyzer:
     """Haupt-Analyzer mit robustem Error-Handling"""
     
-    # Verwende importierte Weights
     SIGNAL_WEIGHTS = SIGNAL_WEIGHTS
     
     def __init__(self, page: Page):
         self.page = page
-        self.url = page.url if page else None  # Fix für None-Page
+        self.url = page.url if page else None
         self.errors = []
+        self._last_url = None
+        self._navigation_count = 0
         
         # Detektoren
         self.history_detector = HistoryAPIDetector()
@@ -68,6 +74,9 @@ class SPAAnalyzer:
             await self.cookie_handler.handle_cookies(self.page)
             await self.cookie_handler.close_popups(self.page)
             
+            # Speichere initiale URL
+            self._last_url = self.page.url
+            
             # Injiziere Monitoring-Code
             await self.history_detector.inject_monitors(self.page)
             await self.dom_detector.inject_observer(self.page)
@@ -76,6 +85,9 @@ class SPAAnalyzer:
             # Setup Network-Listener
             await self.network_detector.setup_listeners(self.page)
             
+            # Navigation-Listener für Re-Injection
+            self.page.on("framenavigated", self._on_navigation)
+            
             logger.info("✅ Alle Detektoren bereit")
             
         except Exception as e:
@@ -83,30 +95,85 @@ class SPAAnalyzer:
             logger.error(error_msg)
             self.errors.append(error_msg)
     
+    def _on_navigation(self, frame):
+        """Wird bei jeder Navigation aufgerufen"""
+        try:
+            if frame == self.page.main_frame:
+                self._navigation_count += 1
+                new_url = frame.url
+                logger.debug(f"Navigation #{self._navigation_count}: {self._last_url} → {new_url}")
+                self._last_url = new_url
+        except Exception as e:
+            logger.debug(f"Navigation-Tracking Fehler: {e}")
+    
+    async def _ensure_scripts_active(self):
+        """Stellt sicher dass die Scripts aktiv sind"""
+        try:
+            # Prüfe ob Scripts noch aktiv sind
+            status = await self.page.evaluate("""
+                () => ({
+                    history: !!(window.__spa_detection && window.__spa_detection.history),
+                    dom: !!(window.__spa_detection && window.__spa_detection.dom),
+                    domActive: !!(window.__spa_detection && window.__spa_detection.dom && window.__spa_detection.dom.observerActive)
+                })
+            """)
+            
+            if not status.get('history') or not status.get('dom'):
+                logger.warning("⚠️  Scripts nicht aktiv, re-injiziere...")
+                # Re-inject manually
+                await self.history_detector.inject_monitors(self.page)
+                await self.dom_detector.inject_observer(self.page)
+                await self.title_detector.inject_observer(self.page)
+                
+            return status
+            
+        except Exception as e:
+            logger.debug(f"Script-Check fehlgeschlagen: {e}")
+            return {'history': False, 'dom': False, 'domActive': False}
+    
+    async def _safe_collect_data(self):
+        """Sammelt Daten mit Fehlerbehandlung"""
+        try:
+            # Warte kurz auf Stabilität
+            await asyncio.sleep(0.5)
+            
+            # Prüfe Scripts
+            await self._ensure_scripts_active()
+            
+            # Sammle Daten
+            await self.history_detector.collect_data(self.page)
+            await self.dom_detector.collect_data(self.page)
+            await self.title_detector.collect_data(self.page)
+            
+            return True
+            
+        except Exception as e:
+            logger.warning(f"Datensammlung fehlgeschlagen: {e}")
+            return False
+    
     async def perform_interactions(self, strategy: str = "smart", max_actions: int = 10):
-        """Führt robuste Interaktionen aus"""
+        """Führt robuste Interaktionen aus mit kontinuierlicher Datensammlung"""
         logger.info(f"🎮 Starte Interaktionen (Strategie: {strategy})...")
         
         total_actions = 0
         
         try:
-            # Scrolle Seite zuerst (für Lazy-Loading)
+            # Scrolle Seite zuerst
             await self.interaction_strategy.scroll_page(self.page)
             
-            # Führe Hauptstrategie aus
+            # Sammle initiale Daten
+            await self._safe_collect_data()
+            
+            # Führe Interaktionen einzeln aus mit Zwischensammlung
             if strategy == "smart" or strategy == "random_walk":
-                actions = await self.interaction_strategy.smart_random_walk(self.page, max_actions)
-                total_actions += actions
+                total_actions = await self._interactive_random_walk(max_actions)
             elif strategy == "navigation":
-                actions = await self.interaction_strategy.test_navigation(self.page, max_actions)
-                total_actions += actions
-            elif strategy == "model_guided":  # ← NEU!
-                actions = await self.interaction_strategy.model_guided_random_walk(self.page, max_actions)
-                total_actions += actions
+                total_actions = await self._interactive_navigation(max_actions)
+            elif strategy == "model_guided":
+                total_actions = await self._interactive_model_guided(max_actions)
             else:
                 logger.warning(f"Unbekannte Strategie: {strategy}, verwende 'smart'")
-                actions = await self.interaction_strategy.smart_random_walk(self.page, max_actions)
-                total_actions += actions
+                total_actions = await self._interactive_random_walk(max_actions)
             
             logger.info(f"✅ {total_actions} Interaktionen durchgeführt")
             
@@ -116,16 +183,275 @@ class SPAAnalyzer:
             self.errors.append(error_msg)
         
         return total_actions
+    
+    async def _interactive_random_walk(self, max_actions: int) -> int:
+        """Random Walk mit kontinuierlicher Datensammlung"""
+        actions = 0
+        failed = 0
+        
+        logger.info(f"🎮 Starte Smart Random-Walk (max {max_actions} Aktionen)...")
+        
+        for i in range(max_actions):
+            if failed >= 3:
+                break
+                
+            try:
+                # Finde nur sichere Elemente
+                clickables = await self._get_safe_clickables()
+                
+                if not clickables:
+                    failed += 1
+                    await asyncio.sleep(0.5)
+                    continue
+                
+                # Wähle Element
+                import random
+                target = random.choice(clickables)
+                
+                # Klicke
+                success = await self._safe_click(target)
+                
+                if success:
+                    actions += 1
+                    failed = 0
+                    logger.info(f"✅ Aktion {actions}: {target['text'][:30]}")
+                    
+                    # Warte und sammle Daten nach jeder Aktion
+                    await asyncio.sleep(1)
+                    await self._safe_collect_data()
+                else:
+                    failed += 1
+                    
+            except Exception as e:
+                logger.debug(f"Interaktion fehlgeschlagen: {e}")
+                failed += 1
+        
+        logger.info(f"✅ Random-Walk abgeschlossen: {actions} erfolgreiche Aktionen")
+        return actions
+    
+    async def _interactive_navigation(self, max_actions: int) -> int:
+        """Navigation Test mit kontinuierlicher Datensammlung"""
+        actions = await self.interaction_strategy.test_navigation(self.page, max_actions)
+        await self._safe_collect_data()
+        return actions
+    
+    async def _interactive_model_guided(self, max_actions: int) -> int:
+        """Model-Guided mit kontinuierlicher Datensammlung"""
+        from .model_guided_strategy import ModelGuidedStrategy
+        from .state_independent_model import StateIndependentModel
+        
+        model = StateIndependentModel(w_model=25.0)
+        actions = 0
+        failed = 0
+        
+        logger.info(f"🧠 Starte Model-Guided Random-Walk (max {max_actions} Aktionen)...")
+        
+        for i in range(max_actions):
+            if failed >= 3:
+                break
+                
+            try:
+                clickables = await self._get_safe_clickables()
+                
+                if not clickables:
+                    failed += 1
+                    await asyncio.sleep(0.5)
+                    continue
+                
+                # Candidate IDs erstellen
+                candidate_ids = [ModelGuidedStrategy.create_candidate_id(c) for c in clickables]
+                model.observe_candidates(candidate_ids)
+                
+                # Gewichte berechnen
+                import random
+                weights = []
+                for idx, c_id in enumerate(candidate_ids):
+                    base = 2.5 if clickables[idx].get('isSpaElement') else 1.0
+                    if c_id in model.executed_candidates:
+                        w = model.calculate_weight(c_id, base)
+                    else:
+                        w = base * 2.0
+                    weights.append(w)
+                
+                # Weighted choice
+                total = sum(weights)
+                if total > 0:
+                    r = random.uniform(0, total)
+                    cumsum = 0
+                    target_idx = 0
+                    for idx, w in enumerate(weights):
+                        cumsum += w
+                        if r <= cumsum:
+                            target_idx = idx
+                            break
+                else:
+                    target_idx = random.randint(0, len(clickables) - 1)
+                
+                target = clickables[target_idx]
+                success = await self._safe_click(target)
+                
+                if success:
+                    actions += 1
+                    failed = 0
+                    logger.info(f"✅ Aktion {actions}: {target['text'][:30]}")
+                    
+                    # Sammle Nachfolger
+                    await asyncio.sleep(0.5)
+                    successors = await self._get_safe_clickables()
+                    successor_ids = [ModelGuidedStrategy.create_candidate_id(s) for s in successors]
+                    model.execute_candidate(candidate_ids[target_idx], successor_ids)
+                    
+                    # Daten sammeln
+                    await asyncio.sleep(0.5)
+                    await self._safe_collect_data()
+                else:
+                    failed += 1
+                    
+            except Exception as e:
+                logger.debug(f"Model-guided Interaktion fehlgeschlagen: {e}")
+                failed += 1
+        
+        stats = model.get_stats()
+        logger.info(f"✅ Model-Guided Random-Walk abgeschlossen: {actions} erfolgreiche Aktionen")
+        logger.info(f"📊 Model-Stats: {stats['total_candidates']} Candidates, {stats['executed_candidates']} ausgeführt ({stats['execution_rate']:.1%})")
+        return actions
+    
+    async def _get_safe_clickables(self) -> list:
+        """Findet nur SICHERE klickbare Elemente (keine echten Navigationen)"""
+        try:
+            return await self.page.evaluate("""
+                () => {
+                    const currentHostname = window.location.hostname;
+                    
+                    // BLACKLIST: Diese Texte/Klassen triggern oft echte Navigationen
+                    const blacklist = [
+                        'live', 'app holen', 'download', 'herunterladen', 'install',
+                        'creator', 'tool', 'studio', 'business', 'ads', 'werbung',
+                        'impressum', 'datenschutz', 'privacy', 'terms', 'agb',
+                        'hilfe', 'help', 'support', 'kontakt', 'contact',
+                        'karriere', 'jobs', 'über uns', 'about', 'presse',
+                        'cookie', 'einstellungen', 'settings', 'language', 'sprache'
+                    ];
+                    
+                    // Nur diese Elemente sind sicher
+                    const safeElements = [
+                        ...document.querySelectorAll('[role="button"]:not([href])'),
+                        ...document.querySelectorAll('[role="tab"]'),
+                        ...document.querySelectorAll('[role="menuitem"]:not([href])'),
+                        ...document.querySelectorAll('button:not([type="submit"]):not([formaction])'),
+                        ...document.querySelectorAll('[onclick]:not(a)'),
+                        ...document.querySelectorAll('div[tabindex="0"]'),
+                        ...document.querySelectorAll('span[tabindex="0"]'),
+                    ];
+                    
+                    // Auch Hash-Links sind sicher
+                    const hashLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+                    
+                    const allElements = [...safeElements, ...hashLinks];
+                    
+                    return allElements
+                        .filter(el => {
+                            try {
+                                const rect = el.getBoundingClientRect();
+                                const style = window.getComputedStyle(el);
+                                
+                                // Sichtbarkeits-Check
+                                if (rect.width < 10 || rect.height < 10 || 
+                                    rect.top < 0 || rect.left < 0 ||
+                                    rect.top >= window.innerHeight ||
+                                    rect.bottom <= 0 ||
+                                    style.display === 'none' ||
+                                    style.visibility === 'hidden' ||
+                                    parseFloat(style.opacity) < 0.1) {
+                                    return false;
+                                }
+                                
+                                // Blacklist-Check
+                                const text = (el.textContent || '').toLowerCase().trim();
+                                const className = (el.className || '').toString().toLowerCase();
+                                const ariaLabel = (el.getAttribute('aria-label') || '').toLowerCase();
+                                
+                                for (const blocked of blacklist) {
+                                    if (text.includes(blocked) || 
+                                        className.includes(blocked) ||
+                                        ariaLabel.includes(blocked)) {
+                                        return false;
+                                    }
+                                }
+                                
+                                // Keine Links mit echten hrefs
+                                if (el.tagName.toLowerCase() === 'a') {
+                                    const href = el.getAttribute('href') || '';
+                                    if (!href.startsWith('#') || href === '#') {
+                                        return false;
+                                    }
+                                }
+                                
+                                return true;
+                            } catch (e) {
+                                return false;
+                            }
+                        })
+                        .map((el, idx) => {
+                            let selector = el.tagName.toLowerCase();
+                            if (el.id) selector += '#' + el.id;
+                            else if (el.className && typeof el.className === 'string') {
+                                const cls = el.className.split(' ').filter(c => c && c.length < 30)[0];
+                                if (cls) selector += '.' + cls;
+                            }
+                            
+                            return {
+                                index: idx,
+                                selector: selector,
+                                text: (el.textContent || '').trim().substring(0, 50),
+                                tag: el.tagName.toLowerCase(),
+                                isSpaElement: true
+                            };
+                        })
+                        .slice(0, 30);
+                }
+            """)
+        except Exception as e:
+            logger.debug(f"Fehler beim Finden klickbarer Elemente: {e}")
+            return []
+    
+    async def _safe_click(self, target: dict) -> bool:
+        """Führt einen sicheren Klick aus"""
+        try:
+            # Versuche direkten Klick
+            try:
+                await self.page.click(target['selector'], timeout=2000)
+                return True
+            except:
+                pass
+            
+            # Fallback: JS Klick
+            try:
+                clicked = await self.page.evaluate(f"""
+                    () => {{
+                        const els = document.querySelectorAll('{target["selector"]}');
+                        const el = els[{target.get("index", 0)}];
+                        if (el) {{
+                            el.click();
+                            return true;
+                        }}
+                        return false;
+                    }}
+                """)
+                return clicked
+            except:
+                return False
+                
+        except Exception as e:
+            logger.debug(f"Klick fehlgeschlagen: {e}")
+            return False
 
     async def collect_all_data(self):
         """Sammelt Daten von allen Detektoren"""
         logger.info("📊 Sammle Daten von allen Detektoren...")
         
         try:
-            await self.history_detector.collect_data(self.page)
-            await self.dom_detector.collect_data(self.page)
-            await self.title_detector.collect_data(self.page)
-            
+            await self._safe_collect_data()
             logger.info("✅ Datensammlung abgeschlossen")
             
         except Exception as e:
@@ -136,14 +462,7 @@ class SPAAnalyzer:
     async def analyze(self, interact: bool = True, 
                      interaction_strategy: str = "smart",
                      max_interactions: int = 10) -> SPAAnalysisResult:
-        """
-        Führt komplette SPA-Analyse durch
-        
-        Args:
-            interact: Interaktionen durchführen
-            interaction_strategy: "smart", "random_walk" oder "navigation"
-            max_interactions: Max. Anzahl Interaktionen
-        """
+        """Führt komplette SPA-Analyse durch"""
         logger.info("=" * 60)
         logger.info("🔍 SPA-ANALYSE GESTARTET")
         logger.info("=" * 60)
@@ -164,7 +483,7 @@ class SPAAnalyzer:
             else:
                 logger.info("ℹ️  Interaktionen übersprungen (--no-interact)")
             
-            # Daten sammeln
+            # Finale Datensammlung
             await self.collect_all_data()
             
             # Analysen durchführen
@@ -204,7 +523,6 @@ class SPAAnalyzer:
             logger.error(error_msg)
             self.errors.append(error_msg)
             
-            # Rückgabe mit Fehler
             return SPAAnalysisResult(
                 is_spa=False,
                 confidence=0.0,
@@ -236,18 +554,15 @@ class SPAAnalyzer:
         logger.info("📊 FINALE AUSWERTUNG")
         logger.info("=" * 60)
         
-        # Zähle detektierte Signale
         detected_count = sum(1 for r in results if r.detected)
         total_count = len(results)
         
-        # Gewichteter Score
         weighted_score = 0.0
         for result in results:
             weight = self.SIGNAL_WEIGHTS.get(result.signal_name, 0.1)
             if result.detected:
                 weighted_score += weight * result.confidence
         
-        # SPA-Entscheidung
         is_spa = False
         confidence = 0.0
         verdict = ""
@@ -273,10 +588,8 @@ class SPAAnalyzer:
             confidence = weighted_score
             verdict = "❌ KEINE SPA"
         
-        # Empfehlungen
         recommendations = self._generate_recommendations(results, detected_count, is_spa)
         
-        # Ausgabe
         print(f"\n{'='*60}")
         print(f"🎯 ERGEBNIS: {verdict}")
         print(f"{'='*60}")
@@ -327,27 +640,22 @@ class SPAAnalyzer:
                 "Diese Seite scheint eine traditionelle Multi-Page Application zu sein"
             )
         
-        # Signal-spezifische Empfehlungen
         for result in results:
             if not result.detected and not result.error:
                 if result.signal_name == "History-API Navigation":
                     recommendations.append(
                         "Teste Navigation-Links intensiver um History-API Calls zu triggern"
                     )
-                elif result.signal_name == "Network Activity Pattern":
-                    recommendations.append(
-                        "Suche nach dynamischen Inhalten (Filter, Suche, Pagination)"
-                    )
                 elif result.signal_name == "DOM Rewriting Pattern":
                     recommendations.append(
                         "Klicke auf mehr verschiedene Elemente um DOM-Änderungen zu provozieren"
                     )
         
-        return recommendations[:5]  # Maximal 5 Empfehlungen
+        return recommendations[:5]
     
     @staticmethod
     def export_report(result: SPAAnalysisResult) -> Dict:
-        """Exportiert detaillierten JSON-Report (statische Methode)"""
+        """Exportiert detaillierten JSON-Report"""
         return {
             "url": result.url,
             "verdict": result.verdict,

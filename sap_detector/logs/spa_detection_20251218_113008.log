@@ -1,0 +1,44 @@
+2025-12-18 11:30:08,729 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-18 11:30:23,511 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-18 11:30:23,511 - __main__ - INFO - 🌐 Lade URL: https://www.tiktok.de (Versuch 1/3)
+2025-12-18 11:30:35,060 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-18 11:30:44,928 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 11:30:44,928 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-18 11:30:44,928 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 11:30:44,928 - analyzer.analyzer - INFO - URL: https://www.tiktok.de/iris?r=eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.WBYXNIyVEuDz1ZFdox49pTiOk9951WFfYCEWM481uaJtDjZOu3d9nA.7Y5Z6bnmLI92KqF_60vtIA.QX8UXOscpCkqm6cVFTPY8o55VIpcH8GD-A6qKH1hABi4s7iRZTdtollsApgj4LD_Y9LirERFHXSNCj8Y_BGd_ZgIOTVH6yCk2hs75fa3uQ3jYm35OwXwXYCOMISwb2r9MiB5ckR2SXy1wmQ_zTRWaM2msPEwvKC6qIJ1LMhXIcYKlRO3zGNf3Wy_sZSjKtmurEao3FqtGvWEsKJFxWykYOmnGGJ2qNkdD5XpiNYXKYNiLzNwrv6PEz_M5CVapweTYeDkoyXG60GtRVsv7ClMrbRgkG6RlOumGGRSOeqOIXQaxWG-DY9L0fy0X3hLbw3YSvQQs48l2FDNClB5t11muVvYSTFpriXUL-QsjkzE7W9XsslVZ9g1IU8o6utpO47aYbveJDNBR4hk71Jv7Oypc1VkNwtcXXIScM8LJd7uvczEILjRHlqeiUvT63WyyZTFeRuK2KzTQL9uQIHqDjFL2WLgJllruGGrBg65nFnkRlfsCLkL-oRbgeckz-wfJbqgQpnkwF8Rg2Uspj2eTvmBOXnIMxUk-kMT3dVE0R3SkOJ1w6Cr7soU0lIX65Pkh6yVHB5w0sHo1SCQh3k-DqoUF9362nko5lo50aQUsEMoVL-ze-MvkY2AiOCdVLXZAker9iJf9zGIOrhmJCB2bFjgCTfFFDdO2x3doHOnJcyogIeLwrNiJYg5QlMnJELE1RYogjv7zL_ACHOweMu1KZ8MkgYTWS6HRFH8pIe0UnNwImGequHsTBcavgF187vIrOMsR1WCJHgeBX7JBimv0BIM-d_L5IZw946ts6CYPTV5D5x5tQP5-aeyC2dE5j1AC_07-tjdXyISefJz4bs3Qr7Hh5fZpFRRUSdOzwKiYILROpeygwthXIMki9o464NePme7Srly8x8tcUDfyOyn5ADI18FlPHZutQIuJTHw27Dkis6BcNpqfAex27EooAJ9XDPrTM_rL8aRbP_hRx-eUDpvSVCvIyhwaTBWWYvz0i6z76WS-1Hhoa0je4YNwuPjYrBanbSDoVKYhqx9mUucmtI52w.NdeIhCwb0XG6IsFYORVjoA
+2025-12-18 11:30:44,928 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-18 11:30:44,928 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-18 11:31:25,960 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-18 11:31:31,970 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-18 11:31:31,973 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-18 11:31:31,975 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-18 11:31:31,976 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-18 11:31:31,976 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-18 11:31:31,976 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-18 11:31:33,979 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: smart)...
+2025-12-18 11:31:33,979 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-18 11:31:36,394 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-18 11:31:36,394 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-18 11:31:48,084 - analyzer.interaction_strategy - WARNING - ⚠️  Zu viele fehlgeschlagene Versuche (5), breche ab
+2025-12-18 11:31:48,084 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 0 erfolgreiche Aktionen (NUR interne Navigation)
+2025-12-18 11:31:48,084 - analyzer.analyzer - INFO - ✅ 0 Interaktionen durchgeführt
+2025-12-18 11:31:50,086 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-18 11:31:50,090 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate
+2025-12-18 11:31:50,092 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt:
+  - Mutations gesamt: 1
+  - Nodes added: 0, removed: 1
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 1
+  - Beobachtungsdauer: 18119ms
+2025-12-18 11:31:50,094 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-18 11:31:50,094 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-18 11:31:50,094 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-18 11:31:50,096 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-18 11:31:50,096 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-18 11:31:50,096 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 11:31:50,613 - __main__ - INFO - ✅ Browser bereinigt

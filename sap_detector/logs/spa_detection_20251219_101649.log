@@ -1,0 +1,53 @@
+2025-12-19 10:16:49,043 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-19 10:16:52,593 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-19 10:16:52,593 - __main__ - INFO - 🌐 Lade URL: https://www.tiktok.com/de-DE/ (Versuch 1/3)
+2025-12-19 10:16:55,586 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 10:16:59,156 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 10:16:59,157 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-19 10:16:59,157 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 10:16:59,157 - analyzer.analyzer - INFO - URL: https://www.tiktok.com/de-DE/
+2025-12-19 10:16:59,157 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 10:16:59,157 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-19 10:17:40,193 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 10:17:46,249 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 10:17:46,254 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 10:17:46,422 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert
+2025-12-19 10:17:46,427 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-19 10:17:47,355 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 10:17:47,357 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-19 10:17:47,357 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-19 10:17:47,357 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-19 10:17:49,359 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 10:17:49,360 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 10:17:51,519 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 10:17:51,607 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-19 10:17:55,939 - analyzer.interaction_strategy - INFO - ✅ Aktion 1: 5.8M
+2025-12-19 10:18:03,565 - analyzer.interaction_strategy - INFO - ✅ Aktion 2 (JS): LIVE
+2025-12-19 10:18:36,441 - analyzer.interaction_strategy - INFO - ✅ Aktion 3 (JS): LIVE gehen
+2025-12-19 10:18:52,659 - analyzer.interaction_strategy - INFO - ✅ Aktion 4 (JS): LIVE entdecken
+2025-12-19 10:19:23,323 - analyzer.interaction_strategy - INFO - ✅ Aktion 5 (JS): Anmelden
+2025-12-19 10:19:55,314 - analyzer.interaction_strategy - INFO - ✅ Aktion 6 (JS): Mehr
+2025-12-19 10:20:19,554 - analyzer.interaction_strategy - INFO - ✅ Aktion 7 (JS): Creator*innen-Tools
+2025-12-19 10:20:43,268 - analyzer.interaction_strategy - INFO - ✅ Aktion 8 (JS): Zurück
+2025-12-19 10:20:44,553 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 8 erfolgreiche Aktionen
+2025-12-19 10:20:44,554 - analyzer.analyzer - INFO - ✅ 8 Interaktionen durchgeführt
+2025-12-19 10:20:46,555 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 10:20:56,779 - detectors.history_api_detector - ERROR - Fehler beim Sammeln der History-Daten: Page.evaluate: Execution context was destroyed, most likely because of a navigation
+2025-12-19 10:21:25,761 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer aktiv: False, Injections: 1):
+  - Mutations gesamt: 0
+  - Nodes added: 0, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 0
+  - Beobachtungsdauer: 41805ms
+2025-12-19 10:21:30,508 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-19 10:21:30,509 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 10:21:30,509 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 10:21:36,569 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 10:21:36,569 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-19 10:21:36,569 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 10:21:53,393 - __main__ - INFO - ✅ Browser bereinigt

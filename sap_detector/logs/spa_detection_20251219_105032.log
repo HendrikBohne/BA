@@ -1,0 +1,8 @@
+2025-12-19 10:50:32,833 - __main__ - INFO - 📄 4 URLs aus Datei geladen: testurls.txt
+
+2025-12-19 10:50:32,833 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-19 10:50:36,006 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-19 10:50:36,006 - __main__ - INFO - 🌐 Lade URL: https://www.tiktok.com (Versuch 1/3)
+2025-12-19 10:50:38,590 - __main__ - INFO - ✅ Seite geladen
+

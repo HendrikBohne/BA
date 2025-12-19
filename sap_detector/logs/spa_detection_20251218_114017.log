@@ -1,0 +1,56 @@
+2025-12-18 11:40:17,791 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-18 11:40:24,315 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-18 11:40:24,315 - __main__ - INFO - 🌐 Lade URL: https://www.tiktok.com/de-DE/ (Versuch 1/3)
+2025-12-18 11:40:54,318 - __main__ - WARNING - ⏱️  Timeout bei Versuch 1
+2025-12-18 11:40:54,318 - __main__ - INFO - 🔄 Versuche erneut...
+2025-12-18 11:40:56,320 - __main__ - INFO - 🌐 Lade URL: https://www.tiktok.com/de-DE/ (Versuch 2/3)
+2025-12-18 11:41:07,397 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-18 11:41:19,851 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 11:41:19,851 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-18 11:41:19,851 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 11:41:19,851 - analyzer.analyzer - INFO - URL: https://www.tiktok.com/de-DE/
+2025-12-18 11:41:19,851 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-18 11:41:19,851 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-18 11:42:00,881 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-18 11:42:10,574 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-18 11:42:10,591 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-18 11:42:10,599 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-18 11:42:10,601 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-18 11:42:10,601 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-18 11:42:10,601 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-18 11:42:12,604 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: smart)...
+2025-12-18 11:42:12,604 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-18 11:42:17,817 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-18 11:42:17,817 - analyzer.interaction_strategy - INFO - 🎮 Starte Smart Random-Walk (max 10 Aktionen)...
+2025-12-18 11:42:24,631 - analyzer.interaction_strategy - INFO - ✅ Aktion 1 (JS): Für dich
+2025-12-18 11:42:30,057 - analyzer.interaction_strategy - INFO - ✅ Aktion 2 (JS): Für dich
+2025-12-18 11:42:45,342 - analyzer.interaction_strategy - INFO - ✅ Aktion 3 (JS): Für dich
+2025-12-18 11:42:51,908 - analyzer.interaction_strategy - INFO - ✅ Aktion 4 (JS): Für dich
+2025-12-18 11:43:02,048 - analyzer.interaction_strategy - INFO - ✅ Aktion 5 (JS): mehr
+2025-12-18 11:43:11,834 - analyzer.interaction_strategy - INFO - ✅ Aktion 6 (JS): Originalton - LittleSunshineGo
+2025-12-18 11:43:18,489 - analyzer.interaction_strategy - INFO - ✅ Aktion 7 (JS): 596.6K
+2025-12-18 11:43:25,398 - analyzer.interaction_strategy - INFO - ✅ Aktion 8 (JS): 
+2025-12-18 11:43:34,694 - analyzer.interaction_strategy - INFO - ✅ Aktion 9 (JS): Erkunden
+2025-12-18 11:44:06,439 - analyzer.interaction_strategy - INFO - ✅ Aktion 10 (JS): Suchen
+2025-12-18 11:44:07,739 - analyzer.interaction_strategy - INFO - ✅ Random-Walk abgeschlossen: 10 erfolgreiche Aktionen (NUR interne Navigation)
+2025-12-18 11:44:07,740 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-18 11:44:09,742 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-18 11:44:16,811 - detectors.history_api_detector - INFO - History-Daten: 2 pushState, 4 replaceState, 0 popstate
+2025-12-18 11:44:16,830 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt:
+  - Mutations gesamt: 182
+  - Nodes added: 101, removed: 81
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 182
+  - Beobachtungsdauer: 126250ms
+2025-12-18 11:44:16,843 - detectors.title_change_detector - INFO - Title-Daten: 3 Änderungen
+2025-12-18 11:44:16,843 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-18 11:44:16,843 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-18 11:44:16,847 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-18 11:44:16,847 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-18 11:44:16,847 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 11:44:18,930 - __main__ - INFO - ✅ Browser bereinigt

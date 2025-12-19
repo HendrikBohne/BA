@@ -1,0 +1,21 @@
+2025-12-19 10:36:01,241 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-19 10:36:04,454 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-19 10:36:04,455 - __main__ - INFO - 🌐 Lade URL: testurls (Versuch 1/3)
+2025-12-19 10:36:04,462 - __main__ - ERROR - ❌ Navigation fehlgeschlagen: Page.goto: Protocol error (Page.navigate): Invalid url: "testurls"
+Call log:
+  - navigating to "testurls", waiting until "networkidle"
+
+2025-12-19 10:36:06,465 - __main__ - INFO - 🌐 Lade URL: testurls (Versuch 2/3)
+2025-12-19 10:36:06,468 - __main__ - ERROR - ❌ Navigation fehlgeschlagen: Page.goto: Protocol error (Page.navigate): Invalid url: "testurls"
+Call log:
+  - navigating to "testurls", waiting until "networkidle"
+
+2025-12-19 10:36:08,470 - __main__ - INFO - 🌐 Lade URL: testurls (Versuch 3/3)
+2025-12-19 10:36:08,473 - __main__ - ERROR - ❌ Navigation fehlgeschlagen: Page.goto: Protocol error (Page.navigate): Invalid url: "testurls"
+Call log:
+  - navigating to "testurls", waiting until "networkidle"
+
+2025-12-19 10:36:08,473 - __main__ - ERROR - ❌ Konnte testurls nicht laden
+2025-12-19 10:36:08,473 - __main__ - ERROR - ❌ Analyse fehlgeschlagen
+2025-12-19 10:36:08,995 - __main__ - INFO - ✅ Browser bereinigt

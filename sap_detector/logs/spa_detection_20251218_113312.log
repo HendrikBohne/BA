@@ -1,0 +1,49 @@
+2025-12-18 11:33:12,364 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-18 11:33:23,326 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-18 11:33:23,326 - __main__ - INFO - 🌐 Lade URL: https://www.tiktok.com/de-DE/ (Versuch 1/3)
+2025-12-18 11:33:24,623 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-18 11:33:27,762 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 11:33:27,762 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET
+2025-12-18 11:33:27,762 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 11:33:27,762 - analyzer.analyzer - INFO - URL: https://www.tiktok.com/de-DE/
+2025-12-18 11:33:27,762 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-18 11:33:27,762 - analyzer.cookie_handler - INFO - 🍪 Suche nach Cookie-Banner...
+2025-12-18 11:34:08,799 - analyzer.cookie_handler - INFO - ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-18 11:34:19,983 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-18 11:34:39,188 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (auf document.body)
+2025-12-18 11:35:08,552 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-18 11:35:08,553 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet
+2025-12-18 11:35:08,553 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit
+2025-12-18 11:35:08,553 - analyzer.analyzer - INFO - ⏳ Warte auf initiales Rendering...
+2025-12-18 11:35:10,556 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: model_guided)...
+2025-12-18 11:35:10,556 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-18 11:35:50,227 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-18 11:35:50,228 - analyzer.model_guided_strategy - INFO - 🧠 Starte Model-Guided Random-Walk (max 10 Aktionen, w_model=25.0)...
+2025-12-18 11:36:33,063 - analyzer.model_guided_strategy - INFO - ✅ Aktion 1: 
+2025-12-18 11:37:05,051 - analyzer.model_guided_strategy - INFO - ✅ Aktion 2: 
+2025-12-18 11:37:22,539 - analyzer.model_guided_strategy - INFO - ✅ Aktion 3: 133.7K
+2025-12-18 11:37:35,539 - analyzer.model_guided_strategy - INFO - ✅ Aktion 4: 
+2025-12-18 11:38:14,684 - analyzer.model_guided_strategy - INFO - ✅ Aktion 5: Erkunden
+2025-12-18 11:38:30,303 - analyzer.model_guided_strategy - INFO - ✅ Model-Guided Random-Walk abgeschlossen: 5 erfolgreiche Aktionen
+2025-12-18 11:38:30,303 - analyzer.model_guided_strategy - INFO - 📊 Model-Stats: 29 Candidates, 4 ausgeführt (13.8%), ∅ 43.0 Nachfolger
+2025-12-18 11:38:30,303 - analyzer.analyzer - INFO - ✅ 5 Interaktionen durchgeführt
+2025-12-18 11:38:32,304 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-18 11:38:34,299 - detectors.history_api_detector - ERROR - Fehler beim Sammeln der History-Daten: Page.evaluate: Execution context was destroyed, most likely because of a navigation
+2025-12-18 11:38:35,656 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt:
+  - Mutations gesamt: 0
+  - Nodes added: 0, removed: 0
+  - Große Mutations (>=5): 0
+  - Mittlere Mutations (2-4): 0
+  - Kleine Mutations (1): 0
+  - Beobachtungsdauer: 0ms
+2025-12-18 11:38:35,663 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen
+2025-12-18 11:38:35,663 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-18 11:38:35,663 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-18 11:38:37,805 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-18 11:38:37,805 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG
+2025-12-18 11:38:37,805 - analyzer.analyzer - INFO - ============================================================
+2025-12-18 11:38:42,822 - __main__ - INFO - ✅ Browser bereinigt
