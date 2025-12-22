@@ -82,7 +82,7 @@ class CookieHandler:
         Returns: True wenn Banner gefunden und geklickt wurde
         """
         try:
-            logger.info("🍪 Suche nach Cookie-Banner...")
+            logger.info("ðŸª Suche nach Cookie-Banner...")
             await asyncio.sleep(1)
             
             for selector in CookieHandler.COOKIE_SELECTORS:
@@ -91,17 +91,17 @@ class CookieHandler:
                     
                     if element:
                         await element.click(timeout=2000)
-                        logger.info(f"✅ Cookie-Banner akzeptiert (Selector: {selector})")
+                        logger.info(f"âœ… Cookie-Banner akzeptiert (Selector: {selector})")
                         await asyncio.sleep(1)
                         return True
                         
                 except PlaywrightTimeout:
                     continue
                 except Exception as e:
-                    logger.debug(f"Cookie-Klick fehlgeschlagen für {selector}: {e}")
+                    logger.debug(f"Cookie-Klick fehlgeschlagen fÃ¼r {selector}: {e}")
                     continue
             
-            logger.info("ℹ️  Kein Cookie-Banner gefunden (oder bereits akzeptiert)")
+            logger.info("â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)")
             return False
             
         except Exception as e:
@@ -110,11 +110,11 @@ class CookieHandler:
     
     @staticmethod
     async def close_popups(page: Page):
-        """Schließt zusätzliche Popups (Newsletter, etc.)"""
+        """SchlieÃŸt zusÃ¤tzliche Popups (Newsletter, etc.)"""
         try:
             close_selectors = [
                 'button[aria-label*="Close"]',
-                'button[aria-label*="Schließen"]',
+                'button[aria-label*="SchlieÃŸen"]',
                 '.close',
                 '.modal-close',
                 '[class*="close"][class*="button"]',
@@ -126,7 +126,7 @@ class CookieHandler:
                     element = await page.wait_for_selector(selector, timeout=1000, state='visible')
                     if element:
                         await element.click(timeout=2000)
-                        logger.info(f"✅ Popup geschlossen: {selector}")
+                        logger.info(f"âœ… Popup geschlossen: {selector}")
                         await asyncio.sleep(0.5)
                 except:
                     continue

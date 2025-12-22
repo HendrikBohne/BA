@@ -1,0 +1,974 @@
+2025-12-19 12:52:01,621 - __main__ - INFO - 📄 20 URLs aus Datei geladen: nospaurls.txt
+
+2025-12-19 12:52:01,621 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-19 12:52:04,966 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-19 12:52:04,966 - __main__ - INFO - 🌐 Lade URL: https://www.wikipedia.org/ (Versuch 1/3)
+2025-12-19 12:52:08,080 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:52:12,923 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:52:12,923 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 12:52:12,923 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:52:12,923 - analyzer.analyzer - INFO - URL: https://www.wikipedia.org/
+2025-12-19 12:52:12,923 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:52:12,923 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 12:52:53,958 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:52:59,966 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:52:59,970 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:52:59,972 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 12:53:00,177 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 12:53:00,180 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 12:53:00,182 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:53:00,184 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 12:53:00,184 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 12:53:00,184 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 12:53:00,184 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 12:53:03,187 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:53:05,448 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:53:05,448 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 12:53:07,252 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 0 Aktionen
+2025-12-19 12:53:07,253 - analyzer.analyzer - INFO - ✅ 0 Interaktionen durchgeführt
+2025-12-19 12:53:09,255 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:53:09,258 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:53:09,261 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 0 Mutations, 0 Node-Changes
+  🎯 POST-CLICK: 0 Mutations, 0 Node-Changes
+  📈 GESAMT: 0 Mutations, 0 Node-Changes
+  🪟 Click-Windows: 0
+2025-12-19 12:53:09,263 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 12:53:09,263 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:53:09,263 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:53:09,266 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:53:09,266 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 12:53:09,266 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:53:09,266 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 12:53:10,040 - __main__ - INFO - 🌐 Lade URL: https://www.amazon.de/ (Versuch 1/3)
+2025-12-19 12:53:16,021 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:53:21,474 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:53:21,474 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 12:53:21,474 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:53:21,474 - analyzer.analyzer - INFO - URL: https://www.amazon.de/
+2025-12-19 12:53:21,474 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:53:21,474 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 12:54:02,506 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:54:08,552 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:54:08,554 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:54:08,556 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 12:54:08,760 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 12:54:08,763 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 12:54:08,765 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:54:08,766 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 12:54:08,766 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 12:54:08,766 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 12:54:08,766 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 12:54:11,770 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:54:13,923 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:54:13,923 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 12:54:16,434 - analyzer.analyzer - INFO - ✅ Aktion 1: Kurzbefehle ein-/ausblenden
+  
+2025-12-19 12:54:20,515 - analyzer.analyzer - INFO - ✅ Aktion 2: Kurzbefehle ein-/ausblenden
+  
+2025-12-19 12:54:30,438 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 2 Aktionen
+2025-12-19 12:54:30,438 - analyzer.analyzer - INFO - ✅ 2 Interaktionen durchgeführt
+2025-12-19 12:54:32,440 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:54:32,526 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:54:32,905 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 201 Mutations, 432 Node-Changes
+  🎯 POST-CLICK: 16 Mutations, 16 Node-Changes
+  📈 GESAMT: 251 Mutations, 488 Node-Changes
+  🪟 Click-Windows: 5
+2025-12-19 12:54:32,908 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 12:54:32,909 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:54:32,909 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:54:33,296 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:54:33,296 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 12:54:33,296 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:54:33,296 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 12:54:33,296 - analyzer.analyzer - INFO - 📉 GATING ANGEWENDET: DOM/Network auf 35% reduziert
+2025-12-19 12:54:34,959 - __main__ - INFO - 🌐 Lade URL: https://www.ebay.de/ (Versuch 1/3)
+2025-12-19 12:54:39,039 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:54:44,327 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:54:44,327 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 12:54:44,327 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:54:44,328 - analyzer.analyzer - INFO - URL: https://www.ebay.de/
+2025-12-19 12:54:44,328 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:54:44,328 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 12:55:25,355 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:56:00,860 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:56:40,688 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:56:40,701 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 12:56:40,921 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 12:56:40,989 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 12:56:40,992 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:56:40,993 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 12:56:40,993 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 12:56:40,993 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 12:56:40,993 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 12:56:43,994 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:56:47,395 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:56:47,395 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 12:57:18,595 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 0 Aktionen
+2025-12-19 12:57:18,595 - analyzer.analyzer - INFO - ✅ 0 Interaktionen durchgeführt
+2025-12-19 12:57:20,596 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:57:21,959 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:57:21,968 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 1757 Mutations, 1789 Node-Changes
+  🎯 POST-CLICK: 0 Mutations, 0 Node-Changes
+  📈 GESAMT: 1831 Mutations, 1863 Node-Changes
+  🪟 Click-Windows: 3
+2025-12-19 12:57:21,982 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 12:57:21,982 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:57:21,982 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:57:21,995 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:57:21,995 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 12:57:21,995 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:57:21,995 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 12:57:21,995 - analyzer.analyzer - INFO - 📉 GATING ANGEWENDET: DOM/Network auf 35% reduziert
+2025-12-19 12:57:24,839 - __main__ - INFO - 🌐 Lade URL: https://www.craigslist.org/ (Versuch 1/3)
+2025-12-19 12:57:35,550 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:57:41,376 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:57:41,376 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 12:57:41,376 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:57:41,376 - analyzer.analyzer - INFO - URL: https://hannover.craigslist.org/
+2025-12-19 12:57:41,376 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:57:41,376 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 12:58:22,409 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 12:58:28,417 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:58:28,421 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:58:28,424 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 12:58:28,627 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 12:58:28,631 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 12:58:28,634 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:58:28,635 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 12:58:28,635 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 12:58:28,635 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 12:58:28,635 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 12:58:31,638 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:58:33,645 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:58:33,646 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 12:58:33,713 - analyzer.analyzer - INFO - ✅ Aktion 1: Hannover
+2025-12-19 12:58:37,159 - analyzer.analyzer - INFO - ✅ Aktion 2: +−
+2025-12-19 12:58:41,198 - analyzer.analyzer - INFO - ✅ Aktion 3: Hannover
+2025-12-19 12:58:45,214 - analyzer.analyzer - INFO - ✅ Aktion 4: MAP
+2025-12-19 12:58:49,232 - analyzer.analyzer - INFO - ✅ Aktion 5: Wählen Sie diesen Suchbereich
+2025-12-19 12:58:53,252 - analyzer.analyzer - INFO - ✅ Aktion 6: MAP
+2025-12-19 12:58:57,267 - analyzer.analyzer - INFO - ✅ Aktion 7: Wählen Sie diesen Suchbereich
+2025-12-19 12:59:01,283 - analyzer.analyzer - INFO - ✅ Aktion 8: nearby areas and subareas
+2025-12-19 12:59:03,327 - analyzer.analyzer - INFO - ✅ Aktion 9: +−
+2025-12-19 12:59:05,368 - analyzer.analyzer - INFO - ✅ Aktion 10: +−
+2025-12-19 12:59:07,374 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 10 Aktionen
+2025-12-19 12:59:07,374 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-19 12:59:09,376 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 12:59:09,380 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 12:59:09,383 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 1 Mutations, 1 Node-Changes
+  🎯 POST-CLICK: 190 Mutations, 246 Node-Changes
+  📈 GESAMT: 200 Mutations, 258 Node-Changes
+  🪟 Click-Windows: 10
+2025-12-19 12:59:09,385 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 12:59:09,385 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 12:59:09,385 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 12:59:09,388 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 12:59:09,388 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 12:59:09,388 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:59:09,388 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 12:59:09,388 - analyzer.analyzer - INFO - 📉 GATING ANGEWENDET: DOM/Network auf 35% reduziert
+2025-12-19 12:59:10,143 - __main__ - INFO - 🌐 Lade URL: https://stackoverflow.com/ (Versuch 1/3)
+2025-12-19 12:59:21,935 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 12:59:25,876 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:59:25,876 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 12:59:25,876 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 12:59:25,876 - analyzer.analyzer - INFO - URL: https://stackoverflow.com/questions
+2025-12-19 12:59:25,876 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 12:59:25,876 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 12:59:27,108 - analyzer.cookie_handler - INFO - âœ… Cookie-Banner akzeptiert (Selector: button:has-text("Accept"))
+2025-12-19 12:59:34,255 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 12:59:36,766 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 12:59:36,842 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 12:59:37,496 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 12:59:37,501 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 12:59:37,503 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 12:59:37,505 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 12:59:37,505 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 12:59:37,505 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 12:59:37,505 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 12:59:40,508 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 12:59:42,777 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 12:59:42,777 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 12:59:44,706 - analyzer.analyzer - INFO - ✅ Aktion 1: Products
+2025-12-19 12:59:46,769 - analyzer.analyzer - INFO - ✅ Aktion 2: Products
+2025-12-19 12:59:52,653 - analyzer.analyzer - INFO - ✅ Aktion 3: More
+2025-12-19 13:00:03,554 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 3 Aktionen
+2025-12-19 13:00:03,554 - analyzer.analyzer - INFO - ✅ 3 Interaktionen durchgeführt
+2025-12-19 13:00:05,556 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:00:05,693 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 2 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:00:05,708 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 9 Mutations, 9 Node-Changes
+  🎯 POST-CLICK: 0 Mutations, 0 Node-Changes
+  📈 GESAMT: 12 Mutations, 12 Node-Changes
+  🪟 Click-Windows: 0
+2025-12-19 13:00:05,710 - detectors.title_change_detector - INFO - Title-Daten: 2 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:00:05,710 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:00:05,710 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:00:05,731 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:00:05,732 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:00:05,732 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:00:05,732 - analyzer.analyzer - INFO - 🎯 HARD SIGNAL VORHANDEN: History-API Navigation erkannt
+2025-12-19 13:00:05,732 - analyzer.analyzer - INFO - 📉 ANTI-SIGNAL: 3 Frame-Navigations → Score -0.05
+2025-12-19 13:00:06,632 - __main__ - INFO - 🌐 Lade URL: https://github.com/ (Versuch 1/3)
+2025-12-19 13:00:10,707 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:00:14,620 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:00:14,620 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:00:14,620 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:00:14,620 - analyzer.analyzer - INFO - URL: https://github.com/
+2025-12-19 13:00:14,620 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:00:14,620 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:00:22,906 - analyzer.cookie_handler - INFO - âœ… Cookie-Banner akzeptiert (Selector: button:has-text("OK"))
+2025-12-19 13:00:30,072 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:00:30,676 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:00:30,917 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:00:31,372 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:00:31,456 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:00:31,920 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:00:31,922 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:00:31,922 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:00:31,922 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:00:31,922 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:00:34,925 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:00:37,087 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:00:37,088 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:00:40,119 - analyzer.analyzer - INFO - ✅ Aktion 1: Solutions
+2025-12-19 13:00:45,418 - analyzer.analyzer - INFO - ✅ Aktion 2: Open Source
+2025-12-19 13:00:50,984 - analyzer.analyzer - INFO - ✅ Aktion 3: 
+2025-12-19 13:00:57,587 - analyzer.analyzer - INFO - ✅ Aktion 4: Enterprise
+2025-12-19 13:01:01,609 - analyzer.analyzer - INFO - ✅ Aktion 5: Resources
+2025-12-19 13:01:05,630 - analyzer.analyzer - INFO - ✅ Aktion 6: Open Source
+2025-12-19 13:01:07,720 - analyzer.analyzer - INFO - ✅ Aktion 7: Search or jump to...
+2025-12-19 13:01:11,947 - analyzer.analyzer - INFO - ✅ Aktion 8: Resources
+2025-12-19 13:01:16,087 - analyzer.analyzer - INFO - ✅ Aktion 9: Open Source
+2025-12-19 13:01:20,104 - analyzer.analyzer - INFO - ✅ Aktion 10: Platform
+2025-12-19 13:01:22,110 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 10 Aktionen
+2025-12-19 13:01:22,110 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-19 13:01:24,112 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:01:24,118 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 4 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:01:24,122 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 1 Mutations, 1 Node-Changes
+  🎯 POST-CLICK: 51 Mutations, 83 Node-Changes
+  📈 GESAMT: 52 Mutations, 84 Node-Changes
+  🪟 Click-Windows: 7
+2025-12-19 13:01:24,124 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:01:24,124 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:01:24,124 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:01:24,127 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:01:24,127 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:01:24,127 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:01:24,127 - analyzer.analyzer - INFO - 🎯 HARD SIGNAL VORHANDEN: History-API Navigation erkannt
+2025-12-19 13:01:24,127 - analyzer.analyzer - INFO - 📉 ANTI-SIGNAL: 5 Frame-Navigations → Score -0.05
+2025-12-19 13:01:24,819 - __main__ - INFO - 🌐 Lade URL: https://gitlab.com/ (Versuch 1/3)
+2025-12-19 13:01:34,404 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:01:37,638 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:01:37,638 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:01:37,638 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:01:37,638 - analyzer.analyzer - INFO - URL: https://about.gitlab.com/
+2025-12-19 13:01:37,638 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:01:37,638 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:01:41,006 - analyzer.cookie_handler - INFO - âœ… Cookie-Banner akzeptiert (Selector: button:has-text("Akzeptieren"))
+2025-12-19 13:01:48,074 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:01:48,076 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:01:48,079 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:01:48,283 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:01:48,373 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:01:48,375 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:01:48,377 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:01:48,377 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:01:48,377 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:01:48,377 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:01:51,380 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:01:53,525 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:01:53,526 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:01:55,199 - analyzer.analyzer - INFO - ✅ Aktion 1: Resources
+2025-12-19 13:02:13,996 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 1 Aktionen
+2025-12-19 13:02:13,996 - analyzer.analyzer - INFO - ✅ 1 Interaktionen durchgeführt
+2025-12-19 13:02:15,997 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:02:16,000 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:02:16,003 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 9 Mutations, 9 Node-Changes
+  🎯 POST-CLICK: 9 Mutations, 10 Node-Changes
+  📈 GESAMT: 18 Mutations, 19 Node-Changes
+  🪟 Click-Windows: 1
+2025-12-19 13:02:16,005 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:02:16,005 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:02:16,005 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:02:16,009 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:02:16,009 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:02:16,009 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:02:16,009 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 13:02:16,009 - analyzer.analyzer - INFO - 📉 GATING ANGEWENDET: DOM/Network auf 35% reduziert
+2025-12-19 13:02:17,677 - __main__ - INFO - 🌐 Lade URL: https://old.reddit.com/ (Versuch 1/3)
+2025-12-19 13:02:26,028 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:02:30,572 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:02:30,572 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:02:30,573 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:02:30,573 - analyzer.analyzer - INFO - URL: https://old.reddit.com/
+2025-12-19 13:02:30,573 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:02:30,573 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:02:42,639 - analyzer.cookie_handler - INFO - âœ… Cookie-Banner akzeptiert (Selector: button:has-text("Continue"))
+2025-12-19 13:02:49,647 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:02:49,649 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:02:49,653 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:02:49,857 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:02:49,861 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:02:49,863 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:02:49,864 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:02:49,865 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:02:49,865 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:02:49,865 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:02:52,868 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:02:55,224 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:02:55,225 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:02:59,073 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 13:03:09,402 - analyzer.analyzer - INFO - ✅ Aktion 2: Weiter
+2025-12-19 13:03:20,305 - analyzer.analyzer - INFO - ✅ Aktion 3: 
+2025-12-19 13:03:26,295 - analyzer.analyzer - INFO - ✅ Aktion 4: 
+2025-12-19 13:03:31,051 - analyzer.analyzer - INFO - ✅ Aktion 5: 
+2025-12-19 13:03:33,057 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 5 Aktionen
+2025-12-19 13:03:33,057 - analyzer.analyzer - INFO - ✅ 5 Interaktionen durchgeführt
+2025-12-19 13:03:35,058 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:03:35,063 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:03:35,067 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 14 Mutations, 14 Node-Changes
+  🎯 POST-CLICK: 9 Mutations, 9 Node-Changes
+  📈 GESAMT: 39 Mutations, 42 Node-Changes
+  🪟 Click-Windows: 8
+2025-12-19 13:03:35,069 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:03:35,069 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:03:35,069 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:03:35,071 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:03:35,071 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:03:35,071 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:03:35,071 - analyzer.analyzer - INFO - 🎯 HARD SIGNAL VORHANDEN: History-API Navigation erkannt
+2025-12-19 13:03:37,805 - __main__ - INFO - 🌐 Lade URL: https://news.ycombinator.com/ (Versuch 1/3)
+2025-12-19 13:03:40,319 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:03:43,830 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:03:43,830 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:03:43,830 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:03:43,830 - analyzer.analyzer - INFO - URL: https://news.ycombinator.com/
+2025-12-19 13:03:43,830 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:03:43,830 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:04:24,857 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:04:30,868 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:04:30,872 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:04:30,876 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:04:31,080 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:04:31,085 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:04:31,087 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:04:31,088 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:04:31,088 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:04:31,088 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:04:31,088 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:04:34,091 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:04:36,266 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:04:36,267 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:04:38,580 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 0 Aktionen
+2025-12-19 13:04:38,581 - analyzer.analyzer - INFO - ✅ 0 Interaktionen durchgeführt
+2025-12-19 13:04:40,583 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:04:40,587 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:04:40,589 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 0 Mutations, 0 Node-Changes
+  🎯 POST-CLICK: 0 Mutations, 0 Node-Changes
+  📈 GESAMT: 0 Mutations, 0 Node-Changes
+  🪟 Click-Windows: 0
+2025-12-19 13:04:40,590 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:04:40,590 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:04:40,591 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:04:40,593 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:04:40,593 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:04:40,593 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:04:40,593 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 13:04:42,338 - __main__ - INFO - 🌐 Lade URL: https://www.bbc.com/news (Versuch 1/3)
+2025-12-19 13:04:51,295 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:04:54,531 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:04:54,531 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:04:54,531 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:04:54,531 - analyzer.analyzer - INFO - URL: https://www.bbc.com/news
+2025-12-19 13:04:54,531 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:04:54,531 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:05:37,585 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:05:43,595 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:05:43,597 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:05:43,601 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:05:43,804 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:05:43,810 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:05:43,811 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:05:43,813 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:05:43,813 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:05:43,813 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:05:43,813 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:05:46,816 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:05:49,330 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:05:49,330 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:05:55,020 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 13:05:59,055 - analyzer.analyzer - INFO - ✅ Aktion 2: Arts
+2025-12-19 13:06:03,079 - analyzer.analyzer - INFO - ✅ Aktion 3: Sport
+2025-12-19 13:06:12,140 - analyzer.analyzer - INFO - ✅ Aktion 4: Arts
+2025-12-19 13:06:20,908 - analyzer.analyzer - INFO - ✅ Aktion 5: 
+2025-12-19 13:06:29,393 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 5 Aktionen
+2025-12-19 13:06:29,393 - analyzer.analyzer - INFO - ✅ 5 Interaktionen durchgeführt
+2025-12-19 13:06:31,396 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:06:31,400 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:06:31,404 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 12 Mutations, 12 Node-Changes
+  🎯 POST-CLICK: 4 Mutations, 4 Node-Changes
+  📈 GESAMT: 22 Mutations, 22 Node-Changes
+  🪟 Click-Windows: 3
+2025-12-19 13:06:31,405 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:06:31,405 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:06:31,405 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:06:31,408 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:06:31,408 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:06:31,408 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:06:31,408 - analyzer.analyzer - INFO - 🎯 HARD SIGNAL VORHANDEN: History-API Navigation erkannt
+2025-12-19 13:06:33,809 - __main__ - INFO - 🌐 Lade URL: https://www.theguardian.com/ (Versuch 1/3)
+2025-12-19 13:06:40,406 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:06:44,905 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:06:44,905 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:06:44,905 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:06:44,905 - analyzer.analyzer - INFO - URL: https://www.theguardian.com/europe
+2025-12-19 13:06:44,905 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:06:44,905 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:07:25,941 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:07:31,950 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:07:31,954 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:07:31,959 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:07:32,163 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:07:32,168 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:07:32,169 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:07:32,171 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:07:32,171 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:07:32,171 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:07:32,171 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:07:35,174 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:07:37,182 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:07:37,182 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:07:44,719 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 0 Aktionen
+2025-12-19 13:07:44,719 - analyzer.analyzer - INFO - ✅ 0 Interaktionen durchgeführt
+2025-12-19 13:07:46,721 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:07:46,724 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:07:46,731 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 0 Mutations, 0 Node-Changes
+  🎯 POST-CLICK: 0 Mutations, 0 Node-Changes
+  📈 GESAMT: 33 Mutations, 33 Node-Changes
+  🪟 Click-Windows: 3
+2025-12-19 13:07:46,732 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:07:46,732 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:07:46,732 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:07:46,736 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:07:46,736 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:07:46,736 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:07:46,736 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 13:07:47,169 - __main__ - INFO - 🌐 Lade URL: https://www.nytimes.com/ (Versuch 1/3)
+2025-12-19 13:08:17,170 - __main__ - WARNING - ⏱️  Timeout bei Versuch 1
+2025-12-19 13:08:17,170 - __main__ - INFO - 🔄 Versuche erneut...
+2025-12-19 13:08:19,171 - __main__ - INFO - 🌐 Lade URL: https://www.nytimes.com/ (Versuch 2/3)
+2025-12-19 13:08:31,232 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:09:05,195 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:09:05,195 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:09:05,195 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:09:05,195 - analyzer.analyzer - INFO - URL: https://www.nytimes.com/
+2025-12-19 13:09:05,195 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:09:05,195 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:09:46,231 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:09:59,227 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:10:14,199 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:10:17,675 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:10:20,022 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:10:20,444 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:10:20,852 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:10:20,854 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:10:20,854 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:10:20,854 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:10:20,854 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:10:23,858 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:10:48,765 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:10:48,765 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:11:07,546 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 0 Aktionen
+2025-12-19 13:11:07,546 - analyzer.analyzer - INFO - ✅ 0 Interaktionen durchgeführt
+2025-12-19 13:11:09,548 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:11:09,556 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:11:09,623 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 6 Mutations, 12 Node-Changes
+  🎯 POST-CLICK: 12 Mutations, 24 Node-Changes
+  📈 GESAMT: 311 Mutations, 392 Node-Changes
+  🪟 Click-Windows: 3
+2025-12-19 13:11:09,712 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:11:09,713 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:11:09,713 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:11:09,786 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:11:09,786 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:11:09,786 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:11:09,786 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 13:11:09,786 - analyzer.analyzer - INFO - 📉 GATING ANGEWENDET: DOM/Network auf 35% reduziert
+2025-12-19 13:11:12,604 - __main__ - INFO - 🌐 Lade URL: https://www.reuters.com/ (Versuch 1/3)
+2025-12-19 13:11:16,630 - __main__ - WARNING - ⚠️  HTTP Status 401
+2025-12-19 13:11:16,630 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:11:20,556 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:11:20,556 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:11:20,556 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:11:20,556 - analyzer.analyzer - INFO - URL: https://www.reuters.com/
+2025-12-19 13:11:20,556 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:11:20,556 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:12:01,596 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:12:07,611 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:12:07,614 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:12:07,620 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:12:07,823 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:12:07,829 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:12:07,832 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:12:07,833 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:12:07,833 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:12:07,833 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:12:07,833 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:12:10,836 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:12:12,844 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:12:12,844 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:12:14,357 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 0 Aktionen
+2025-12-19 13:12:14,358 - analyzer.analyzer - INFO - ✅ 0 Interaktionen durchgeführt
+2025-12-19 13:12:16,360 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:12:16,365 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:12:16,367 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 0 Mutations, 0 Node-Changes
+  🎯 POST-CLICK: 0 Mutations, 0 Node-Changes
+  📈 GESAMT: 0 Mutations, 0 Node-Changes
+  🪟 Click-Windows: 0
+2025-12-19 13:12:16,369 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:12:16,369 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:12:16,369 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:12:16,371 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:12:16,371 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:12:16,371 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:12:16,371 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 13:12:16,796 - __main__ - INFO - 🌐 Lade URL: https://www.spiegel.de/ (Versuch 1/3)
+2025-12-19 13:12:21,808 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:12:26,100 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:12:26,100 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:12:26,100 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:12:26,100 - analyzer.analyzer - INFO - URL: https://www.spiegel.de/
+2025-12-19 13:12:26,100 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:12:26,100 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:13:07,131 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:13:13,144 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:13:13,148 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:13:13,154 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:13:13,359 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:13:13,365 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:13:13,367 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:13:13,369 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:13:13,369 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:13:13,369 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:13:13,369 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:13:16,372 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:13:18,380 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:13:18,380 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:13:20,397 - analyzer.analyzer - INFO - ✅ Aktion 1: Menü
+2025-12-19 13:13:25,866 - analyzer.analyzer - INFO - ✅ Aktion 2: Menü Panorama aufklappen
+2025-12-19 13:13:33,277 - analyzer.analyzer - INFO - ✅ Aktion 3: Zur Merkliste hinzufügen
+2025-12-19 13:13:38,892 - analyzer.analyzer - INFO - ✅ Aktion 4: Zur Merkliste hinzufügen
+2025-12-19 13:13:45,089 - analyzer.analyzer - INFO - ✅ Aktion 5: Menü Ausland aufklappen
+2025-12-19 13:13:50,139 - analyzer.analyzer - INFO - ✅ Aktion 6: Menü Politik aufklappen
+2025-12-19 13:13:55,762 - analyzer.analyzer - INFO - ✅ Aktion 7: Menü Politik aufklappen
+2025-12-19 13:14:02,733 - analyzer.analyzer - INFO - ✅ Aktion 8: Suche öffnen
+2025-12-19 13:14:08,552 - analyzer.analyzer - INFO - ✅ Aktion 9: Suche starten
+2025-12-19 13:14:14,504 - analyzer.analyzer - INFO - ✅ Aktion 10: Menü Wirtschaft aufklappen
+2025-12-19 13:14:17,894 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 10 Aktionen
+2025-12-19 13:14:17,894 - analyzer.analyzer - INFO - ✅ 10 Interaktionen durchgeführt
+2025-12-19 13:14:19,896 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:14:20,437 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:14:20,919 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 126 Mutations, 250 Node-Changes
+  🎯 POST-CLICK: 6 Mutations, 10 Node-Changes
+  📈 GESAMT: 163 Mutations, 302 Node-Changes
+  🪟 Click-Windows: 10
+2025-12-19 13:14:21,289 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:14:21,289 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:14:21,289 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:14:21,782 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:14:21,782 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:14:21,782 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:14:21,782 - analyzer.analyzer - INFO - 🎯 HARD SIGNAL VORHANDEN: History-API Navigation erkannt
+2025-12-19 13:14:26,406 - __main__ - INFO - 🌐 Lade URL: https://www.zeit.de/ (Versuch 1/3)
+2025-12-19 13:14:35,667 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:14:39,757 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:14:39,757 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:14:39,757 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:14:39,757 - analyzer.analyzer - INFO - URL: https://www.zeit.de/index
+2025-12-19 13:14:39,757 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:14:39,757 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:15:22,860 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:15:28,875 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:15:28,877 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:15:28,883 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:15:29,087 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:15:29,094 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:15:29,096 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:15:29,097 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:15:29,097 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:15:29,097 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:15:29,097 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:15:32,099 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:15:34,106 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:15:34,106 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:15:36,134 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 13:15:40,450 - analyzer.analyzer - INFO - ✅ Aktion 2: Wiedergabe
+2025-12-19 13:15:49,686 - analyzer.analyzer - INFO - ✅ Aktion 3: 
+2025-12-19 13:15:58,822 - analyzer.analyzer - INFO - ✅ Aktion 4: Wiedergabe
+2025-12-19 13:16:03,068 - analyzer.analyzer - INFO - ✅ Aktion 5: Wiedergabe
+2025-12-19 13:16:07,590 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 5 Aktionen
+2025-12-19 13:16:07,590 - analyzer.analyzer - INFO - ✅ 5 Interaktionen durchgeführt
+2025-12-19 13:16:09,592 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:16:09,596 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:16:09,605 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 0 Mutations, 0 Node-Changes
+  🎯 POST-CLICK: 24 Mutations, 66 Node-Changes
+  📈 GESAMT: 54 Mutations, 124 Node-Changes
+  🪟 Click-Windows: 10
+2025-12-19 13:16:09,607 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:16:09,607 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:16:09,607 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:16:09,612 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:16:09,612 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:16:09,612 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:16:09,612 - analyzer.analyzer - INFO - 🎯 HARD SIGNAL VORHANDEN: History-API Navigation erkannt
+2025-12-19 13:16:10,503 - __main__ - INFO - 🌐 Lade URL: https://www.heise.de/ (Versuch 1/3)
+2025-12-19 13:16:40,504 - __main__ - WARNING - ⏱️  Timeout bei Versuch 1
+2025-12-19 13:16:40,504 - __main__ - INFO - 🔄 Versuche erneut...
+2025-12-19 13:16:42,506 - __main__ - INFO - 🌐 Lade URL: https://www.heise.de/ (Versuch 2/3)
+2025-12-19 13:16:52,653 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:16:55,699 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:16:55,699 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:16:55,699 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:16:55,699 - analyzer.analyzer - INFO - URL: https://www.heise.de/
+2025-12-19 13:16:55,699 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:16:55,699 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:17:36,736 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:17:42,751 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:17:42,755 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:17:42,762 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:17:42,966 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:17:42,974 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:17:42,976 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:17:42,977 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:17:42,977 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:17:42,977 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:17:42,977 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:17:45,981 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:17:47,989 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:17:47,989 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:17:52,518 - analyzer.analyzer - INFO - ✅ Aktion 1: IT News
+2025-12-19 13:17:56,539 - analyzer.analyzer - INFO - ✅ Aktion 2: Online-Magazine
+2025-12-19 13:18:00,558 - analyzer.analyzer - INFO - ✅ Aktion 3: 
+2025-12-19 13:18:05,538 - analyzer.analyzer - INFO - ✅ Aktion 4: Online-Magazine
+2025-12-19 13:18:12,070 - analyzer.analyzer - INFO - ✅ Aktion 5: 
+2025-12-19 13:18:16,088 - analyzer.analyzer - INFO - ✅ Aktion 6: IT News
+2025-12-19 13:18:20,105 - analyzer.analyzer - INFO - ✅ Aktion 7: 
+2025-12-19 13:18:24,126 - analyzer.analyzer - INFO - ✅ Aktion 8: 
+2025-12-19 13:18:26,818 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 8 Aktionen
+2025-12-19 13:18:26,818 - analyzer.analyzer - INFO - ✅ 8 Interaktionen durchgeführt
+2025-12-19 13:18:28,820 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:18:28,824 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:18:28,833 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 25 Mutations, 49 Node-Changes
+  🎯 POST-CLICK: 0 Mutations, 0 Node-Changes
+  📈 GESAMT: 34 Mutations, 58 Node-Changes
+  🪟 Click-Windows: 10
+2025-12-19 13:18:28,835 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:18:28,835 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:18:28,835 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:18:28,840 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:18:28,840 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:18:28,840 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:18:28,840 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 13:18:29,715 - __main__ - INFO - 🌐 Lade URL: https://www.bundesregierung.de/ (Versuch 1/3)
+2025-12-19 13:18:33,939 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:18:39,361 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:18:39,361 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:18:39,361 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:18:39,361 - analyzer.analyzer - INFO - URL: https://www.bundesregierung.de/breg-de
+2025-12-19 13:18:39,361 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:18:39,361 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:19:03,450 - analyzer.cookie_handler - INFO - âœ… Cookie-Banner akzeptiert (Selector: [class*="accept"][class*="all"])
+2025-12-19 13:19:10,466 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:19:10,468 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:19:10,474 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:19:10,679 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:19:10,687 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:19:10,689 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:19:10,690 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:19:10,690 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:19:10,690 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:19:10,690 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:19:13,694 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:19:16,142 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:19:16,142 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:19:19,990 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 13:19:31,578 - analyzer.analyzer - INFO - ✅ Aktion 2: Menü
+
+
+
+
+
+schließen
+2025-12-19 13:19:42,346 - analyzer.analyzer - INFO - ✅ Aktion 3: Menü
+
+
+
+
+
+schließen
+2025-12-19 13:19:45,756 - analyzer.analyzer - INFO - ✅ Aktion 4: Menü
+
+
+
+
+
+schließen
+2025-12-19 13:19:48,135 - analyzer.analyzer - INFO - ✅ Aktion 5: Menü
+
+
+
+
+
+schließen
+2025-12-19 13:19:52,622 - analyzer.analyzer - INFO - ✅ Aktion 6: Menü
+
+
+
+
+
+schließen
+2025-12-19 13:20:01,008 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 6 Aktionen
+2025-12-19 13:20:01,008 - analyzer.analyzer - INFO - ✅ 6 Interaktionen durchgeführt
+2025-12-19 13:20:03,010 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:20:03,015 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:20:03,022 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 7 Mutations, 7 Node-Changes
+  🎯 POST-CLICK: 0 Mutations, 0 Node-Changes
+  📈 GESAMT: 13 Mutations, 13 Node-Changes
+  🪟 Click-Windows: 4
+2025-12-19 13:20:03,024 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:20:03,024 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:20:03,025 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:20:03,029 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:20:03,029 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:20:03,029 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:20:03,029 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 13:20:04,818 - __main__ - INFO - 🌐 Lade URL: https://www.dhl.de/de/privatkunden/dhl-sendungsverfolgung.html (Versuch 1/3)
+2025-12-19 13:20:09,792 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:20:16,213 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:20:16,213 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:20:16,213 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:20:16,213 - analyzer.analyzer - INFO - URL: https://www.dhl.de/de/privatkunden/dhl-sendungsverfolgung.html
+2025-12-19 13:20:16,213 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:20:16,213 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:20:58,491 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:21:04,506 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:21:04,508 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:21:04,516 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:21:04,720 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:21:04,728 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:21:04,730 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:21:04,732 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:21:04,732 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:21:04,732 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:21:04,732 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:21:07,735 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:21:10,000 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:21:10,000 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:21:13,684 - analyzer.analyzer - INFO - ✅ Aktion 1: Suche starten
+2025-12-19 13:21:20,969 - analyzer.analyzer - INFO - ✅ Aktion 2: Pakete versenden
+2025-12-19 13:21:27,083 - analyzer.analyzer - INFO - ✅ Aktion 3: Suche starten
+2025-12-19 13:21:31,108 - analyzer.analyzer - INFO - ✅ Aktion 4: Anmelden
+			
+		
+
+
+		
+				Abmel
+2025-12-19 13:21:38,606 - analyzer.analyzer - INFO - ✅ Aktion 5: Anmelden
+			
+		
+
+
+		
+				Abmel
+2025-12-19 13:21:47,237 - analyzer.analyzer - INFO - ✅ Aktion 6: Suche starten
+2025-12-19 13:21:51,261 - analyzer.analyzer - INFO - ✅ Aktion 7: Suche starten
+2025-12-19 13:21:53,337 - analyzer.analyzer - INFO - ✅ Aktion 8: Pakete versenden
+2025-12-19 13:21:56,032 - analyzer.analyzer - INFO - ✅ Aktion 9: Pakete versenden
+2025-12-19 13:21:58,127 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 9 Aktionen
+2025-12-19 13:21:58,127 - analyzer.analyzer - INFO - ✅ 9 Interaktionen durchgeführt
+2025-12-19 13:22:00,130 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:22:00,133 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 0 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:22:00,137 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 18 Mutations, 23 Node-Changes
+  🎯 POST-CLICK: 8 Mutations, 10 Node-Changes
+  📈 GESAMT: 33 Mutations, 42 Node-Changes
+  🪟 Click-Windows: 4
+2025-12-19 13:22:00,139 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:22:00,139 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:22:00,139 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:22:00,141 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:22:00,142 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:22:00,142 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:22:00,142 - analyzer.analyzer - INFO - ⚠️  KEIN HARD SIGNAL: History-API nicht erkannt
+2025-12-19 13:22:00,142 - analyzer.analyzer - INFO - 📉 GATING ANGEWENDET: DOM/Network auf 35% reduziert
+2025-12-19 13:22:00,142 - analyzer.analyzer - INFO - 📉 ANTI-SIGNAL: 3 Frame-Navigations → Score -0.15
+2025-12-19 13:22:00,882 - __main__ - INFO - 🌐 Lade URL: https://www.bahn.de/ (Versuch 1/3)
+2025-12-19 13:22:04,198 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:22:51,159 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:22:51,159 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:22:51,159 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:22:51,159 - analyzer.analyzer - INFO - URL: https://www.bahn.de/
+2025-12-19 13:22:51,159 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:22:51,159 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:23:32,190 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:24:04,632 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:24:23,591 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:24:23,639 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:24:23,845 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:24:28,408 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:24:29,602 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:24:29,604 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:24:29,604 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:24:29,604 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:24:29,604 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:24:32,605 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:24:39,017 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:24:39,017 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:24:42,596 - analyzer.analyzer - INFO - ✅ Aktion 1: Geschäftsreisen
+2025-12-19 13:25:22,800 - analyzer.analyzer - INFO - ✅ Aktion 2: Geschäftsreisen
+2025-12-19 13:26:12,068 - analyzer.analyzer - INFO - ✅ Aktion 3: 
+2025-12-19 13:28:16,769 - analyzer.analyzer - INFO - ✅ Aktion 4: 
+2025-12-19 13:30:26,412 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 4 Aktionen
+2025-12-19 13:30:26,413 - analyzer.analyzer - INFO - ✅ 4 Interaktionen durchgeführt
+2025-12-19 13:30:28,413 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:30:38,892 - detectors.history_api_detector - INFO - History-Daten: 0 pushState, 1 replaceState, 1 popstate (Script aktiv: True)
+2025-12-19 13:30:40,146 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 0 Mutations, 0 Node-Changes
+  🎯 POST-CLICK: 6 Mutations, 6 Node-Changes
+  📈 GESAMT: 24 Mutations, 25 Node-Changes
+  🪟 Click-Windows: 1
+2025-12-19 13:30:41,341 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:30:41,341 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:30:41,341 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:30:41,348 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:30:41,348 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:30:41,348 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:30:41,348 - analyzer.analyzer - INFO - 🎯 HARD SIGNAL VORHANDEN: History-API Navigation erkannt
+2025-12-19 13:30:41,348 - analyzer.analyzer - INFO - 📉 ANTI-SIGNAL: 6 Frame-Navigations → Score -0.20
+2025-12-19 13:30:48,304 - __main__ - INFO - 🌐 Lade URL: https://www.imdb.com/ (Versuch 1/3)
+2025-12-19 13:31:09,278 - __main__ - INFO - ✅ Seite geladen
+
+2025-12-19 13:31:12,365 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:31:12,365 - analyzer.analyzer - INFO - 🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)
+2025-12-19 13:31:12,365 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:31:12,365 - analyzer.analyzer - INFO - URL: https://www.imdb.com/de/
+2025-12-19 13:31:12,365 - analyzer.analyzer - INFO - 🔧 Initialisiere Detektoren...
+2025-12-19 13:31:12,365 - analyzer.cookie_handler - INFO - ðŸª Suche nach Cookie-Banner...
+2025-12-19 13:31:53,409 - analyzer.cookie_handler - INFO - â„¹ï¸  Kein Cookie-Banner gefunden (oder bereits akzeptiert)
+2025-12-19 13:31:59,594 - detectors.history_api_detector - INFO - History-API Monitor als InitScript registriert
+2025-12-19 13:31:59,597 - detectors.history_api_detector - INFO - History-API Monitor injiziert
+2025-12-19 13:31:59,604 - detectors.dom_rewriting_detector - INFO - DOM-Observer als InitScript registriert (v4)
+2025-12-19 13:32:00,542 - detectors.dom_rewriting_detector - INFO - DOM-Observer injiziert (Baseline/Post-Click Tracking)
+2025-12-19 13:32:01,566 - detectors.title_change_detector - INFO - Title-Observer als InitScript registriert
+2025-12-19 13:32:02,510 - detectors.title_change_detector - INFO - Title-Observer injiziert
+2025-12-19 13:32:02,512 - detectors.network_activity_detector - INFO - Network-Listener eingerichtet (v4 - Baseline/Post-Click)
+2025-12-19 13:32:02,512 - analyzer.analyzer - INFO - ✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)
+2025-12-19 13:32:02,512 - analyzer.analyzer - INFO - 🎮 Starte Interaktionen (Strategie: random_walk)...
+2025-12-19 13:32:02,512 - analyzer.analyzer - INFO - ⏳ Baseline-Phase (3s Initial Load)...
+2025-12-19 13:32:05,513 - analyzer.interaction_strategy - INFO - 📜 Scrolle Seite...
+2025-12-19 13:32:07,944 - analyzer.interaction_strategy - INFO - ✅ Scrolling abgeschlossen
+2025-12-19 13:32:07,944 - analyzer.analyzer - INFO - 🎮 Starte Smart Random-Walk mit Click-Windows (max 10)...
+2025-12-19 13:32:17,393 - analyzer.analyzer - INFO - ✅ Aktion 1: 
+2025-12-19 13:32:37,130 - analyzer.analyzer - INFO - ✅ Aktion 2: 
+2025-12-19 13:32:53,804 - analyzer.analyzer - INFO - ✅ Aktion 3: Melde dich bei einem bestehend
+2025-12-19 13:32:59,501 - analyzer.analyzer - INFO - ✅ Aktion 4: Accept
+2025-12-19 13:33:03,989 - analyzer.analyzer - INFO - ✅ Aktion 5: 
+2025-12-19 13:33:09,155 - analyzer.analyzer - INFO - ✅ Aktion 6: Melde dich bei einem bestehend
+2025-12-19 13:33:15,496 - analyzer.analyzer - INFO - ✅ Aktion 7: 
+2025-12-19 13:33:20,599 - analyzer.analyzer - INFO - ✅ Aktion 8: Melde dich bei einem bestehend
+2025-12-19 13:33:30,456 - analyzer.analyzer - INFO - ✅ Random-Walk abgeschlossen: 8 Aktionen
+2025-12-19 13:33:30,456 - analyzer.analyzer - INFO - ✅ 8 Interaktionen durchgeführt
+2025-12-19 13:33:32,457 - analyzer.analyzer - INFO - 📊 Sammle Daten von allen Detektoren...
+2025-12-19 13:33:32,462 - detectors.history_api_detector - INFO - History-Daten: 6 pushState, 2 replaceState, 0 popstate (Script aktiv: True)
+2025-12-19 13:33:32,467 - detectors.dom_rewriting_detector - INFO - DOM-Daten gesammelt (Observer: True):
+  📊 BASELINE: 10 Mutations, 31 Node-Changes
+  🎯 POST-CLICK: 50 Mutations, 50 Node-Changes
+  📈 GESAMT: 63 Mutations, 84 Node-Changes
+  🪟 Click-Windows: 7
+2025-12-19 13:33:32,470 - detectors.title_change_detector - INFO - Title-Daten: 1 Änderungen (Observer aktiv: True, Injections: 1)
+2025-12-19 13:33:32,470 - analyzer.analyzer - INFO - ✅ Datensammlung abgeschlossen
+2025-12-19 13:33:32,470 - analyzer.analyzer - INFO - 
+🔬 Analysiere Signale...
+2025-12-19 13:33:32,473 - analyzer.analyzer - INFO - 
+============================================================
+2025-12-19 13:33:32,473 - analyzer.analyzer - INFO - 📊 FINALE AUSWERTUNG (mit Hard Signal Gating)
+2025-12-19 13:33:32,473 - analyzer.analyzer - INFO - ============================================================
+2025-12-19 13:33:32,473 - analyzer.analyzer - INFO - 🎯 HARD SIGNAL VORHANDEN: History-API Navigation erkannt
+2025-12-19 13:33:32,473 - analyzer.analyzer - INFO - 📉 ANTI-SIGNAL: 11 Frame-Navigations → Score -0.15
+2025-12-19 13:33:33,360 - __main__ - INFO - ✅ Browser bereinigt

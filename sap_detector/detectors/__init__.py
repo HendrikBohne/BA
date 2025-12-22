@@ -1,11 +1,6 @@
 """
-SPA Detection Tool - Detectors Package (FIXED v2)
-Exportiert alle Detector-Klassen für einfachen Import
-
-FIXES:
-- History, DOM und Title Detektoren verwenden jetzt add_init_script()
-- Scripts überleben Browser-Navigationen
-- Gelockerte Schwellwerte für bessere Erkennung
+SPA Detection Tool - Detectors Package (v4)
+Mit Baseline/Post-Click Trennung und Analytics-Filterung
 """
 
 from .detection_result import DetectionResult

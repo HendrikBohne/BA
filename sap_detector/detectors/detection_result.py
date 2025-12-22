@@ -1,6 +1,6 @@
 """
 SPA Detection Tool - Detection Result Dataclass
-Einheitliches Ergebnis-Format für alle Detektoren
+Einheitliches Ergebnis-Format fÃ¼r alle Detektoren
 """
 from dataclasses import dataclass
 from typing import Dict, Any, Optional

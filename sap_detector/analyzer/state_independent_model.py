@@ -3,9 +3,9 @@ SPA Detection Tool - State-Independent Model
 Basiert auf: "Improving Behavioral Program Analysis with Environment Models"
 https://link.springer.com/chapter/10.1007/978-3-031-49187-0_9
 
-Modell: (E, λ)
+Modell: (E, Î»)
 - E: Menge aller beobachteten Action Candidates
-- λ(c, c'): Wahrscheinlichkeit dass c' nach c verfügbar ist
+- Î»(c, c'): Wahrscheinlichkeit dass c' nach c verfÃ¼gbar ist
 """
 import logging
 from typing import Dict, Set
@@ -15,12 +15,12 @@ logger = logging.getLogger(__name__)
 
 class StateIndependentModel:
     """
-    State-Independent Model für Model-Guided Random Walk
+    State-Independent Model fÃ¼r Model-Guided Random Walk
     
     Das Modell kodiert Beziehungen zwischen Action Candidates der Form:
     "Wenn du A machst, dann kannst du B machen"
     
-    Dies ist unabhängig vom State in dem A ausgeführt wird.
+    Dies ist unabhÃ¤ngig vom State in dem A ausgefÃ¼hrt wird.
     """
     
     def __init__(self, w_model: float = 25.0):
@@ -35,10 +35,10 @@ class StateIndependentModel:
         # E: Alle beobachteten Candidates
         self.all_candidates: Set[str] = set()
         
-        # Bereits ausgeführte Candidates
+        # Bereits ausgefÃ¼hrte Candidates
         self.executed_candidates: Set[str] = set()
         
-        # λ(c, c'): Nachfolger-Wahrscheinlichkeiten
+        # Î»(c, c'): Nachfolger-Wahrscheinlichkeiten
         # candidate_successors[c][c'] = Anzahl wie oft c' nach c beobachtet wurde
         self.candidate_successors: Dict[str, Dict[str, int]] = {}
         
@@ -60,16 +60,16 @@ class StateIndependentModel:
     
     def execute_candidate(self, executed: str, successors: list):
         """
-        Registriert Ausführung eines Candidates und dessen Nachfolger
+        Registriert AusfÃ¼hrung eines Candidates und dessen Nachfolger
         
         Args:
-            executed: Der ausgeführte Candidate
-            successors: Nach der Ausführung verfügbare Candidates
+            executed: Der ausgefÃ¼hrte Candidate
+            successors: Nach der AusfÃ¼hrung verfÃ¼gbare Candidates
         """
-        # Markiere als ausgeführt
+        # Markiere als ausgefÃ¼hrt
         self.executed_candidates.add(executed)
         
-        # Initialisiere Nachfolger-Dict falls nötig
+        # Initialisiere Nachfolger-Dict falls nÃ¶tig
         if executed not in self.candidate_successors:
             self.candidate_successors[executed] = {}
         
@@ -78,14 +78,14 @@ class StateIndependentModel:
             self.candidate_successors[executed][succ] = \
                 self.candidate_successors[executed].get(succ, 0) + 1
         
-        logger.debug(f"Model-Update: {executed[:30]}... → {len(successors)} Nachfolger")
+        logger.debug(f"Model-Update: {executed[:30]}... â†’ {len(successors)} Nachfolger")
     
     def get_lambda(self, c: str, c_prime: str) -> float:
         """
-        Berechnet λ(c, c'): Wahrscheinlichkeit dass c' nach c verfügbar ist
+        Berechnet Î»(c, c'): Wahrscheinlichkeit dass c' nach c verfÃ¼gbar ist
         
         Args:
-            c: Ausgeführter Candidate
+            c: AusgefÃ¼hrter Candidate
             c_prime: Nachfolger-Candidate
             
         Returns:
@@ -99,7 +99,7 @@ class StateIndependentModel:
         if c_prime not in succ_dict:
             return 0.0
         
-        # P(c' | c) = count(c → c') / count(c executed)
+        # P(c' | c) = count(c â†’ c') / count(c executed)
         # Approximation: Nutze Observations als Nenner
         total_observations = self.candidate_observations.get(c, 1)
         successor_count = succ_dict[c_prime]
@@ -108,7 +108,7 @@ class StateIndependentModel:
     
     def get_successor_candidates(self, c: str) -> Set[str]:
         """
-        Gibt Menge Sc zurück: Alle Nachfolger von c mit λ(c, c') > 0
+        Gibt Menge Sc zurÃ¼ck: Alle Nachfolger von c mit Î»(c, c') > 0
         
         Args:
             c: Candidate-ID
@@ -123,10 +123,10 @@ class StateIndependentModel:
     
     def calculate_ratio(self, c: str) -> float:
         """
-        Berechnet rc: Ratio nicht-ausgeführter Nachfolger
+        Berechnet rc: Ratio nicht-ausgefÃ¼hrter Nachfolger
         
         Formel aus Paper:
-        rc = Σ λ(c, c') für alle nicht-ausgeführten c' / |Sc|
+        rc = Î£ Î»(c, c') fÃ¼r alle nicht-ausgefÃ¼hrten c' / |Sc|
         
         Args:
             c: Candidate-ID
@@ -139,7 +139,7 @@ class StateIndependentModel:
         if len(successors) == 0:
             return 0.0
         
-        # Summe der Wahrscheinlichkeiten für nicht-ausgeführte Nachfolger
+        # Summe der Wahrscheinlichkeiten fÃ¼r nicht-ausgefÃ¼hrte Nachfolger
         sum_unexecuted = 0.0
         for c_prime in successors:
             if c_prime not in self.executed_candidates:
@@ -152,7 +152,7 @@ class StateIndependentModel:
     
     def calculate_weight(self, c: str, base_weight: float = 1.0) -> float:
         """
-        Berechnet finales Gewicht für Candidate c
+        Berechnet finales Gewicht fÃ¼r Candidate c
         
         Formel aus Paper (Gleichung 1):
         wc = w_random_walk * (1 + rc * w_model)
@@ -167,13 +167,13 @@ class StateIndependentModel:
         rc = self.calculate_ratio(c)
         weight = base_weight * (1 + rc * self.w_model)
         
-        logger.debug(f"Gewicht für {c[:30]}...: base={base_weight:.2f}, rc={rc:.3f}, final={weight:.2f}")
+        logger.debug(f"Gewicht fÃ¼r {c[:30]}...: base={base_weight:.2f}, rc={rc:.3f}, final={weight:.2f}")
         
         return weight
     
     def get_stats(self) -> Dict:
         """
-        Gibt Statistiken über das Modell zurück
+        Gibt Statistiken Ã¼ber das Modell zurÃ¼ck
         
         Returns:
             Dictionary mit Statistiken

@@ -1,0 +1,13 @@
+2025-12-19 12:51:44,531 - __main__ - INFO - 📄 20 URLs aus Datei geladen: nospaurls.txt
+
+2025-12-19 12:51:44,531 - __main__ - INFO - 🦊 Starte Firefox...
+2025-12-19 12:51:48,140 - __main__ - INFO - ✅ Browser bereit
+
+2025-12-19 12:51:48,140 - __main__ - INFO - 🌐 Lade URL: https://www.wikipedia.org/ (Versuch 1/3)
+2025-12-19 12:51:52,328 - __main__ - ERROR - Cleanup-Fehler: BrowserContext.close: Target page, context or browser has been closed
+2025-12-19 12:51:52,334 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed\nCall log:\n  - navigating to "https://www.wikipedia.org/", waiting until "networkidle"\n')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://www.wikipedia.org/", waiting until "networkidle"
+

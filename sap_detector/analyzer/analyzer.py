@@ -1,11 +1,11 @@
 """
-SPA Detection Tool - Main Analyzer (FIXED v3)
+SPA Detection Tool - Main Analyzer (v4 - mit Hard Signal Gating)
 Haupt-Analyzer der alle Detektoren koordiniert
 
-FIXES v3:
-- Kontinuierliche Datensammlung während der Interaktionen
-- Re-Injection nach jeder Navigation
-- Robustere Fehlerbehandlung
+ÄNDERUNGEN v4:
+1. HARD SIGNAL GATING: Ohne History-API zählen DOM/Network weniger
+2. POST-CLICK MESSUNG: Click-Windows für DOM und Network
+3. ANTI-SIGNAL: Full Document Navigation reduziert Score
 """
 import asyncio
 import logging
@@ -44,16 +44,28 @@ class SPAAnalysisResult:
 
 
 class SPAAnalyzer:
-    """Haupt-Analyzer mit robustem Error-Handling"""
+    """
+    Haupt-Analyzer mit:
+    - Hard Signal Gating
+    - Post-Click Messung
+    - Anti-Signal für Full Navigation
+    """
     
-    SIGNAL_WEIGHTS = SIGNAL_WEIGHTS
+    # Basis-Gewichte (werden durch Gating modifiziert)
+    SIGNAL_WEIGHTS = {
+        "History-API Navigation": 0.40,      # HARD SIGNAL - höchstes Gewicht
+        "Network Activity Pattern": 0.20,    # Reduziert von 0.30
+        "DOM Rewriting Pattern": 0.20,       # Reduziert von 0.25
+        "Title Change Pattern": 0.10,
+        "Clickable Element Pattern": 0.10,
+    }
     
     def __init__(self, page: Page):
         self.page = page
         self.url = page.url if page else None
         self.errors = []
-        self._last_url = None
         self._navigation_count = 0
+        self._last_url = None
         
         # Detektoren
         self.history_detector = HistoryAPIDetector()
@@ -70,25 +82,20 @@ class SPAAnalyzer:
         logger.info("🔧 Initialisiere Detektoren...")
         
         try:
-            # Handle Cookies zuerst
             await self.cookie_handler.handle_cookies(self.page)
             await self.cookie_handler.close_popups(self.page)
             
-            # Speichere initiale URL
             self._last_url = self.page.url
             
-            # Injiziere Monitoring-Code
+            # Navigation-Tracking für Anti-Signal
+            self.page.on("framenavigated", self._on_navigation)
+            
             await self.history_detector.inject_monitors(self.page)
             await self.dom_detector.inject_observer(self.page)
             await self.title_detector.inject_observer(self.page)
-            
-            # Setup Network-Listener
             await self.network_detector.setup_listeners(self.page)
             
-            # Navigation-Listener für Re-Injection
-            self.page.on("framenavigated", self._on_navigation)
-            
-            logger.info("✅ Alle Detektoren bereit")
+            logger.info("✅ Alle Detektoren bereit (v4 - mit Hard Signal Gating)")
             
         except Exception as e:
             error_msg = f"Setup-Fehler: {e}"
@@ -96,84 +103,39 @@ class SPAAnalyzer:
             self.errors.append(error_msg)
     
     def _on_navigation(self, frame):
-        """Wird bei jeder Navigation aufgerufen"""
+        """Zählt Full Document Navigations (Anti-Signal)"""
         try:
             if frame == self.page.main_frame:
                 self._navigation_count += 1
                 new_url = frame.url
-                logger.debug(f"Navigation #{self._navigation_count}: {self._last_url} → {new_url}")
+                logger.debug(f"📄 Document Navigation #{self._navigation_count}: {new_url}")
                 self._last_url = new_url
         except Exception as e:
             logger.debug(f"Navigation-Tracking Fehler: {e}")
     
-    async def _ensure_scripts_active(self):
-        """Stellt sicher dass die Scripts aktiv sind"""
-        try:
-            # Prüfe ob Scripts noch aktiv sind
-            status = await self.page.evaluate("""
-                () => ({
-                    history: !!(window.__spa_detection && window.__spa_detection.history),
-                    dom: !!(window.__spa_detection && window.__spa_detection.dom),
-                    domActive: !!(window.__spa_detection && window.__spa_detection.dom && window.__spa_detection.dom.observerActive)
-                })
-            """)
-            
-            if not status.get('history') or not status.get('dom'):
-                logger.warning("⚠️  Scripts nicht aktiv, re-injiziere...")
-                # Re-inject manually
-                await self.history_detector.inject_monitors(self.page)
-                await self.dom_detector.inject_observer(self.page)
-                await self.title_detector.inject_observer(self.page)
-                
-            return status
-            
-        except Exception as e:
-            logger.debug(f"Script-Check fehlgeschlagen: {e}")
-            return {'history': False, 'dom': False, 'domActive': False}
-    
-    async def _safe_collect_data(self):
-        """Sammelt Daten mit Fehlerbehandlung"""
-        try:
-            # Warte kurz auf Stabilität
-            await asyncio.sleep(0.5)
-            
-            # Prüfe Scripts
-            await self._ensure_scripts_active()
-            
-            # Sammle Daten
-            await self.history_detector.collect_data(self.page)
-            await self.dom_detector.collect_data(self.page)
-            await self.title_detector.collect_data(self.page)
-            
-            return True
-            
-        except Exception as e:
-            logger.warning(f"Datensammlung fehlgeschlagen: {e}")
-            return False
-    
     async def perform_interactions(self, strategy: str = "smart", max_actions: int = 10):
-        """Führt robuste Interaktionen aus mit kontinuierlicher Datensammlung"""
+        """Führt Interaktionen mit Click-Window Tracking durch"""
         logger.info(f"🎮 Starte Interaktionen (Strategie: {strategy})...")
         
         total_actions = 0
         
         try:
-            # Scrolle Seite zuerst
+            # Baseline-Phase: Warte 3 Sekunden für Initial-Load
+            logger.info("⏳ Baseline-Phase (3s Initial Load)...")
+            await asyncio.sleep(3)
+            
+            # Scrolle Seite
             await self.interaction_strategy.scroll_page(self.page)
             
-            # Sammle initiale Daten
-            await self._safe_collect_data()
-            
-            # Führe Interaktionen einzeln aus mit Zwischensammlung
-            if strategy == "smart" or strategy == "random_walk":
-                total_actions = await self._interactive_random_walk(max_actions)
+            # Interaktionen mit Click-Windows
+            if strategy in ["smart", "random_walk"]:
+                total_actions = await self._interactive_with_windows(max_actions)
             elif strategy == "navigation":
-                total_actions = await self._interactive_navigation(max_actions)
+                total_actions = await self._navigation_with_windows(max_actions)
             elif strategy == "model_guided":
-                total_actions = await self._interactive_model_guided(max_actions)
+                total_actions = await self._model_guided_with_windows(max_actions)
             else:
-                logger.warning(f"Unbekannte Strategie: {strategy}, verwende 'smart'")
-                total_actions = await self._interactive_random_walk(max_actions)
+                total_actions = await self._interactive_with_windows(max_actions)
             
             logger.info(f"✅ {total_actions} Interaktionen durchgeführt")
             
@@ -184,19 +146,18 @@ class SPAAnalyzer:
         
         return total_actions
     
-    async def _interactive_random_walk(self, max_actions: int) -> int:
-        """Random Walk mit kontinuierlicher Datensammlung"""
+    async def _interactive_with_windows(self, max_actions: int) -> int:
+        """Random Walk mit Click-Window Tracking für DOM und Network"""
         actions = 0
         failed = 0
         
-        logger.info(f"🎮 Starte Smart Random-Walk (max {max_actions} Aktionen)...")
+        logger.info(f"🎮 Starte Smart Random-Walk mit Click-Windows (max {max_actions})...")
         
         for i in range(max_actions):
             if failed >= 3:
                 break
-                
+            
             try:
-                # Finde nur sichere Elemente
                 clickables = await self._get_safe_clickables()
                 
                 if not clickables:
@@ -204,11 +165,15 @@ class SPAAnalyzer:
                     await asyncio.sleep(0.5)
                     continue
                 
-                # Wähle Element
                 import random
                 target = random.choice(clickables)
                 
-                # Klicke
+                # ======= CLICK-WINDOW STARTEN =======
+                label = target['text'][:20] or f"click_{i}"
+                await self.dom_detector.start_click_window(self.page, label)
+                self.network_detector.start_click_window(label)
+                
+                # Klick ausführen
                 success = await self._safe_click(target)
                 
                 if success:
@@ -216,27 +181,30 @@ class SPAAnalyzer:
                     failed = 0
                     logger.info(f"✅ Aktion {actions}: {target['text'][:30]}")
                     
-                    # Warte und sammle Daten nach jeder Aktion
-                    await asyncio.sleep(1)
-                    await self._safe_collect_data()
+                    # Warte auf Reaktion
+                    await asyncio.sleep(1.5)
                 else:
                     failed += 1
-                    
+                
+                # ======= CLICK-WINDOW BEENDEN =======
+                await self.dom_detector.end_click_window(self.page)
+                self.network_detector.end_click_window()
+                
+                await asyncio.sleep(0.5)
+                
             except Exception as e:
                 logger.debug(f"Interaktion fehlgeschlagen: {e}")
                 failed += 1
         
-        logger.info(f"✅ Random-Walk abgeschlossen: {actions} erfolgreiche Aktionen")
+        logger.info(f"✅ Random-Walk abgeschlossen: {actions} Aktionen")
         return actions
     
-    async def _interactive_navigation(self, max_actions: int) -> int:
-        """Navigation Test mit kontinuierlicher Datensammlung"""
-        actions = await self.interaction_strategy.test_navigation(self.page, max_actions)
-        await self._safe_collect_data()
-        return actions
+    async def _navigation_with_windows(self, max_actions: int) -> int:
+        """Navigation Test mit Click-Windows"""
+        return await self.interaction_strategy.test_navigation(self.page, max_actions)
     
-    async def _interactive_model_guided(self, max_actions: int) -> int:
-        """Model-Guided mit kontinuierlicher Datensammlung"""
+    async def _model_guided_with_windows(self, max_actions: int) -> int:
+        """Model-Guided mit Click-Windows"""
         from .model_guided_strategy import ModelGuidedStrategy
         from .state_independent_model import StateIndependentModel
         
@@ -244,12 +212,12 @@ class SPAAnalyzer:
         actions = 0
         failed = 0
         
-        logger.info(f"🧠 Starte Model-Guided Random-Walk (max {max_actions} Aktionen)...")
+        logger.info(f"🧠 Starte Model-Guided mit Click-Windows (max {max_actions})...")
         
         for i in range(max_actions):
             if failed >= 3:
                 break
-                
+            
             try:
                 clickables = await self._get_safe_clickables()
                 
@@ -258,11 +226,10 @@ class SPAAnalyzer:
                     await asyncio.sleep(0.5)
                     continue
                 
-                # Candidate IDs erstellen
+                # Model-basierte Auswahl
                 candidate_ids = [ModelGuidedStrategy.create_candidate_id(c) for c in clickables]
                 model.observe_candidates(candidate_ids)
                 
-                # Gewichte berechnen
                 import random
                 weights = []
                 for idx, c_id in enumerate(candidate_ids):
@@ -273,7 +240,6 @@ class SPAAnalyzer:
                         w = base * 2.0
                     weights.append(w)
                 
-                # Weighted choice
                 total = sum(weights)
                 if total > 0:
                     r = random.uniform(0, total)
@@ -288,6 +254,12 @@ class SPAAnalyzer:
                     target_idx = random.randint(0, len(clickables) - 1)
                 
                 target = clickables[target_idx]
+                
+                # Click-Window
+                label = target['text'][:20] or f"click_{i}"
+                await self.dom_detector.start_click_window(self.page, label)
+                self.network_detector.start_click_window(label)
+                
                 success = await self._safe_click(target)
                 
                 if success:
@@ -295,35 +267,34 @@ class SPAAnalyzer:
                     failed = 0
                     logger.info(f"✅ Aktion {actions}: {target['text'][:30]}")
                     
-                    # Sammle Nachfolger
-                    await asyncio.sleep(0.5)
+                    await asyncio.sleep(1.5)
+                    
+                    # Model Update
                     successors = await self._get_safe_clickables()
                     successor_ids = [ModelGuidedStrategy.create_candidate_id(s) for s in successors]
                     model.execute_candidate(candidate_ids[target_idx], successor_ids)
-                    
-                    # Daten sammeln
-                    await asyncio.sleep(0.5)
-                    await self._safe_collect_data()
                 else:
                     failed += 1
-                    
+                
+                await self.dom_detector.end_click_window(self.page)
+                self.network_detector.end_click_window()
+                
+                await asyncio.sleep(0.5)
+                
             except Exception as e:
-                logger.debug(f"Model-guided Interaktion fehlgeschlagen: {e}")
+                logger.debug(f"Model-guided fehlgeschlagen: {e}")
                 failed += 1
         
         stats = model.get_stats()
-        logger.info(f"✅ Model-Guided Random-Walk abgeschlossen: {actions} erfolgreiche Aktionen")
-        logger.info(f"📊 Model-Stats: {stats['total_candidates']} Candidates, {stats['executed_candidates']} ausgeführt ({stats['execution_rate']:.1%})")
+        logger.info(f"✅ Model-Guided abgeschlossen: {actions} Aktionen")
+        logger.info(f"📊 Model-Stats: {stats['total_candidates']} Candidates, {stats['executed_candidates']} ausgeführt")
         return actions
     
     async def _get_safe_clickables(self) -> list:
-        """Findet nur SICHERE klickbare Elemente (keine echten Navigationen)"""
+        """Findet sichere klickbare Elemente"""
         try:
             return await self.page.evaluate("""
                 () => {
-                    const currentHostname = window.location.hostname;
-                    
-                    // BLACKLIST: Diese Texte/Klassen triggern oft echte Navigationen
                     const blacklist = [
                         'live', 'app holen', 'download', 'herunterladen', 'install',
                         'creator', 'tool', 'studio', 'business', 'ads', 'werbung',
@@ -333,56 +304,32 @@ class SPAAnalyzer:
                         'cookie', 'einstellungen', 'settings', 'language', 'sprache'
                     ];
                     
-                    // Nur diese Elemente sind sicher
                     const safeElements = [
                         ...document.querySelectorAll('[role="button"]:not([href])'),
                         ...document.querySelectorAll('[role="tab"]'),
-                        ...document.querySelectorAll('[role="menuitem"]:not([href])'),
                         ...document.querySelectorAll('button:not([type="submit"]):not([formaction])'),
                         ...document.querySelectorAll('[onclick]:not(a)'),
                         ...document.querySelectorAll('div[tabindex="0"]'),
-                        ...document.querySelectorAll('span[tabindex="0"]'),
+                        ...document.querySelectorAll('a[href^="#"]:not([href="#"])'),
                     ];
                     
-                    // Auch Hash-Links sind sicher
-                    const hashLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
-                    
-                    const allElements = [...safeElements, ...hashLinks];
-                    
-                    return allElements
+                    return safeElements
                         .filter(el => {
                             try {
                                 const rect = el.getBoundingClientRect();
                                 const style = window.getComputedStyle(el);
                                 
-                                // Sichtbarkeits-Check
                                 if (rect.width < 10 || rect.height < 10 || 
-                                    rect.top < 0 || rect.left < 0 ||
-                                    rect.top >= window.innerHeight ||
-                                    rect.bottom <= 0 ||
-                                    style.display === 'none' ||
-                                    style.visibility === 'hidden' ||
-                                    parseFloat(style.opacity) < 0.1) {
+                                    rect.top < 0 || rect.top >= window.innerHeight ||
+                                    style.display === 'none' || style.visibility === 'hidden') {
                                     return false;
                                 }
                                 
-                                // Blacklist-Check
                                 const text = (el.textContent || '').toLowerCase().trim();
                                 const className = (el.className || '').toString().toLowerCase();
-                                const ariaLabel = (el.getAttribute('aria-label') || '').toLowerCase();
                                 
                                 for (const blocked of blacklist) {
-                                    if (text.includes(blocked) || 
-                                        className.includes(blocked) ||
-                                        ariaLabel.includes(blocked)) {
-                                        return false;
-                                    }
-                                }
-                                
-                                // Keine Links mit echten hrefs
-                                if (el.tagName.toLowerCase() === 'a') {
-                                    const href = el.getAttribute('href') || '';
-                                    if (!href.startsWith('#') || href === '#') {
+                                    if (text.includes(blocked) || className.includes(blocked)) {
                                         return false;
                                     }
                                 }
@@ -418,32 +365,25 @@ class SPAAnalyzer:
     async def _safe_click(self, target: dict) -> bool:
         """Führt einen sicheren Klick aus"""
         try:
-            # Versuche direkten Klick
             try:
                 await self.page.click(target['selector'], timeout=2000)
                 return True
             except:
                 pass
             
-            # Fallback: JS Klick
             try:
                 clicked = await self.page.evaluate(f"""
                     () => {{
                         const els = document.querySelectorAll('{target["selector"]}');
                         const el = els[{target.get("index", 0)}];
-                        if (el) {{
-                            el.click();
-                            return true;
-                        }}
+                        if (el) {{ el.click(); return true; }}
                         return false;
                     }}
                 """)
                 return clicked
             except:
                 return False
-                
-        except Exception as e:
-            logger.debug(f"Klick fehlgeschlagen: {e}")
+        except:
             return False
 
     async def collect_all_data(self):
@@ -451,9 +391,10 @@ class SPAAnalyzer:
         logger.info("📊 Sammle Daten von allen Detektoren...")
         
         try:
-            await self._safe_collect_data()
+            await self.history_detector.collect_data(self.page)
+            await self.dom_detector.collect_data(self.page)
+            await self.title_detector.collect_data(self.page)
             logger.info("✅ Datensammlung abgeschlossen")
-            
         except Exception as e:
             error_msg = f"Datensammlung-Fehler: {e}"
             logger.error(error_msg)
@@ -462,61 +403,50 @@ class SPAAnalyzer:
     async def analyze(self, interact: bool = True, 
                      interaction_strategy: str = "smart",
                      max_interactions: int = 10) -> SPAAnalysisResult:
-        """Führt komplette SPA-Analyse durch"""
+        """Führt komplette SPA-Analyse mit Hard Signal Gating durch"""
         logger.info("=" * 60)
-        logger.info("🔍 SPA-ANALYSE GESTARTET")
+        logger.info("🔍 SPA-ANALYSE GESTARTET (v4 - Hard Signal Gating)")
         logger.info("=" * 60)
         logger.info(f"URL: {self.url}")
         
         try:
-            # Setup
             await self.setup()
             
-            # Initiales Warten
-            logger.info("⏳ Warte auf initiales Rendering...")
-            await asyncio.sleep(2)
-            
-            # Interaktionen
             if interact:
                 await self.perform_interactions(interaction_strategy, max_interactions)
                 await asyncio.sleep(2)
             else:
                 logger.info("ℹ️  Interaktionen übersprungen (--no-interact)")
+                await asyncio.sleep(3)  # Baseline abwarten
             
-            # Finale Datensammlung
             await self.collect_all_data()
             
-            # Analysen durchführen
             logger.info("\n🔬 Analysiere Signale...")
             results = []
             
-            # Signal 1: History-API
+            # Alle Signale analysieren
             result1 = self.history_detector.analyze()
             results.append(result1)
             self._print_signal_result(result1)
             
-            # Signal 2: Network
             result2 = self.network_detector.analyze()
             results.append(result2)
             self._print_signal_result(result2)
             
-            # Signal 3: DOM
             result3 = self.dom_detector.analyze()
             results.append(result3)
             self._print_signal_result(result3)
             
-            # Signal 4: Title
             result4 = self.title_detector.analyze()
             results.append(result4)
             self._print_signal_result(result4)
             
-            # Signal 5: Clickables
             result5 = await self.clickable_detector.scan_dom(self.page)
             results.append(result5)
             self._print_signal_result(result5)
             
-            # Finale Auswertung
-            return self._compute_final_result(results)
+            # Finale Auswertung MIT HARD SIGNAL GATING
+            return self._compute_final_result_with_gating(results)
             
         except Exception as e:
             error_msg = f"Kritischer Analyse-Fehler: {e}"
@@ -524,16 +454,11 @@ class SPAAnalyzer:
             self.errors.append(error_msg)
             
             return SPAAnalysisResult(
-                is_spa=False,
-                confidence=0.0,
-                overall_score=0.0,
-                signal_results=[],
-                detected_signals=0,
-                total_signals=5,
+                is_spa=False, confidence=0.0, overall_score=0.0,
+                signal_results=[], detected_signals=0, total_signals=5,
                 verdict="❌ ANALYSE FEHLGESCHLAGEN",
                 recommendations=["Prüfe Logs für Details"],
-                url=self.url,
-                errors=self.errors
+                url=self.url, errors=self.errors
             )
     
     def _print_signal_result(self, result: DetectionResult):
@@ -548,53 +473,122 @@ class SPAAnalyzer:
         if result.error:
             print(f"   ⚠️  Error: {result.error}")
     
-    def _compute_final_result(self, results: List[DetectionResult]) -> SPAAnalysisResult:
-        """Berechnet finales SPA-Urteil"""
+    def _compute_final_result_with_gating(self, results: List[DetectionResult]) -> SPAAnalysisResult:
+        """
+        Berechnet finales SPA-Urteil MIT HARD SIGNAL GATING.
+        
+        REGEL: Ohne History-API (Hard Signal) zählen DOM/Network nur 35%!
+        ANTI-SIGNAL: Viele Frame-Navigations reduzieren den Score.
+        """
         logger.info("\n" + "=" * 60)
-        logger.info("📊 FINALE AUSWERTUNG")
+        logger.info("📊 FINALE AUSWERTUNG (mit Hard Signal Gating)")
         logger.info("=" * 60)
         
+        # ============================================
+        # 1. PRÜFE HARD SIGNAL (History-API)
+        # ============================================
+        history_result = next((r for r in results if r.signal_name == "History-API Navigation"), None)
+        hard_signal_present = history_result and history_result.detected
+        
+        if hard_signal_present:
+            logger.info("🎯 HARD SIGNAL VORHANDEN: History-API Navigation erkannt")
+        else:
+            logger.info("⚠️  KEIN HARD SIGNAL: History-API nicht erkannt")
+        
+        # ============================================
+        # 2. BERECHNE SCORE MIT GATING
+        # ============================================
         detected_count = sum(1 for r in results if r.detected)
-        total_count = len(results)
         
         weighted_score = 0.0
+        gating_applied = False
+        
         for result in results:
             weight = self.SIGNAL_WEIGHTS.get(result.signal_name, 0.1)
+            
             if result.detected:
-                weighted_score += weight * result.confidence
+                contribution = weight * result.confidence
+                
+                # GATING: Ohne Hard Signal zählen DOM/Network nur 35%
+                if not hard_signal_present:
+                    if result.signal_name in ["DOM Rewriting Pattern", "Network Activity Pattern"]:
+                        contribution *= 0.35
+                        gating_applied = True
+                
+                weighted_score += contribution
         
+        if gating_applied:
+            logger.info("📉 GATING ANGEWENDET: DOM/Network auf 35% reduziert")
+        
+        # ============================================
+        # 3. ANTI-SIGNAL: Full Document Navigation
+        # ============================================
+        history_calls = 0
+        if history_result and history_result.evidence:
+            history_calls = history_result.evidence.get('total_history_calls', 0)
+        
+        frame_navs = self._navigation_count
+        
+        # Anti-Signal: Viele Frame-Navigations ohne entsprechende History-Calls
+        if frame_navs >= 3 and history_calls < frame_navs:
+            anti_signal_penalty = min(0.25, (frame_navs - history_calls) * 0.05)
+            weighted_score = max(0.0, weighted_score - anti_signal_penalty)
+            logger.info(f"📉 ANTI-SIGNAL: {frame_navs} Frame-Navigations → Score -{anti_signal_penalty:.2f}")
+        
+        # ============================================
+        # 4. FINALE ENTSCHEIDUNG
+        # ============================================
         is_spa = False
         confidence = 0.0
         verdict = ""
         
-        if detected_count >= 4:
-            is_spa = True
-            confidence = min(0.98, weighted_score + 0.1)
-            verdict = "🎯 DEFINITIV SPA"
-        elif detected_count >= 3 and weighted_score >= 0.5:
-            is_spa = True
-            confidence = min(0.95, weighted_score)
-            verdict = "✅ SEHR WAHRSCHEINLICH SPA"
-        elif detected_count >= 2 and weighted_score >= 0.4:
-            is_spa = True
-            confidence = min(0.85, weighted_score)
-            verdict = "✅ WAHRSCHEINLICH SPA"
-        elif detected_count >= 1 and weighted_score >= 0.3:
-            is_spa = True
-            confidence = min(0.70, weighted_score)
-            verdict = "⚠️  MÖGLICHERWEISE SPA"
+        # MIT Hard Signal: Normale Schwellwerte
+        if hard_signal_present:
+            if detected_count >= 4 or weighted_score >= 0.6:
+                is_spa = True
+                confidence = min(0.98, weighted_score + 0.1)
+                verdict = "🎯 DEFINITIV SPA"
+            elif detected_count >= 3 and weighted_score >= 0.45:
+                is_spa = True
+                confidence = min(0.90, weighted_score)
+                verdict = "✅ SEHR WAHRSCHEINLICH SPA"
+            elif detected_count >= 2 and weighted_score >= 0.35:
+                is_spa = True
+                confidence = min(0.80, weighted_score)
+                verdict = "✅ WAHRSCHEINLICH SPA"
+            else:
+                is_spa = True
+                confidence = min(0.65, weighted_score)
+                verdict = "⚠️  MÖGLICHERWEISE SPA"
+        
+        # OHNE Hard Signal: Sehr strenge Schwellwerte
         else:
-            is_spa = False
-            confidence = weighted_score
-            verdict = "❌ KEINE SPA"
+            if weighted_score >= 0.5 and detected_count >= 4:
+                # Alle anderen Signale müssen sehr stark sein
+                is_spa = True
+                confidence = min(0.60, weighted_score)
+                verdict = "⚠️  MÖGLICHERWEISE SPA (ohne History-API)"
+            elif weighted_score >= 0.3 and detected_count >= 3:
+                is_spa = False
+                confidence = weighted_score
+                verdict = "❓ DYNAMISCHE SEITE (kein klares SPA-Signal)"
+            else:
+                is_spa = False
+                confidence = weighted_score
+                verdict = "❌ KEINE SPA"
         
-        recommendations = self._generate_recommendations(results, detected_count, is_spa)
+        recommendations = self._generate_recommendations(results, detected_count, is_spa, hard_signal_present)
         
+        # ============================================
+        # 5. AUSGABE
+        # ============================================
         print(f"\n{'='*60}")
         print(f"🎯 ERGEBNIS: {verdict}")
         print(f"{'='*60}")
         print(f"URL: {self.url}")
-        print(f"Detektierte Signale: {detected_count}/{total_count}")
+        print(f"Hard Signal (History-API): {'✅ JA' if hard_signal_present else '❌ NEIN'}")
+        print(f"Detektierte Signale: {detected_count}/5")
+        print(f"Frame-Navigations: {frame_navs}")
         print(f"Gewichteter Score: {weighted_score:.3f}")
         print(f"Finale Confidence: {confidence:.2%}")
         print(f"{'='*60}")
@@ -615,7 +609,7 @@ class SPAAnalyzer:
             overall_score=weighted_score,
             signal_results=results,
             detected_signals=detected_count,
-            total_signals=total_count,
+            total_signals=5,
             verdict=verdict,
             recommendations=recommendations,
             url=self.url,
@@ -623,33 +617,25 @@ class SPAAnalyzer:
         )
     
     def _generate_recommendations(self, results: List[DetectionResult], 
-                                 detected_count: int, is_spa: bool) -> List[str]:
+                                 detected_count: int, is_spa: bool,
+                                 hard_signal: bool) -> List[str]:
         """Generiert intelligente Empfehlungen"""
         recommendations = []
         
+        if not hard_signal:
+            recommendations.append(
+                "Kein History-API Signal erkannt - prüfe ob die Seite tatsächlich SPA-Navigation nutzt"
+            )
+        
         if detected_count < 2:
             recommendations.append(
-                "Mehr Interaktionen durchführen (erhöhe --max-actions auf 15-20)"
-            )
-            recommendations.append(
-                "Versuche verschiedene Strategien (--strategy navigation)"
+                "Wenige Signale erkannt - erhöhe --max-actions auf 15-20"
             )
         
-        if not is_spa:
+        if not is_spa and detected_count >= 2:
             recommendations.append(
-                "Diese Seite scheint eine traditionelle Multi-Page Application zu sein"
+                "Dynamische Seite, aber keine eindeutige SPA - könnte Hybrid-App sein"
             )
-        
-        for result in results:
-            if not result.detected and not result.error:
-                if result.signal_name == "History-API Navigation":
-                    recommendations.append(
-                        "Teste Navigation-Links intensiver um History-API Calls zu triggern"
-                    )
-                elif result.signal_name == "DOM Rewriting Pattern":
-                    recommendations.append(
-                        "Klicke auf mehr verschiedene Elemente um DOM-Änderungen zu provozieren"
-                    )
         
         return recommendations[:5]
     
