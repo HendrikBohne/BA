@@ -1,0 +1,14 @@
+# DOM XSS Trigger Strategies - Dependencies
+# Python 3.9+
+
+# Browser Automation
+playwright>=1.40.0
+
+# Data Processing
+pyyaml>=6.0
+
+# Statistics (optional, für erweiterte Analyse)
+scipy>=1.10.0
+
+# Reporting (optional)
+jinja2>=3.0.0

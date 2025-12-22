@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test SPA 1 - Basic DOM XSS</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .nav { display: flex; gap: 20px; margin-bottom: 30px; }
+        .nav a { color: #007bff; cursor: pointer; text-decoration: underline; }
+        #content { padding: 20px; border: 1px solid #ddd; border-radius: 5px; min-height: 200px; }
+        .vulnerable { background: #fff3cd; padding: 10px; margin: 10px 0; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>🔬 Test SPA 1 - Basic DOM XSS</h1>
+    <p>Diese Test-SPA enthält bekannte DOM XSS Schwachstellen für Testzwecke.</p>
+    
+    <nav class="nav">
+        <a onclick="navigate('home')">Home</a>
+        <a onclick="navigate('about')">About</a>
+        <a onclick="navigate('search')">Search</a>
+        <a onclick="navigate('profile')">Profile</a>
+    </nav>
+    
+    <div id="content">
+        <p>Willkommen! Klicke auf einen Link oder nutze den Hash in der URL.</p>
+    </div>
+    
+    <script>
+        // VULNERABLE: Hash-based XSS
+        function loadFromHash() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                // SINK 1: innerHTML - VULNERABLE!
+                document.getElementById('content').innerHTML = 
+                    '<h2>Page: ' + decodeURIComponent(hash) + '</h2>' +
+                    '<p>Content loaded from hash.</p>';
+            }
+        }
+        
+        function navigate(page) {
+            window.location.hash = page;
+        }
+        
+        // Pages
+        const pages = {
+            home: '<h2>Home</h2><p>Welcome to our test application.</p>',
+            about: '<h2>About</h2><p>This is a test SPA with known vulnerabilities.</p>',
+            search: `
+                <h2>Search</h2>
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button onclick="doSearch()">Search</button>
+                <div id="searchResults"></div>
+            `,
+            profile: `
+                <h2>Profile</h2>
+                <input type="text" id="nameInput" placeholder="Your name">
+                <button onclick="updateProfile()">Update</button>
+                <div id="profileDisplay"></div>
+            `
+        };
+        
+        // VULNERABLE: Search function with innerHTML
+        function doSearch() {
+            const query = document.getElementById('searchInput').value;
+            // SINK 2: innerHTML with user input - VULNERABLE!
+            document.getElementById('searchResults').innerHTML = 
+                '<p>Results for: <strong>' + query + '</strong></p>';
+        }
+        
+        // VULNERABLE: Profile update with innerHTML
+        function updateProfile() {
+            const name = document.getElementById('nameInput').value;
+            // SINK 3: innerHTML - VULNERABLE!
+            document.getElementById('profileDisplay').innerHTML = 
+                '<p>Welcome, ' + name + '!</p>';
+        }
+        
+        // Router
+        window.addEventListener('hashchange', function() {
+            const page = window.location.hash.substring(1);
+            if (pages[page]) {
+                document.getElementById('content').innerHTML = pages[page];
+            } else {
+                loadFromHash();
+            }
+        });
+        
+        // Initial load
+        loadFromHash();
+    </script>
+    
+    <div class="vulnerable">
+        <h3>⚠️ Known Vulnerabilities:</h3>
+        <ul>
+            <li>Hash-based XSS: <code>#&lt;img src=x onerror=alert(1)&gt;</code></li>
+            <li>Search XSS: Enter <code>&lt;img src=x onerror=alert(1)&gt;</code> in search</li>
+            <li>Profile XSS: Enter payload in name field</li>
+        </ul>
+    </div>
+</body>
+</html>

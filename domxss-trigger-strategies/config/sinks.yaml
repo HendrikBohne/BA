@@ -1,0 +1,44 @@
+# DOM XSS Sinks - Gefährliche Operationen
+
+sinks:
+  html_injection:
+    critical:
+      - innerHTML
+      - outerHTML
+      - document.write
+      - document.writeln
+    high:
+      - insertAdjacentHTML
+
+  javascript_execution:
+    critical:
+      - eval
+      - Function
+      - setTimeout
+      - setInterval
+    high:
+      - script.src
+      - script.text
+
+  url_redirect:
+    high:
+      - location.href
+      - location.assign
+      - location.replace
+      - window.open
+    medium:
+      - a.href
+      - form.action
+
+severity_scores:
+  critical: 10
+  high: 7
+  medium: 4
+  low: 1
+
+detection_patterns:
+  inner_html: "\\.innerHTML\\s*="
+  outer_html: "\\.outerHTML\\s*="
+  document_write: "document\\.write(ln)?\\("
+  eval: "\\beval\\("
+  location_assign: "location\\.(href|assign|replace)"

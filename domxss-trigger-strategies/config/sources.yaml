@@ -1,0 +1,35 @@
+# DOM XSS Sources - Benutzerkontrollierte Eingaben
+
+sources:
+  url_based:
+    high_risk:
+      - document.location
+      - document.location.hash
+      - document.location.search
+      - document.location.pathname
+      - document.location.href
+    medium_risk:
+      - document.URL
+      - document.documentURI
+      - document.referrer
+
+  storage_based:
+    high_risk:
+      - localStorage.getItem
+      - sessionStorage.getItem
+    medium_risk:
+      - document.cookie
+
+  dom_based:
+    high_risk:
+      - window.name
+      - postMessage.data
+    medium_risk:
+      - input.value
+      - textarea.value
+
+detection_patterns:
+  location_hash: "location\\.hash"
+  location_search: "location\\.search"
+  local_storage: "localStorage\\.(getItem|\\[)"
+  post_message: "message\\.data|event\\.data"

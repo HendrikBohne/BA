@@ -1,0 +1,49 @@
+# DOM XSS Trigger Strategies - Default Configuration
+
+foxhound:
+  browser_path: null          # FOXHOUND_PATH env variable
+  headless: false
+  viewport:
+    width: 1920
+    height: 1080
+  timeout_ms: 30000
+
+strategies:
+  common:
+    max_actions: 50
+    action_delay_ms: 500
+    wait_after_action_ms: 1000
+    max_failures: 5
+
+  random_walk:
+    prefer_links_ratio: 0.7
+    
+  model_guided:
+    w_model: 25.0
+    exploration_bonus: 2.0
+    
+  dom_maximizer:
+    scroll_steps: 10
+    expand_all_accordions: true
+    max_dom_size: 50000
+
+analysis:
+  min_flow_confidence: 0.3
+  deduplicate_flows: true
+  exploitability_check: true
+  generate_poc: true
+
+coverage:
+  enabled: true
+  track_js_execution: true
+  track_dom_states: true
+
+reporting:
+  output_format: ["json", "html"]
+  include_evidence: true
+  include_screenshots: false
+
+logging:
+  level: INFO
+  file: logs/domxss_{timestamp}.log
+  console: true

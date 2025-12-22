@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test SPA 3 - Lazy Loading XSS</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .accordion { border: 1px solid #ddd; margin: 10px 0; }
+        .accordion-header { background: #f1f1f1; padding: 15px; cursor: pointer; font-weight: bold; }
+        .accordion-header:hover { background: #e1e1e1; }
+        .accordion-content { padding: 15px; display: none; }
+        .accordion-content.active { display: block; }
+        .tab-container { margin: 20px 0; }
+        .tabs { display: flex; border-bottom: 2px solid #007bff; }
+        .tab { padding: 10px 20px; cursor: pointer; }
+        .tab.active { background: #007bff; color: white; }
+        .tab-content { padding: 20px; border: 1px solid #ddd; border-top: none; display: none; }
+        .tab-content.active { display: block; }
+        .card { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .load-more { text-align: center; margin: 20px; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+        .warning { background: #fff3cd; padding: 15px; margin: 20px 0; }
+        #infiniteScroll { height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>🔬 Test SPA 3 - Lazy Loading & Dynamic Content</h1>
+    <p>Diese SPA lädt Content dynamisch nach - perfekt zum Testen der DOM-Maximizer Strategie.</p>
+    
+    <!-- Accordion Section -->
+    <h2>📂 Accordion (klicke zum Expandieren)</h2>
+    <div class="accordion" data-content="faq1">
+        <div class="accordion-header" onclick="toggleAccordion(this)">FAQ 1: Was ist XSS?</div>
+        <div class="accordion-content"></div>
+    </div>
+    <div class="accordion" data-content="faq2">
+        <div class="accordion-header" onclick="toggleAccordion(this)">FAQ 2: Wie funktioniert DOM XSS?</div>
+        <div class="accordion-content"></div>
+    </div>
+    <div class="accordion" data-content="faq3">
+        <div class="accordion-header" onclick="toggleAccordion(this)">FAQ 3: User Content</div>
+        <div class="accordion-content"></div>
+    </div>
+    
+    <!-- Tabs Section -->
+    <h2>📑 Tabs</h2>
+    <div class="tab-container">
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('tab1')">Overview</div>
+            <div class="tab" onclick="switchTab('tab2')">Details</div>
+            <div class="tab" onclick="switchTab('tab3')">Comments</div>
+        </div>
+        <div id="tab1" class="tab-content active"></div>
+        <div id="tab2" class="tab-content"></div>
+        <div id="tab3" class="tab-content"></div>
+    </div>
+    
+    <!-- Infinite Scroll Section -->
+    <h2>📜 Infinite Scroll</h2>
+    <div id="infiniteScroll">
+        <div id="scrollContent"></div>
+        <div id="loadingIndicator" style="text-align: center; padding: 10px;">Scroll für mehr...</div>
+    </div>
+    
+    <!-- Load More Button -->
+    <h2>📦 Load More Cards</h2>
+    <div id="cardsContainer"></div>
+    <div class="load-more">
+        <button onclick="loadMoreCards()">Load More</button>
+        <span id="cardCount">(0 loaded)</span>
+    </div>
+    
+    <script>
+        let cardPage = 0;
+        let scrollPage = 0;
+        
+        // ===== Accordion with lazy loaded vulnerable content =====
+        const accordionContent = {
+            faq1: '<p>XSS (Cross-Site Scripting) is a security vulnerability.</p>',
+            faq2: '<p>DOM XSS occurs when JavaScript writes user-controllable data to the DOM.</p>',
+            faq3: '<p>User submitted: ' + (new URLSearchParams(window.location.search).get('user') || 'No user data') + '</p>'
+            // VULNERABLE: Query param in accordion!
+        };
+        
+        function toggleAccordion(header) {
+            const accordion = header.parentElement;
+            const content = accordion.querySelector('.accordion-content');
+            const contentKey = accordion.dataset.content;
+            
+            if (!content.classList.contains('active')) {
+                // Lazy load content
+                // SINK 1: innerHTML with dynamic content - VULNERABLE!
+                content.innerHTML = accordionContent[contentKey] || '<p>Content not found</p>';
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        }
+        
+        // ===== Tabs with URL parameter injection =====
+        const tabContent = {
+            tab1: '<h3>Overview</h3><p>Welcome to our application. URL: ' + window.location.href + '</p>',
+            tab2: '<h3>Details</h3><p>Referrer: ' + document.referrer + '</p>',
+            tab3: '<h3>Comments</h3><div id="commentSection"><input id="commentInput" placeholder="Add comment"><button onclick="addComment()">Post</button></div><div id="commentsList"></div>'
+        };
+        
+        function switchTab(tabId) {
+            // Remove active from all
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            
+            // Activate selected
+            event.target.classList.add('active');
+            const tabEl = document.getElementById(tabId);
+            
+            // SINK 2: Lazy load tab content - VULNERABLE!
+            tabEl.innerHTML = tabContent[tabId];
+            tabEl.classList.add('active');
+        }
+        
+        function addComment() {
+            const comment = document.getElementById('commentInput').value;
+            // SINK 3: innerHTML with user input - VULNERABLE!
+            document.getElementById('commentsList').innerHTML += 
+                '<div class="card">' + comment + '</div>';
+        }
+        
+        // ===== Infinite Scroll =====
+        function loadScrollContent() {
+            scrollPage++;
+            const container = document.getElementById('scrollContent');
+            const hash = window.location.hash.substring(1) || 'default';
+            
+            for (let i = 0; i < 5; i++) {
+                // SINK 4: innerHTML with hash - VULNERABLE!
+                container.innerHTML += 
+                    '<div class="card">Item ' + ((scrollPage - 1) * 5 + i + 1) + ' - Category: ' + hash + '</div>';
+            }
+        }
+        
+        document.getElementById('infiniteScroll').addEventListener('scroll', function() {
+            if (this.scrollTop + this.clientHeight >= this.scrollHeight - 50) {
+                loadScrollContent();
+            }
+        });
+        
+        // ===== Load More Cards =====
+        function loadMoreCards() {
+            cardPage++;
+            const container = document.getElementById('cardsContainer');
+            const searchParam = new URLSearchParams(window.location.search).get('filter') || 'all';
+            
+            for (let i = 0; i < 3; i++) {
+                const cardNum = (cardPage - 1) * 3 + i + 1;
+                // SINK 5: innerHTML with query param - VULNERABLE!
+                container.innerHTML += 
+                    '<div class="card"><strong>Card ' + cardNum + '</strong> - Filter: ' + searchParam + '</div>';
+            }
+            
+            document.getElementById('cardCount').textContent = '(' + (cardPage * 3) + ' loaded)';
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            switchTab('tab1');
+            loadScrollContent();
+            loadMoreCards();
+        });
+    </script>
+    
+    <div class="warning">
+        <h3>⚠️ Known Vulnerabilities:</h3>
+        <ul>
+            <li><strong>Accordion FAQ3:</strong> <code>?user=&lt;img src=x onerror=alert(1)&gt;</code></li>
+            <li><strong>Tab Overview:</strong> Hash in URL displayed</li>
+            <li><strong>Comments:</strong> XSS in comment input</li>
+            <li><strong>Infinite Scroll:</strong> <code>#&lt;script&gt;alert(1)&lt;/script&gt;</code></li>
+            <li><strong>Load More:</strong> <code>?filter=&lt;img src=x onerror=alert(1)&gt;</code></li>
+        </ul>
+    </div>
+</body>
+</html>
