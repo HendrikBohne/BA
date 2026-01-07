@@ -1,0 +1,263 @@
+{
+  "report_type": "strategy_comparison",
+  "generated_at": "2026-01-07T08:45:12.550636",
+  "url": "http://localhost:8080/vulnerable_spa_2/",
+  "comparison_timestamp": "2026-01-07T08:45:12.550378",
+  "strategies": [
+    {
+      "strategy_name": "Random Walk",
+      "url": "http://localhost:8080/vulnerable_spa_2/",
+      "run_id": "Random Walk_20260107_084337",
+      "timestamp": "2026-01-07T08:42:59.579046",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 2,
+        "unique_flows": 2,
+        "exploitable_flows": 2,
+        "unique_source_sink_pairs": 2,
+        "by_source": {
+          "url": 0,
+          "storage": 0,
+          "dom": 1,
+          "user_input": 1
+        },
+        "by_sink": {
+          "html_injection": 1,
+          "js_execution": 1,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 1,
+          "high": 0,
+          "medium": 1,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 37.478821,
+        "actions_performed": 42,
+        "actions_successful": 32,
+        "actions_failed": 10,
+        "actions_per_second": 1.120632903580398,
+        "success_rate": 0.7619047619047619
+      },
+      "dom": {
+        "initial_size": 51,
+        "final_size": 60,
+        "max_size": 60,
+        "growth_ratio": 1.1764705882352942,
+        "states_visited": 4
+      },
+      "candidates": {
+        "total_found": 14,
+        "unique_executed": 13,
+        "execution_rate": 0.9285714285714286
+      },
+      "derived": {
+        "flows_per_action": 0.047619047619047616,
+        "flows_per_second": 0.05336347159906657
+      }
+    },
+    {
+      "strategy_name": "Model-Guided",
+      "url": "http://localhost:8080/vulnerable_spa_2/",
+      "run_id": "Model-Guided_20260107_084424",
+      "timestamp": "2026-01-07T08:43:37.842989",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 2,
+        "unique_flows": 2,
+        "exploitable_flows": 2,
+        "unique_source_sink_pairs": 2,
+        "by_source": {
+          "url": 0,
+          "storage": 0,
+          "dom": 1,
+          "user_input": 1
+        },
+        "by_sink": {
+          "html_injection": 1,
+          "js_execution": 1,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 1,
+          "high": 0,
+          "medium": 1,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 46.263104,
+        "actions_performed": 50,
+        "actions_successful": 50,
+        "actions_failed": 0,
+        "actions_per_second": 1.08077486543056,
+        "success_rate": 1.0
+      },
+      "dom": {
+        "initial_size": 51,
+        "final_size": 56,
+        "max_size": 74,
+        "growth_ratio": 1.0980392156862746,
+        "states_visited": 4
+      },
+      "candidates": {
+        "total_found": 13,
+        "unique_executed": 12,
+        "execution_rate": 0.9230769230769231
+      },
+      "derived": {
+        "flows_per_action": 0.04,
+        "flows_per_second": 0.0432309946172224
+      }
+    },
+    {
+      "strategy_name": "DOM Maximizer",
+      "url": "http://localhost:8080/vulnerable_spa_2/",
+      "run_id": "DOM Maximizer_20260107_084512",
+      "timestamp": "2026-01-07T08:44:25.887823",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 2,
+        "unique_flows": 2,
+        "exploitable_flows": 2,
+        "unique_source_sink_pairs": 2,
+        "by_source": {
+          "url": 0,
+          "storage": 0,
+          "dom": 1,
+          "user_input": 1
+        },
+        "by_sink": {
+          "html_injection": 1,
+          "js_execution": 1,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 1,
+          "high": 0,
+          "medium": 1,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 46.617088,
+        "actions_performed": 50,
+        "actions_successful": 50,
+        "actions_failed": 0,
+        "actions_per_second": 1.0725680677437424,
+        "success_rate": 1.0
+      },
+      "dom": {
+        "initial_size": 51,
+        "final_size": 89,
+        "max_size": 89,
+        "growth_ratio": 1.7450980392156863,
+        "states_visited": 2
+      },
+      "candidates": {
+        "total_found": 13,
+        "unique_executed": 12,
+        "execution_rate": 0.9230769230769231
+      },
+      "derived": {
+        "flows_per_action": 0.04,
+        "flows_per_second": 0.042902722709749694
+      }
+    }
+  ],
+  "rankings": {
+    "flows_found": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    },
+    "vulnerabilities": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    },
+    "coverage": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    },
+    "efficiency": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    }
+  },
+  "summary_table": [
+    {
+      "strategy": "Random Walk",
+      "flows": 2,
+      "vulnerabilities": 2,
+      "coverage": "0.0%",
+      "efficiency": "0.05",
+      "duration": "37.5s"
+    },
+    {
+      "strategy": "Model-Guided",
+      "flows": 2,
+      "vulnerabilities": 2,
+      "coverage": "0.0%",
+      "efficiency": "0.04",
+      "duration": "46.3s"
+    },
+    {
+      "strategy": "DOM Maximizer",
+      "flows": 2,
+      "vulnerabilities": 2,
+      "coverage": "0.0%",
+      "efficiency": "0.04",
+      "duration": "46.6s"
+    }
+  ],
+  "winners": {
+    "flows_found": "Random Walk",
+    "vulnerabilities": "Random Walk",
+    "coverage": "Random Walk",
+    "efficiency": "Random Walk"
+  }
+}

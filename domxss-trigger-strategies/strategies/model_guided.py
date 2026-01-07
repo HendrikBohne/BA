@@ -1,182 +1,118 @@
 """
-DOM XSS Trigger Strategies - Model-Guided Random Walk Strategy
-Strategie 2: State-Independent Model für intelligente Priorisierung
-
-Basiert auf: "Improving Behavioral Program Analysis with Environment Models"
+DOM XSS Trigger Strategies - Model-Guided Strategy
+Lernt Beziehungen zwischen Aktionen für intelligentere Exploration
 """
 import random
 import logging
 from typing import List, Optional, Dict, Set
-from dataclasses import dataclass, field
+from playwright.async_api import Page
 
-from .base_strategy import BaseStrategy, ActionCandidate, ActionResult
+from .base_strategy import BaseStrategy, ActionCandidate
 
 logger = logging.getLogger(__name__)
 
 
-@dataclass
-class StateIndependentModel:
-    """
-    State-Independent Model (E, λ)
-    
-    E: Menge aller beobachteten Action Candidates
-    λ(c, c'): Wahrscheinlichkeit dass c' nach c verfügbar ist
-    """
-    w_model: float = 25.0
-    
-    all_candidates: Set[str] = field(default_factory=set)
-    executed_candidates: Set[str] = field(default_factory=set)
-    successor_counts: Dict[str, Dict[str, int]] = field(default_factory=dict)
-    observation_counts: Dict[str, int] = field(default_factory=dict)
-    
-    def observe_candidates(self, candidate_ids: List[str]):
-        """Registriert beobachtete Candidates"""
-        for c_id in candidate_ids:
-            self.all_candidates.add(c_id)
-            self.observation_counts[c_id] = self.observation_counts.get(c_id, 0) + 1
-    
-    def record_execution(self, executed_id: str, successor_ids: List[str]):
-        """Registriert Ausführung und Nachfolger"""
-        self.executed_candidates.add(executed_id)
-        
-        if executed_id not in self.successor_counts:
-            self.successor_counts[executed_id] = {}
-        
-        for succ_id in successor_ids:
-            self.successor_counts[executed_id][succ_id] = \
-                self.successor_counts[executed_id].get(succ_id, 0) + 1
-    
-    def get_lambda(self, c: str, c_prime: str) -> float:
-        """λ(c, c'): P(c' verfügbar | c ausgeführt)"""
-        if c not in self.successor_counts or c_prime not in self.successor_counts[c]:
-            return 0.0
-        
-        total = self.observation_counts.get(c, 1)
-        count = self.successor_counts[c][c_prime]
-        return min(1.0, count / total)
-    
-    def get_successors(self, c: str) -> Set[str]:
-        """Alle Nachfolger von c"""
-        return set(self.successor_counts.get(c, {}).keys())
-    
-    def calculate_ratio(self, c: str) -> float:
-        """rc: Anteil nicht-ausgeführter Nachfolger"""
-        successors = self.get_successors(c)
-        if not successors:
-            return 0.0
-        
-        unexecuted_sum = sum(
-            self.get_lambda(c, c_prime)
-            for c_prime in successors
-            if c_prime not in self.executed_candidates
-        )
-        return unexecuted_sum / len(successors)
-    
-    def calculate_weight(self, c: str, base_weight: float = 1.0) -> float:
-        """Finales Gewicht: wc = w_base * (1 + rc * w_model)"""
-        rc = self.calculate_ratio(c)
-        return base_weight * (1 + rc * self.w_model)
-    
-    def get_stats(self) -> Dict:
-        """Statistiken"""
-        return {
-            'total_candidates': len(self.all_candidates),
-            'executed_candidates': len(self.executed_candidates),
-            'execution_rate': len(self.executed_candidates) / max(1, len(self.all_candidates)),
-            'total_transitions': sum(sum(c.values()) for c in self.successor_counts.values())
-        }
-
-
 class ModelGuidedStrategy(BaseStrategy):
     """
-    Model-Guided Random Walk.
+    Model-Guided Random Walk Strategie.
     
-    Priorisiert Aktionen die zu vielen noch nicht
-    ausgeführten Nachfolge-Aktionen führen.
+    Basiert auf dem Paper "Improving Behavioral Program Analysis with Environment Models"
+    Lernt welche Aktionen zu neuen Kandidaten führen und priorisiert diese.
     """
     
-    def __init__(self, config: dict = None):
+    def __init__(self, config: Dict = None):
         super().__init__(config)
+        
+        # Model: Welche Kandidaten führen zu welchen neuen Kandidaten?
+        self.successor_map: Dict[str, Set[str]] = {}
+        self.last_candidates: List[str] = []
+        self.last_action: Optional[str] = None
+        
+        # Gewichtung für Model vs Random
         self.w_model = self.config.get('w_model', 25.0)
-        self.exploration_bonus = self.config.get('exploration_bonus', 2.0)
-        self.model = StateIndependentModel(w_model=self.w_model)
-        
-        # XSS-Priorisierung
-        self.input_weight_boost = 1.5
-        self.form_weight_boost = 2.0
-        
+    
     @property
     def name(self) -> str:
         return "Model-Guided"
     
-    def _get_base_weight(self, candidate: ActionCandidate) -> float:
-        """Basis-Gewicht basierend auf XSS-Relevanz"""
-        weight = 1.0
+    def _update_model(self, current_candidates: List[ActionCandidate]):
+        """Aktualisiert das Successor-Model"""
+        if self.last_action:
+            current_ids = {c.id for c in current_candidates}
+            new_candidates = current_ids - set(self.last_candidates)
+            
+            if new_candidates:
+                if self.last_action not in self.successor_map:
+                    self.successor_map[self.last_action] = set()
+                self.successor_map[self.last_action].update(new_candidates)
+                logger.debug(f"Model: {self.last_action[:30]} → {len(new_candidates)} neue Kandidaten")
         
+        self.last_candidates = [c.id for c in current_candidates]
+    
+    def _calculate_weight(self, candidate: ActionCandidate) -> float:
+        """Berechnet Gewicht basierend auf Model"""
+        base_weight = candidate.priority
+        
+        # Bonus für Inputs (XSS-relevant)
         if candidate.has_input:
-            weight *= self.input_weight_boost
-        if candidate.is_form:
-            weight *= self.form_weight_boost
-        if candidate.has_event_handler:
-            weight *= 1.3
-        if candidate.id not in self.executed_candidates:
-            weight *= self.exploration_bonus
+            base_weight *= 3.0
         
-        return weight
+        # Bonus wenn dieser Kandidat zu neuen Kandidaten führt
+        if candidate.id in self.successor_map:
+            successors = self.successor_map[candidate.id]
+            unvisited = len(successors - self.visited_candidates)
+            if unvisited > 0:
+                base_weight *= (1 + (unvisited / 10.0) * self.w_model)
+        
+        # Malus wenn oft besucht
+        visit_count = self.candidate_history.get(candidate.id, 0)
+        if visit_count > 0:
+            base_weight /= (1 + visit_count * 0.5)
+        
+        return base_weight
     
     async def select_next_action(
-        self, 
-        candidates: List[ActionCandidate]
+        self,
+        candidates: List[ActionCandidate],
+        page: Page
     ) -> Optional[ActionCandidate]:
-        """Wählt Candidate basierend auf Model-Gewichten"""
+        """
+        Wählt Kandidaten basierend auf Model-Gewichtung.
+        Priorisiert Inputs für XSS-Testing.
+        """
         if not candidates:
             return None
         
-        # Registriere im Model
-        candidate_ids = [c.id for c in candidates]
-        self.model.observe_candidates(candidate_ids)
+        # Update Model mit aktuellen Kandidaten
+        self._update_model(candidates)
         
-        # Berechne Gewichte
-        weights = []
-        for candidate in candidates:
-            base_weight = self._get_base_weight(candidate)
-            
-            if candidate.id in self.model.executed_candidates:
-                final_weight = self.model.calculate_weight(candidate.id, base_weight)
-            else:
-                final_weight = base_weight * self.exploration_bonus
-            
-            weights.append(final_weight)
+        # Priorisiere unbesuchte Inputs
+        unvisited_inputs = [c for c in candidates 
+                          if c.has_input and c.id not in self.visited_candidates]
+        if unvisited_inputs:
+            selected = random.choice(unvisited_inputs)
+            self.last_action = selected.id
+            return selected
         
-        # Weighted Random Choice
-        total_weight = sum(weights)
-        if total_weight == 0:
-            return random.choice(candidates)
+        # Berechne Gewichte für alle Kandidaten
+        weights = [self._calculate_weight(c) for c in candidates]
+        total = sum(weights)
         
-        pick = random.uniform(0, total_weight)
-        current = 0
+        if total == 0:
+            selected = random.choice(candidates)
+            self.last_action = selected.id
+            return selected
         
-        for candidate, weight in zip(candidates, weights):
-            current += weight
-            if current >= pick:
-                logger.debug(f"[Model-Guided] {candidate.text[:30]} (w={weight:.2f})")
-                return candidate
+        # Gewichtete Zufallsauswahl
+        r = random.uniform(0, total)
+        cumsum = 0
+        for i, w in enumerate(weights):
+            cumsum += w
+            if r <= cumsum:
+                selected = candidates[i]
+                self.last_action = selected.id
+                return selected
         
-        return candidates[-1]
-    
-    async def on_action_completed(
-        self, 
-        action: ActionCandidate, 
-        result: ActionResult,
-        new_candidates: List[ActionCandidate]
-    ):
-        """Update Model"""
-        successor_ids = [c.id for c in new_candidates]
-        self.model.record_execution(action.id, successor_ids)
-        
-        stats = self.model.get_stats()
-        logger.debug(f"[Model] {stats['executed_candidates']}/{stats['total_candidates']} executed")
-    
-    def get_model_stats(self) -> Dict:
-        """Model-Statistiken für Reports"""
-        return self.model.get_stats()
+        selected = random.choice(candidates)
+        self.last_action = selected.id
+        return selected

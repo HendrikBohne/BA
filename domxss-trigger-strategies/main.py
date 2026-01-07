@@ -91,7 +91,8 @@ class DOMXSSAnalyzer:
         })
         
         # Navigiere zur URL
-        page = await self.foxhound.navigate(url)
+        success = await self.foxhound.navigate(url)
+        page = self.foxhound.page
         
         if not page:
             logger.error(f"❌ Konnte {url} nicht laden")
