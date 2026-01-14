@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T09:39:23.523383",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://www.geogebra.org/classic",
+    "run_id": "Model-Guided_20260107_093923",
+    "timestamp": "2026-01-07T09:38:58.231769",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 2,
+      "unique_flows": 2,
+      "exploitable_flows": 2,
+      "unique_source_sink_pairs": 2,
+      "by_source": {
+        "url": 0,
+        "storage": 0,
+        "dom": 1,
+        "user_input": 1
+      },
+      "by_sink": {
+        "html_injection": 1,
+        "js_execution": 1,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 1,
+        "high": 0,
+        "medium": 1,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 25.270624,
+      "actions_performed": 11,
+      "actions_successful": 1,
+      "actions_failed": 10,
+      "actions_per_second": 0.43528802454581256,
+      "success_rate": 0.09090909090909091
+    },
+    "dom": {
+      "initial_size": 216,
+      "final_size": 446,
+      "max_size": 446,
+      "growth_ratio": 2.064814814814815,
+      "states_visited": 2
+    },
+    "candidates": {
+      "total_found": 61,
+      "unique_executed": 1,
+      "execution_rate": 0.01639344262295082
+    },
+    "derived": {
+      "flows_per_action": 0.18181818181818182,
+      "flows_per_second": 0.07914327719014773
+    }
+  }
+}

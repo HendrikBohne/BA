@@ -1,0 +1,263 @@
+{
+  "report_type": "strategy_comparison",
+  "generated_at": "2026-01-12T10:46:21.004166",
+  "url": "https://www.photopea.com/",
+  "comparison_timestamp": "2026-01-12T10:46:21.003843",
+  "strategies": [
+    {
+      "strategy_name": "Random Walk",
+      "url": "https://www.photopea.com/",
+      "run_id": "Random Walk_20260112_104228",
+      "timestamp": "2026-01-12T10:40:53.618776",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 3,
+        "unique_flows": 3,
+        "exploitable_flows": 3,
+        "unique_source_sink_pairs": 3,
+        "by_source": {
+          "url": 0,
+          "storage": 0,
+          "dom": 2,
+          "user_input": 1
+        },
+        "by_sink": {
+          "html_injection": 2,
+          "js_execution": 1,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 1,
+          "high": 1,
+          "medium": 1,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 94.686894,
+        "actions_performed": 50,
+        "actions_successful": 33,
+        "actions_failed": 17,
+        "actions_per_second": 0.5280561848401111,
+        "success_rate": 0.66
+      },
+      "dom": {
+        "initial_size": 160,
+        "final_size": 8810,
+        "max_size": 9592,
+        "growth_ratio": 55.0625,
+        "states_visited": 30
+      },
+      "candidates": {
+        "total_found": 2022,
+        "unique_executed": 33,
+        "execution_rate": 0.016320474777448073
+      },
+      "derived": {
+        "flows_per_action": 0.06,
+        "flows_per_second": 0.03168337109040666
+      }
+    },
+    {
+      "strategy_name": "Model-Guided",
+      "url": "https://www.photopea.com/",
+      "run_id": "Model-Guided_20260112_104412",
+      "timestamp": "2026-01-12T10:42:29.242961",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 4,
+        "unique_flows": 4,
+        "exploitable_flows": 4,
+        "unique_source_sink_pairs": 4,
+        "by_source": {
+          "url": 1,
+          "storage": 0,
+          "dom": 2,
+          "user_input": 1
+        },
+        "by_sink": {
+          "html_injection": 3,
+          "js_execution": 1,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 2,
+          "high": 1,
+          "medium": 1,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 103.547861,
+        "actions_performed": 50,
+        "actions_successful": 45,
+        "actions_failed": 5,
+        "actions_per_second": 0.48286849691660944,
+        "success_rate": 0.9
+      },
+      "dom": {
+        "initial_size": 160,
+        "final_size": 8891,
+        "max_size": 9028,
+        "growth_ratio": 55.56875,
+        "states_visited": 13
+      },
+      "candidates": {
+        "total_found": 2043,
+        "unique_executed": 21,
+        "execution_rate": 0.010279001468428781
+      },
+      "derived": {
+        "flows_per_action": 0.08,
+        "flows_per_second": 0.038629479753328755
+      }
+    },
+    {
+      "strategy_name": "DOM Maximizer",
+      "url": "https://www.photopea.com/",
+      "run_id": "DOM Maximizer_20260112_104621",
+      "timestamp": "2026-01-12T10:44:14.901439",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 4,
+        "unique_flows": 4,
+        "exploitable_flows": 4,
+        "unique_source_sink_pairs": 4,
+        "by_source": {
+          "url": 1,
+          "storage": 0,
+          "dom": 2,
+          "user_input": 1
+        },
+        "by_sink": {
+          "html_injection": 3,
+          "js_execution": 1,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 2,
+          "high": 1,
+          "medium": 1,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 126.045526,
+        "actions_performed": 50,
+        "actions_successful": 34,
+        "actions_failed": 16,
+        "actions_per_second": 0.3966820686677923,
+        "success_rate": 0.68
+      },
+      "dom": {
+        "initial_size": 160,
+        "final_size": 8870,
+        "max_size": 8948,
+        "growth_ratio": 55.4375,
+        "states_visited": 15
+      },
+      "candidates": {
+        "total_found": 2027,
+        "unique_executed": 27,
+        "execution_rate": 0.013320177602368031
+      },
+      "derived": {
+        "flows_per_action": 0.08,
+        "flows_per_second": 0.031734565493423385
+      }
+    }
+  ],
+  "rankings": {
+    "flows_found": {
+      "Model-Guided": 1,
+      "DOM Maximizer": 2,
+      "Random Walk": 3
+    },
+    "vulnerabilities": {
+      "Model-Guided": 1,
+      "DOM Maximizer": 2,
+      "Random Walk": 3
+    },
+    "coverage": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    },
+    "efficiency": {
+      "Model-Guided": 1,
+      "DOM Maximizer": 2,
+      "Random Walk": 3
+    }
+  },
+  "summary_table": [
+    {
+      "strategy": "Random Walk",
+      "flows": 3,
+      "vulnerabilities": 3,
+      "coverage": "0.0%",
+      "efficiency": "0.06",
+      "duration": "94.7s"
+    },
+    {
+      "strategy": "Model-Guided",
+      "flows": 4,
+      "vulnerabilities": 4,
+      "coverage": "0.0%",
+      "efficiency": "0.08",
+      "duration": "103.5s"
+    },
+    {
+      "strategy": "DOM Maximizer",
+      "flows": 4,
+      "vulnerabilities": 4,
+      "coverage": "0.0%",
+      "efficiency": "0.08",
+      "duration": "126.0s"
+    }
+  ],
+  "winners": {
+    "flows_found": "Model-Guided",
+    "vulnerabilities": "Model-Guided",
+    "coverage": "Random Walk",
+    "efficiency": "Model-Guided"
+  }
+}

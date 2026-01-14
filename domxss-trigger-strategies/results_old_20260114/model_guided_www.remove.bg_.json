@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T10:11:04.028644",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://www.remove.bg/",
+    "run_id": "Model-Guided_20260107_101104",
+    "timestamp": "2026-01-07T10:09:52.109656",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 0,
+      "unique_flows": 0,
+      "exploitable_flows": 0,
+      "unique_source_sink_pairs": 0,
+      "by_source": {
+        "url": 0,
+        "storage": 0,
+        "dom": 0,
+        "user_input": 0
+      },
+      "by_sink": {
+        "html_injection": 0,
+        "js_execution": 0,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 71.909395,
+      "actions_performed": 17,
+      "actions_successful": 3,
+      "actions_failed": 14,
+      "actions_per_second": 0.2364086083605626,
+      "success_rate": 0.17647058823529413
+    },
+    "dom": {
+      "initial_size": 975,
+      "final_size": 1339,
+      "max_size": 1339,
+      "growth_ratio": 1.3733333333333333,
+      "states_visited": 3
+    },
+    "candidates": {
+      "total_found": 138,
+      "unique_executed": 3,
+      "execution_rate": 0.021739130434782608
+    },
+    "derived": {
+      "flows_per_action": 0.0,
+      "flows_per_second": 0.0
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T09:47:53.635212",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://play.tailwindcss.com/",
+    "run_id": "Model-Guided_20260107_094753",
+    "timestamp": "2026-01-07T09:46:57.493152",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 4,
+      "unique_flows": 4,
+      "exploitable_flows": 4,
+      "unique_source_sink_pairs": 4,
+      "by_source": {
+        "url": 1,
+        "storage": 0,
+        "dom": 2,
+        "user_input": 1
+      },
+      "by_sink": {
+        "html_injection": 3,
+        "js_execution": 1,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 2,
+        "high": 1,
+        "medium": 1,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 56.121394,
+      "actions_performed": 11,
+      "actions_successful": 1,
+      "actions_failed": 10,
+      "actions_per_second": 0.19600368444162308,
+      "success_rate": 0.09090909090909091
+    },
+    "dom": {
+      "initial_size": 119,
+      "final_size": 549,
+      "max_size": 549,
+      "growth_ratio": 4.61344537815126,
+      "states_visited": 2
+    },
+    "candidates": {
+      "total_found": 15,
+      "unique_executed": 1,
+      "execution_rate": 0.06666666666666667
+    },
+    "derived": {
+      "flows_per_action": 0.36363636363636365,
+      "flows_per_second": 0.07127406706968112
+    }
+  }
+}

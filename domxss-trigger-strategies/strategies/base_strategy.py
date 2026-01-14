@@ -1,21 +1,25 @@
 """
-DOM XSS Trigger Strategies - Base Strategy (Fixed v3)
-Abstrakte Basisklasse für alle Interaktionsstrategien
-Mit verbesserter Input-Feld und XSS-Payload Unterstützung
+DOM XSS Trigger Strategies - Base Strategy (v4 - Robust)
+
+Verbesserungen v4:
+- Bessere Fehlerbehandlung bei Navigation/Context-Destruction
+- Retry-Logik für fehlgeschlagene Aktionen
+- Element-Validierung vor Klick
+- Unterscheidung zwischen kritischen und nicht-kritischen Fehlern
+- Warten auf stabilen DOM-Zustand
 """
 import asyncio
 import logging
 import random
 from abc import ABC, abstractmethod
+from typing import List, Dict, Optional, Any, Any
 from dataclasses import dataclass, field
-from typing import List, Dict, Optional, Set
-from datetime import datetime
-from playwright.async_api import Page, TimeoutError as PlaywrightTimeout
+from playwright.async_api import Page, TimeoutError as PlaywrightTimeout, Error as PlaywrightError
 
 logger = logging.getLogger(__name__)
 
 
-# XSS Test-Payloads
+# XSS Payloads für Input-Felder
 XSS_PAYLOADS = [
     '<img src=x onerror=alert("XSS")>',
     '<svg onload=alert("XSS")>',
@@ -26,483 +30,630 @@ XSS_PAYLOADS = [
     '<iframe src="javascript:alert(1)">',
     '<body onload=alert("XSS")>',
     '<input onfocus=alert("XSS") autofocus>',
+    '<details open ontoggle=alert("XSS")>',
 ]
 
 
 @dataclass
 class ActionCandidate:
-    """Ein möglicher Interaktions-Kandidat"""
-    id: str
-    element_type: str  # 'link', 'button', 'input', 'form', 'select', etc.
+    """Repräsentiert ein interaktives Element auf der Seite"""
     selector: str
-    text: str = ""
-    attributes: Dict = field(default_factory=dict)
-    priority: float = 1.0
-    visited_count: int = 0
-    
-    # XSS-relevante Eigenschaften
-    has_input: bool = False
-    has_event_handler: bool = False
-    is_form: bool = False
+    type: str  # 'input', 'button', 'link', 'onclick', 'select', 'unknown'
+    tag: str
+    label: str = ""
     input_type: str = ""
+    href: str = ""
+    has_onclick: bool = False
+    rect: Dict[str, float] = field(default_factory=dict)
+    
+    def to_dict(self) -> Dict:
+        return {
+            'selector': self.selector,
+            'type': self.type,
+            'tag': self.tag,
+            'label': self.label,
+            'inputType': self.input_type,
+            'href': self.href,
+            'hasOnclick': self.has_onclick,
+            'rect': self.rect
+        }
+    
+    @classmethod
+    def from_dict(cls, data: Dict) -> 'ActionCandidate':
+        return cls(
+            selector=data.get('selector', ''),
+            type=data.get('type', 'unknown'),
+            tag=data.get('tag', ''),
+            label=data.get('label', ''),
+            input_type=data.get('inputType', ''),
+            href=data.get('href', ''),
+            has_onclick=data.get('hasOnclick', False),
+            rect=data.get('rect', {})
+        )
 
 
-@dataclass 
+@dataclass
 class ActionResult:
     """Ergebnis einer ausgeführten Aktion"""
-    candidate: ActionCandidate
     success: bool
+    candidate: ActionCandidate
     dom_change: int = 0
-    url_changed: bool = False
-    new_url: str = ""
+    payload_injected: Optional[str] = None
     error: Optional[str] = None
-    taint_triggered: bool = False
-    payload_used: str = ""
+    duration: float = 0.0
 
 
 @dataclass
 class StrategyResult:
     """Gesamtergebnis einer Strategie-Ausführung"""
     strategy_name: str
-    url: str
-    started_at: datetime
-    ended_at: Optional[datetime] = None
+    actions_performed: int
+    inputs_filled: int
+    payloads_injected: int
+    initial_dom_size: int
+    final_dom_size: int
+    duration: float
+    url: str = ""
+    started_at: str = ""
+    ended_at: str = ""
     
-    actions_performed: int = 0
+    # Zusätzliche Metriken für main.py Kompatibilität
     actions_successful: int = 0
     actions_failed: int = 0
-    
-    initial_dom_size: int = 0
-    final_dom_size: int = 0
     max_dom_size_reached: int = 0
     dom_states_visited: int = 0
-    
     total_candidates_found: int = 0
     unique_candidates_executed: int = 0
     
-    inputs_filled: int = 0
-    forms_submitted: int = 0
-    payloads_injected: int = 0
+    # Taint-Daten (werden von main.py gesetzt)
+    taint_flows: List[Any] = field(default_factory=list)
+    vulnerabilities: List[Any] = field(default_factory=list)
     
-    taint_flows: List = field(default_factory=list)
-    vulnerabilities: List = field(default_factory=list)
-    action_history: List[ActionResult] = field(default_factory=list)
+    visited_selectors: List[str] = field(default_factory=list)
+    action_results: List[ActionResult] = field(default_factory=list)
+    errors: List[str] = field(default_factory=list)
+    
+    @property
+    def dom_growth(self) -> int:
+        return self.final_dom_size - self.initial_dom_size
     
     @property
     def duration_seconds(self) -> float:
-        if self.ended_at and self.started_at:
-            return (self.ended_at - self.started_at).total_seconds()
-        return 0.0
+        """Alias für duration - Kompatibilität mit main.py"""
+        return self.duration
+    
+    def to_dict(self) -> Dict:
+        return {
+            'strategy': self.strategy_name,
+            'url': self.url,
+            'started_at': self.started_at,
+            'ended_at': self.ended_at,
+            'actions_performed': self.actions_performed,
+            'actions_successful': self.actions_successful,
+            'actions_failed': self.actions_failed,
+            'inputs_filled': self.inputs_filled,
+            'payloads_injected': self.payloads_injected,
+            'initial_dom_size': self.initial_dom_size,
+            'final_dom_size': self.final_dom_size,
+            'max_dom_size_reached': self.max_dom_size_reached,
+            'dom_growth': self.dom_growth,
+            'duration': self.duration,
+            'duration_seconds': self.duration_seconds,
+            'visited_elements': len(self.visited_selectors),
+            'total_candidates_found': self.total_candidates_found,
+            'unique_candidates_executed': self.unique_candidates_executed,
+            'taint_flows_count': len(self.taint_flows),
+            'vulnerabilities_count': len(self.vulnerabilities),
+            'errors': self.errors
+        }
 
 
 class BaseStrategy(ABC):
     """
-    Abstrakte Basisklasse für Interaktionsstrategien.
+    Basis-Klasse für alle Exploration-Strategien.
+    Robuste Implementierung mit Fehlertoleranz.
     """
     
-    def __init__(self, config: Dict = None):
-        self.config = config or {}
-        self.max_actions = self.config.get('max_actions', 50)
-        self.action_delay = self.config.get('action_delay', 0.5)
+    def __init__(self, name: str = "base"):
+        self.name = name
+        self.url = ""
+        self.started_at = ""
+        self.actions_performed = 0
+        self.inputs_filled = 0
+        self.payloads_injected = 0
+        self.visited_selectors = set()
+        self.payload_index = 0
+        self.initial_dom_size = 0
+        self.current_dom_size = 0
+        self.max_dom_size = 0  # Track max DOM size
+        self.total_candidates = 0  # Track total candidates found
         
-        self.visited_candidates: Set[str] = set()
-        self.candidate_history: Dict[str, int] = {}
-        self.dom_growth_history: Dict[str, int] = {}
+        # Fehler-Tracking (unterschiedliche Kategorien)
+        self.critical_errors = 0  # Navigation-Fehler, Context destroyed
+        self.minor_errors = 0     # Element nicht gefunden, Timeout
+        self.max_critical_errors = 8    # Etwas mehr Toleranz
+        self.max_minor_errors = 25      # Deutlich mehr Toleranz für dynamische SPAs
         
-        self.current_payload_index = 0
-    
-    @property
-    @abstractmethod
-    def name(self) -> str:
-        pass
-    
-    @abstractmethod
-    async def select_next_action(
-        self, 
-        candidates: List[ActionCandidate],
-        page: Page
-    ) -> Optional[ActionCandidate]:
-        pass
+        # Retry-Konfiguration
+        self.max_retries = 2
+        self.retry_delay = 0.5
+        
+        # Action Results
+        self.action_results: List[ActionResult] = []
+        self.errors: List[str] = []
     
     def get_next_payload(self) -> str:
         """Rotiert durch XSS-Payloads"""
-        payload = XSS_PAYLOADS[self.current_payload_index]
-        self.current_payload_index = (self.current_payload_index + 1) % len(XSS_PAYLOADS)
+        payload = XSS_PAYLOADS[self.payload_index % len(XSS_PAYLOADS)]
+        self.payload_index += 1
         return payload
+    
+    async def wait_for_stable_dom(self, page: Page, timeout: float = 2.0) -> bool:
+        """
+        Wartet bis der DOM stabil ist (keine Änderungen mehr).
+        Hilft bei dynamischen SPAs.
+        """
+        try:
+            prev_size = await page.evaluate("document.body.innerHTML.length")
+            await asyncio.sleep(0.3)
+            
+            for _ in range(int(timeout / 0.3)):
+                current_size = await page.evaluate("document.body.innerHTML.length")
+                if current_size == prev_size:
+                    return True
+                prev_size = current_size
+                await asyncio.sleep(0.3)
+            
+            return True  # Timeout, aber weitermachen
+        except Exception:
+            return False
+    
+    async def is_page_valid(self, page: Page) -> bool:
+        """Prüft ob die Page noch gültig ist (nicht navigiert/geschlossen)"""
+        try:
+            await page.evaluate("1")
+            return True
+        except Exception:
+            return False
+    
+    async def wait_for_page_ready(self, page: Page, timeout: float = 5.0) -> bool:
+        """
+        Wartet bis die Seite bereit ist nach einer möglichen Navigation.
+        """
+        try:
+            await page.wait_for_load_state('domcontentloaded', timeout=timeout * 1000)
+            await asyncio.sleep(0.5)
+            return True
+        except Exception as e:
+            logger.debug(f"wait_for_page_ready Fehler: {e}")
+            return False
+    
+    async def validate_element(self, page: Page, selector: str) -> bool:
+        """
+        Prüft ob ein Element existiert und sichtbar ist.
+        """
+        try:
+            element = await page.query_selector(selector)
+            if not element:
+                return False
+            
+            is_visible = await element.is_visible()
+            return is_visible
+        except Exception:
+            return False
+    
+    async def safe_click(self, page: Page, selector: str, label: str = "") -> bool:
+        """
+        Sicherer Klick mit Retry-Logik und Fehlerbehandlung.
+        """
+        for attempt in range(self.max_retries + 1):
+            try:
+                if not await self.is_page_valid(page):
+                    await self.wait_for_page_ready(page)
+                
+                await page.click(selector, timeout=3000)
+                return True
+                
+            except PlaywrightTimeout:
+                try:
+                    escaped_label = label[:20].replace("'", "\\'").replace('"', '\\"') if label else ''
+                    clicked = await page.evaluate(f"""
+                        () => {{
+                            let el = document.querySelector('{selector}');
+                            
+                            if (!el && '{escaped_label}') {{
+                                const elements = document.querySelectorAll('a, button, [onclick], [role="button"]');
+                                for (const e of elements) {{
+                                    if (e.textContent.trim().startsWith('{escaped_label}')) {{
+                                        el = e;
+                                        break;
+                                    }}
+                                }}
+                            }}
+                            
+                            if (el) {{
+                                el.scrollIntoView({{block: 'center'}});
+                                el.click();
+                                return true;
+                            }}
+                            return false;
+                        }}
+                    """)
+                    if clicked:
+                        return True
+                except Exception:
+                    pass
+                
+            except PlaywrightError as e:
+                error_msg = str(e).lower()
+                
+                if 'context was destroyed' in error_msg or 'navigation' in error_msg:
+                    logger.debug(f"Navigation detected, waiting for page ready...")
+                    await self.wait_for_page_ready(page)
+                    return True
+                
+                if 'element is not attached' in error_msg:
+                    if attempt < self.max_retries:
+                        await asyncio.sleep(self.retry_delay)
+                        continue
+                
+            except Exception as e:
+                logger.debug(f"safe_click Fehler (Versuch {attempt + 1}): {e}")
+                if attempt < self.max_retries:
+                    await asyncio.sleep(self.retry_delay)
+        
+        return False
+    
+    async def safe_fill(self, page: Page, selector: str, value: str, label: str = "") -> bool:
+        """
+        Sicheres Ausfüllen von Input-Feldern mit Retry-Logik.
+        """
+        for attempt in range(self.max_retries + 1):
+            try:
+                if not await self.is_page_valid(page):
+                    await self.wait_for_page_ready(page)
+                
+                if not await self.validate_element(page, selector):
+                    if label:
+                        escaped_label = label[:15].replace('"', '\\"')
+                        alt_selector = f'input[placeholder*="{escaped_label}"], textarea[placeholder*="{escaped_label}"]'
+                        if await self.validate_element(page, alt_selector):
+                            selector = alt_selector
+                        else:
+                            return False
+                    else:
+                        return False
+                
+                await page.click(selector, timeout=2000)
+                await page.fill(selector, value, timeout=2000)
+                return True
+                
+            except PlaywrightError as e:
+                error_msg = str(e).lower()
+                
+                if 'context was destroyed' in error_msg:
+                    await self.wait_for_page_ready(page)
+                    return False
+                
+            except Exception as e:
+                logger.debug(f"safe_fill Fehler (Versuch {attempt + 1}): {e}")
+                if attempt < self.max_retries:
+                    await asyncio.sleep(self.retry_delay)
+        
+        return False
     
     async def get_action_candidates(self, page: Page) -> List[ActionCandidate]:
         """
-        Findet alle interagierbaren Elemente auf der Seite.
-        WICHTIG: Findet auch onclick-Links ohne href!
+        Findet alle interaktiven Elemente auf der Seite.
+        Robuste Version mit Fehlerbehandlung.
         """
-        try:
-            candidates_data = await page.evaluate("""
-                () => {
-                    const candidates = [];
-                    const seen = new Set();
-                    
-                    // Sammle ALLE interaktiven Elemente
-                    const elements = document.querySelectorAll(
-                        'input:not([type="hidden"]), ' +
-                        'textarea, ' +
-                        'select, ' +
-                        'button, ' +
-                        'a, ' +                          // ALLE Links, nicht nur a[href]
-                        '[onclick], ' +                  // Alles mit onclick
-                        '[role="button"], ' +
-                        '[role="link"], ' +
-                        '[role="tab"], ' +
-                        '[role="menuitem"], ' +
-                        'form, ' +
-                        '[contenteditable="true"], ' +
-                        'details summary'
-                    );
-                    
-                    elements.forEach((el, idx) => {
-                        try {
-                            const rect = el.getBoundingClientRect();
-                            const style = window.getComputedStyle(el);
-                            const tag = el.tagName.toLowerCase();
-                            
-                            // Sichtbarkeits-Check (Inputs können auch klein sein)
-                            const isInput = ['input', 'textarea', 'select'].includes(tag);
-                            if (!isInput) {
-                                if (rect.width <= 0 || rect.height <= 0) return;
-                                if (style.display === 'none') return;
-                                if (style.visibility === 'hidden') return;
-                            }
-                            
-                            // Hidden inputs skippen
-                            if (el.type === 'hidden') return;
-                            
-                            // ID erstellen
-                            let id = tag + '_' + idx;
-                            if (el.id) id = tag + '#' + el.id;
-                            else if (el.name) id = tag + '[name="' + el.name + '"]';
-                            
-                            if (seen.has(id)) return;
-                            seen.add(id);
-                            
-                            // Element-Typ bestimmen
-                            let elementType = 'other';
-                            let inputType = '';
-                            let hasInput = false;
-                            
-                            if (tag === 'input') {
-                                elementType = 'input';
-                                inputType = el.type || 'text';
-                                hasInput = ['text', 'search', 'email', 'url', 'tel', 'password', ''].includes(inputType);
-                            } else if (tag === 'textarea') {
-                                elementType = 'input';
-                                inputType = 'textarea';
-                                hasInput = true;
-                            } else if (tag === 'select') {
-                                elementType = 'select';
-                            } else if (tag === 'form') {
-                                elementType = 'form';
-                            } else if (tag === 'a') {
-                                elementType = 'link';
-                            } else if (tag === 'button' || el.getAttribute('role') === 'button') {
-                                elementType = 'button';
-                            } else if (el.hasAttribute('onclick')) {
-                                elementType = 'clickable';
-                            }
-                            
-                            // Event-Handler Check
-                            const hasEventHandler = el.hasAttribute('onclick') ||
-                                                   el.hasAttribute('onsubmit') ||
-                                                   el.hasAttribute('oninput') ||
-                                                   el.hasAttribute('onchange');
-                            
-                            // Externe Links filtern (aber onclick-Links behalten!)
-                            if (tag === 'a' && el.hasAttribute('href')) {
+        for attempt in range(self.max_retries + 1):
+            try:
+                if not await self.is_page_valid(page):
+                    await self.wait_for_page_ready(page)
+                
+                candidates_data = await page.evaluate("""
+                    () => {
+                        const candidates = [];
+                        const currentHostname = window.location.hostname;
+                        const currentOrigin = window.location.origin;
+                        
+                        const elements = document.querySelectorAll(
+                            'input:not([type="hidden"]):not([disabled]), ' +
+                            'textarea:not([disabled]), ' +
+                            'select:not([disabled]), ' +
+                            'button:not([disabled]), ' +
+                            'a, ' +
+                            '[onclick], ' +
+                            '[role="button"], ' +
+                            '[role="link"], ' +
+                            '[tabindex="0"]'
+                        );
+                        
+                        for (const el of elements) {
+                            try {
+                                const rect = el.getBoundingClientRect();
+                                const style = window.getComputedStyle(el);
+                                
+                                if (rect.width <= 0 || rect.height <= 0) continue;
+                                if (style.display === 'none') continue;
+                                if (style.visibility === 'hidden') continue;
+                                if (parseFloat(style.opacity) < 0.1) continue;
+                                if (rect.bottom < 0 || rect.top > window.innerHeight * 2) continue;
+                                
+                                const tag = el.tagName.toLowerCase();
+                                const type = el.getAttribute('type') || '';
+                                const text = (el.textContent || el.value || el.placeholder || '').trim().substring(0, 50);
                                 const href = el.getAttribute('href') || '';
-                                if (href.startsWith('mailto:') || href.startsWith('tel:')) return;
-                                if (href.includes('://') && !href.includes(window.location.hostname)) return;
-                            }
-                            
-                            // Selector für späteres Finden
-                            let selector = '';
-                            if (el.id) {
-                                selector = '#' + el.id;
-                            } else if (el.name) {
-                                selector = tag + '[name="' + el.name + '"]';
-                            } else {
-                                // Für onclick-Links ohne ID: verwende Text-Selektor
-                                const text = (el.textContent || '').trim();
-                                if (text && text.length < 30) {
-                                    selector = tag + ':has-text("' + text + '")';
-                                } else {
-                                    selector = tag + ':nth-of-type(' + (idx + 1) + ')';
+                                const hasOnclick = el.hasAttribute('onclick');
+                                
+                                if (tag === 'a' && href) {
+                                    if (href.startsWith('mailto:') || href.startsWith('tel:')) continue;
+                                    if (href.startsWith('http') && !href.includes(currentHostname)) continue;
                                 }
-                            }
-                            
-                            candidates.push({
-                                id: id,
-                                element_type: elementType,
-                                selector: selector,
-                                text: (el.textContent || el.value || el.placeholder || '').trim().substring(0, 50),
-                                has_input: hasInput,
-                                has_event_handler: hasEventHandler,
-                                is_form: tag === 'form',
-                                input_type: inputType,
-                                attributes: {
-                                    href: el.getAttribute('href') || '',
-                                    type: el.getAttribute('type') || '',
-                                    name: el.getAttribute('name') || '',
-                                    onclick: el.hasAttribute('onclick')
+                                
+                                let selector = tag;
+                                if (el.id) {
+                                    selector = '#' + CSS.escape(el.id);
+                                } else if (el.name && (tag === 'input' || tag === 'textarea' || tag === 'select')) {
+                                    selector = tag + '[name="' + el.name + '"]';
+                                } else if (text && (tag === 'a' || tag === 'button' || hasOnclick)) {
+                                    selector = tag + ':has-text("' + text.substring(0, 20).replace(/"/g, '\\\\"') + '")';
+                                } else if (el.className && typeof el.className === 'string') {
+                                    const firstClass = el.className.split(' ').find(c => c && c.length < 30);
+                                    if (firstClass) {
+                                        selector = tag + '.' + CSS.escape(firstClass);
+                                    }
                                 }
-                            });
-                        } catch (e) {}
-                    });
+                                
+                                if (selector === tag) {
+                                    const siblings = Array.from(document.querySelectorAll(tag));
+                                    const index = siblings.indexOf(el) + 1;
+                                    selector = tag + ':nth-of-type(' + index + ')';
+                                }
+                                
+                                let elementType = 'unknown';
+                                if (tag === 'input' || tag === 'textarea') {
+                                    elementType = 'input';
+                                } else if (tag === 'select') {
+                                    elementType = 'select';
+                                } else if (tag === 'button' || el.getAttribute('role') === 'button') {
+                                    elementType = 'button';
+                                } else if (tag === 'a' || el.getAttribute('role') === 'link') {
+                                    elementType = 'link';
+                                } else if (hasOnclick) {
+                                    elementType = 'onclick';
+                                }
+                                
+                                candidates.push({
+                                    selector: selector,
+                                    type: elementType,
+                                    tag: tag,
+                                    label: text,
+                                    inputType: type,
+                                    href: href,
+                                    hasOnclick: hasOnclick,
+                                    rect: {
+                                        top: rect.top,
+                                        left: rect.left,
+                                        width: rect.width,
+                                        height: rect.height
+                                    }
+                                });
+                                
+                            } catch (e) {
+                                continue;
+                            }
+                        }
+                        
+                        return candidates;
+                    }
+                """)
+                
+                # Konvertiere zu ActionCandidate Objekten
+                candidates = [ActionCandidate.from_dict(c) for c in (candidates_data or [])]
+                self.total_candidates += len(candidates)
+                return candidates
+                
+            except PlaywrightError as e:
+                error_msg = str(e).lower()
+                
+                if 'context was destroyed' in error_msg:
+                    logger.debug("Context destroyed während get_action_candidates, warte...")
+                    await self.wait_for_page_ready(page)
+                    if attempt < self.max_retries:
+                        continue
                     
-                    return candidates;
-                }
-            """)
-            
-            # Konvertiere zu ActionCandidate Objekten
-            candidates = []
-            for data in candidates_data:
-                candidate = ActionCandidate(
-                    id=data['id'],
-                    element_type=data['element_type'],
-                    selector=data['selector'],
-                    text=data['text'],
-                    attributes=data.get('attributes', {}),
-                    has_input=data.get('has_input', False),
-                    has_event_handler=data.get('has_event_handler', False),
-                    is_form=data.get('is_form', False),
-                    input_type=data.get('input_type', ''),
-                    visited_count=self.candidate_history.get(data['id'], 0)
-                )
-                
-                # Priorität setzen
-                if candidate.has_input:
-                    candidate.priority = 5.0  # Inputs höchste Priorität
-                elif candidate.is_form:
-                    candidate.priority = 4.0
-                elif candidate.has_event_handler:
-                    candidate.priority = 3.0  # onclick etc. wichtig
-                elif candidate.element_type == 'button':
-                    candidate.priority = 2.0
-                elif candidate.element_type == 'link':
-                    candidate.priority = 1.5
-                else:
-                    candidate.priority = 1.0
-                
-                candidates.append(candidate)
-            
-            # Log Übersicht
-            inputs = [c for c in candidates if c.has_input]
-            clickables = [c for c in candidates if c.has_event_handler]
-            links = [c for c in candidates if c.element_type == 'link']
-            
-            logger.debug(f"Kandidaten: {len(inputs)} Inputs, {len(clickables)} Clickables, {len(links)} Links")
-            
-            return candidates
-            
-        except Exception as e:
-            logger.error(f"Fehler beim Sammeln der Candidates: {e}")
-            import traceback
-            traceback.print_exc()
-            return []
-    
-    async def perform_action(self, candidate: ActionCandidate, page: Page) -> ActionResult:
-        """
-        Führt eine Aktion auf einem Kandidaten aus.
-        """
-        result = ActionResult(candidate=candidate, success=False)
+            except Exception as e:
+                logger.error(f"Fehler beim Sammeln der Candidates: {e}")
+                if attempt < self.max_retries:
+                    await asyncio.sleep(self.retry_delay)
         
-        try:
-            dom_before = await page.evaluate("() => document.getElementsByTagName('*').length")
-            url_before = page.url
-            
-            # === INPUT-FELD: XSS-Payload injizieren! ===
-            if candidate.has_input:
-                payload = self.get_next_payload()
-                
-                try:
-                    # Finde Element
-                    element = await page.query_selector(candidate.selector)
-                    if element:
-                        await element.click(timeout=1000)
-                        await element.fill(payload)
-                        await element.dispatch_event('input')
-                        await element.dispatch_event('change')
-                        
-                        result.success = True
-                        result.payload_used = payload
-                        logger.info(f"💉 Payload in '{candidate.text or candidate.selector}': {payload[:40]}...")
-                        
-                        # Suche Submit-Button
-                        try:
-                            submit = await page.query_selector('button, input[type="submit"], [onclick*="submit"], [onclick*="search"], [onclick*="update"]')
-                            if submit:
-                                await submit.click(timeout=1000)
-                                logger.debug("   ↳ Button geklickt")
-                        except:
-                            pass
-                except Exception as e:
-                    result.error = str(e)
-                    logger.debug(f"Input-Fehler: {e}")
-            
-            # === LINK/BUTTON/CLICKABLE: Klicken ===
-            elif candidate.element_type in ['link', 'button', 'clickable'] or candidate.has_event_handler:
-                try:
-                    # Methode 1: Playwright click mit Text-Selektor
-                    if ':has-text(' in candidate.selector:
-                        text = candidate.text
-                        if text:
-                            await page.click(f'text="{text}"', timeout=3000)
-                            result.success = True
-                    else:
-                        await page.click(candidate.selector, timeout=3000)
-                        result.success = True
-                        
-                except PlaywrightTimeout:
-                    # Methode 2: JavaScript click
-                    try:
-                        text = candidate.text
-                        await page.evaluate(f"""
-                            () => {{
-                                // Versuche über Text zu finden
-                                const elements = document.querySelectorAll('a, button, [onclick]');
-                                for (const el of elements) {{
-                                    if (el.textContent.trim() === '{text}') {{
-                                        el.click();
-                                        return true;
-                                    }}
-                                }}
-                                return false;
-                            }}
-                        """)
-                        result.success = True
-                    except Exception as e:
-                        result.error = str(e)
-                except Exception as e:
-                    result.error = str(e)
-            
-            # === ANDERE: Versuche zu klicken ===
-            else:
-                try:
-                    await page.click(candidate.selector, timeout=2000)
-                    result.success = True
-                except Exception as e:
-                    result.error = str(e)
-            
-            await asyncio.sleep(0.3)
-            
-            # DOM-Änderung messen
-            dom_after = await page.evaluate("() => document.getElementsByTagName('*').length")
-            result.dom_change = dom_after - dom_before
-            
-            # URL-Änderung
-            if page.url != url_before:
-                result.url_changed = True
-                result.new_url = page.url
-            
-            # Tracking aktualisieren
-            self.candidate_history[candidate.id] = self.candidate_history.get(candidate.id, 0) + 1
-            self.dom_growth_history[candidate.id] = result.dom_change
-            
-            if result.success:
-                self.visited_candidates.add(candidate.id)
-            
-        except Exception as e:
-            result.error = str(e)
-            logger.debug(f"Aktion fehlgeschlagen: {e}")
-        
-        return result
+        return []
     
     async def get_dom_size(self, page: Page) -> int:
+        """Gibt die aktuelle DOM-Größe zurück und trackt Maximum"""
         try:
-            return await page.evaluate("() => document.getElementsByTagName('*').length")
-        except:
-            return 0
+            if not await self.is_page_valid(page):
+                return self.current_dom_size
+            size = await page.evaluate("document.querySelectorAll('*').length")
+            # Track maximum
+            if size > self.max_dom_size:
+                self.max_dom_size = size
+            return size
+        except Exception:
+            return self.current_dom_size
     
-    async def execute(self, page: Page, url: str) -> StrategyResult:
-        """Führt die Strategie aus."""
-        result = StrategyResult(
-            strategy_name=self.name,
-            url=url,
-            started_at=datetime.now()
-        )
+    async def perform_action(self, page: Page, candidate: ActionCandidate) -> ActionResult:
+        """
+        Führt eine Aktion auf einem Element aus.
+        """
+        import time
+        start_time = time.time()
         
-        result.initial_dom_size = await self.get_dom_size(page)
-        result.max_dom_size_reached = result.initial_dom_size
+        selector = candidate.selector
+        element_type = candidate.type
+        label = candidate.label
         
-        logger.info(f"🚀 Starte {self.name}")
-        logger.info(f"   URL: {url}")
-        logger.info(f"   Max Actions: {self.max_actions}")
+        prev_dom_size = await self.get_dom_size(page)
+        payload = None
         
-        failed_attempts = 0
-        max_failures = 10
-        
-        for i in range(self.max_actions):
-            if failed_attempts >= max_failures:
-                logger.warning(f"⚠️ Zu viele Fehler ({failed_attempts}), breche ab")
-                break
+        try:
+            if element_type == 'input':
+                payload = self.get_next_payload()
+                success = await self.safe_fill(page, selector, payload, label)
+                
+                if success:
+                    self.inputs_filled += 1
+                    self.payloads_injected += 1
+                    logger.info(f"💉 Payload in '{label[:20] or selector[:20]}': {payload[:40]}...")
+                    await self._try_submit(page)
+            else:
+                success = await self.safe_click(page, selector, label)
             
-            try:
-                candidates = await self.get_action_candidates(page)
+            # DOM-Änderung messen
+            await asyncio.sleep(0.3)
+            new_dom_size = await self.get_dom_size(page)
+            dom_change = new_dom_size - prev_dom_size
+            
+            duration = time.time() - start_time
+            
+            result = ActionResult(
+                success=success,
+                candidate=candidate,
+                dom_change=dom_change,
+                payload_injected=payload if success and element_type == 'input' else None,
+                duration=duration
+            )
+            
+            self.action_results.append(result)
+            return result
                 
-                if not candidates:
-                    logger.debug("Keine Kandidaten gefunden")
-                    failed_attempts += 1
+        except Exception as e:
+            duration = time.time() - start_time
+            error_msg = str(e)
+            
+            result = ActionResult(
+                success=False,
+                candidate=candidate,
+                error=error_msg,
+                duration=duration
+            )
+            
+            self.action_results.append(result)
+            self.errors.append(error_msg)
+            return result
+    
+    async def _try_submit(self, page: Page):
+        """Versucht einen Submit-Button zu finden und zu klicken"""
+        try:
+            submit_selectors = [
+                'button[type="submit"]',
+                'input[type="submit"]',
+                'button:has-text("Search")',
+                'button:has-text("Submit")',
+                'button:has-text("Go")',
+                'button:has-text("Suchen")',
+                'button:has-text("Absenden")',
+            ]
+            
+            for selector in submit_selectors:
+                if await self.validate_element(page, selector):
+                    await self.safe_click(page, selector)
                     await asyncio.sleep(0.5)
-                    continue
-                
-                result.total_candidates_found = max(result.total_candidates_found, len(candidates))
-                
-                candidate = await self.select_next_action(candidates, page)
-                
-                if not candidate:
-                    logger.debug("Kein Kandidat ausgewählt")
-                    failed_attempts += 1
-                    continue
-                
-                action_result = await self.perform_action(candidate, page)
-                result.action_history.append(action_result)
-                
-                if action_result.success:
-                    result.actions_successful += 1
-                    failed_attempts = 0
+                    return
                     
-                    dom_info = f"+{action_result.dom_change}" if action_result.dom_change > 0 else f"{action_result.dom_change}"
-                    payload_info = " 💉" if action_result.payload_used else ""
-                    logger.info(f"✅ {candidate.element_type}: '{candidate.text[:20] or candidate.selector}' ({dom_info} DOM){payload_info}")
-                    
-                    if action_result.payload_used:
-                        result.payloads_injected += 1
-                    if candidate.has_input:
-                        result.inputs_filled += 1
-                else:
-                    result.actions_failed += 1
-                    failed_attempts += 1
-                    logger.debug(f"❌ Fehlgeschlagen: {candidate.text} - {action_result.error}")
-                
-                result.actions_performed += 1
-                
-                current_dom = await self.get_dom_size(page)
-                result.max_dom_size_reached = max(result.max_dom_size_reached, current_dom)
-                
-                await asyncio.sleep(self.action_delay)
-                
-            except Exception as e:
-                logger.debug(f"Fehler in Hauptschleife: {e}")
-                failed_attempts += 1
-                await asyncio.sleep(0.5)
+        except Exception:
+            pass
+    
+    def should_continue(self) -> bool:
+        """
+        Prüft ob die Strategie weitermachen soll.
+        Unterscheidet zwischen kritischen und nicht-kritischen Fehlern.
+        """
+        if self.critical_errors >= self.max_critical_errors:
+            logger.warning(f"⚠️ Zu viele kritische Fehler ({self.critical_errors}), breche ab")
+            return False
         
-        result.ended_at = datetime.now()
-        result.final_dom_size = await self.get_dom_size(page)
-        result.unique_candidates_executed = len(self.visited_candidates)
-        result.dom_states_visited = len(set(self.dom_growth_history.values()))
+        if self.minor_errors >= self.max_minor_errors:
+            logger.warning(f"⚠️ Zu viele kleine Fehler ({self.minor_errors}), breche ab")
+            return False
         
-        logger.info(f"\n✅ {self.name} abgeschlossen:")
-        logger.info(f"   Aktionen: {result.actions_successful}/{result.actions_performed}")
-        logger.info(f"   Inputs gefüllt: {result.inputs_filled}")
-        logger.info(f"   Payloads injiziert: {result.payloads_injected}")
-        logger.info(f"   DOM: {result.initial_dom_size} → {result.final_dom_size}")
-        logger.info(f"   Zeit: {result.duration_seconds:.1f}s")
+        return True
+    
+    def record_error(self, critical: bool = False, message: str = ""):
+        """Zeichnet einen Fehler auf"""
+        if critical:
+            self.critical_errors += 1
+        else:
+            self.minor_errors += 1
         
-        return result
+        if message:
+            self.errors.append(message)
+    
+    def reset_error_count(self):
+        """Setzt Fehler-Zähler zurück (nach erfolgreicher Aktion)"""
+        self.minor_errors = max(0, self.minor_errors - 1)
+    
+    @abstractmethod
+    async def run(self, page: Page, max_actions: int = 50) -> StrategyResult:
+        """
+        Führt die Strategie aus.
+        Muss von Subklassen implementiert werden.
+        """
+        pass
+    
+    async def execute(self, page: Page, url: str = None, max_actions: int = 50) -> StrategyResult:
+        """
+        Wrapper für run() - für Kompatibilität mit main.py
+        """
+        from datetime import datetime
+        self.url = url or page.url
+        self.started_at = datetime.now().isoformat()
+        return await self.run(page, max_actions)
+    
+    def get_result(self, duration: float) -> StrategyResult:
+        """Erstellt StrategyResult aus aktuellem Zustand"""
+        from datetime import datetime
+        now = datetime.now().isoformat()
+        
+        # Zähle erfolgreiche/fehlgeschlagene Aktionen
+        successful = sum(1 for r in self.action_results if r.success)
+        failed = sum(1 for r in self.action_results if not r.success)
+        
+        return StrategyResult(
+            strategy_name=self.name,
+            actions_performed=self.actions_performed,
+            inputs_filled=self.inputs_filled,
+            payloads_injected=self.payloads_injected,
+            initial_dom_size=self.initial_dom_size,
+            final_dom_size=self.current_dom_size,
+            duration=duration,
+            url=getattr(self, 'url', ''),
+            started_at=getattr(self, 'started_at', now),
+            ended_at=now,
+            actions_successful=successful,
+            actions_failed=failed,
+            max_dom_size_reached=getattr(self, 'max_dom_size', self.current_dom_size),
+            dom_states_visited=len(self.visited_selectors),
+            total_candidates_found=getattr(self, 'total_candidates', 0),
+            unique_candidates_executed=len(self.visited_selectors),
+            visited_selectors=list(self.visited_selectors),
+            action_results=self.action_results,
+            errors=self.errors
+        )
+    
+    def get_stats(self) -> Dict[str, Any]:
+        """Gibt Statistiken zurück"""
+        return {
+            'strategy': self.name,
+            'actions_performed': self.actions_performed,
+            'inputs_filled': self.inputs_filled,
+            'payloads_injected': self.payloads_injected,
+            'initial_dom_size': self.initial_dom_size,
+            'final_dom_size': self.current_dom_size,
+            'dom_growth': self.current_dom_size - self.initial_dom_size,
+            'critical_errors': self.critical_errors,
+            'minor_errors': self.minor_errors,
+            'visited_elements': len(self.visited_selectors),
+        }

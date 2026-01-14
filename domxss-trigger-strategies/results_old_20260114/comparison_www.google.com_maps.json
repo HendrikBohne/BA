@@ -1,0 +1,263 @@
+{
+  "report_type": "strategy_comparison",
+  "generated_at": "2026-01-07T10:59:12.108603",
+  "url": "https://www.google.com/maps",
+  "comparison_timestamp": "2026-01-07T10:59:12.108455",
+  "strategies": [
+    {
+      "strategy_name": "Random Walk",
+      "url": "https://www.google.com/maps",
+      "run_id": "Random Walk_20260107_105543",
+      "timestamp": "2026-01-07T10:54:36.213558",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 0,
+        "unique_flows": 0,
+        "exploitable_flows": 0,
+        "unique_source_sink_pairs": 0,
+        "by_source": {
+          "url": 0,
+          "storage": 0,
+          "dom": 0,
+          "user_input": 0
+        },
+        "by_sink": {
+          "html_injection": 0,
+          "js_execution": 0,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 65.633792,
+        "actions_performed": 50,
+        "actions_successful": 48,
+        "actions_failed": 2,
+        "actions_per_second": 0.7618027006576125,
+        "success_rate": 0.96
+      },
+      "dom": {
+        "initial_size": 1731,
+        "final_size": 490,
+        "max_size": 1731,
+        "growth_ratio": 0.2830733679953784,
+        "states_visited": 6
+      },
+      "candidates": {
+        "total_found": 9,
+        "unique_executed": 11,
+        "execution_rate": 1.2222222222222223
+      },
+      "derived": {
+        "flows_per_action": 0.0,
+        "flows_per_second": 0.0
+      }
+    },
+    {
+      "strategy_name": "Model-Guided",
+      "url": "https://www.google.com/maps",
+      "run_id": "Model-Guided_20260107_105753",
+      "timestamp": "2026-01-07T10:55:45.084052",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 0,
+        "unique_flows": 0,
+        "exploitable_flows": 0,
+        "unique_source_sink_pairs": 0,
+        "by_source": {
+          "url": 0,
+          "storage": 0,
+          "dom": 0,
+          "user_input": 0
+        },
+        "by_sink": {
+          "html_injection": 0,
+          "js_execution": 0,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 128.893556,
+        "actions_performed": 50,
+        "actions_successful": 36,
+        "actions_failed": 14,
+        "actions_per_second": 0.38791698787486323,
+        "success_rate": 0.72
+      },
+      "dom": {
+        "initial_size": 1731,
+        "final_size": 646,
+        "max_size": 1731,
+        "growth_ratio": 0.3731946851530907,
+        "states_visited": 4
+      },
+      "candidates": {
+        "total_found": 42,
+        "unique_executed": 11,
+        "execution_rate": 0.2619047619047619
+      },
+      "derived": {
+        "flows_per_action": 0.0,
+        "flows_per_second": 0.0
+      }
+    },
+    {
+      "strategy_name": "DOM Maximizer",
+      "url": "https://www.google.com/maps",
+      "run_id": "DOM Maximizer_20260107_105912",
+      "timestamp": "2026-01-07T10:57:56.450827",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 0,
+        "unique_flows": 0,
+        "exploitable_flows": 0,
+        "unique_source_sink_pairs": 0,
+        "by_source": {
+          "url": 0,
+          "storage": 0,
+          "dom": 0,
+          "user_input": 0
+        },
+        "by_sink": {
+          "html_injection": 0,
+          "js_execution": 0,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 75.647558,
+        "actions_performed": 50,
+        "actions_successful": 46,
+        "actions_failed": 4,
+        "actions_per_second": 0.660959868658285,
+        "success_rate": 0.92
+      },
+      "dom": {
+        "initial_size": 1731,
+        "final_size": 500,
+        "max_size": 1731,
+        "growth_ratio": 0.28885037550548814,
+        "states_visited": 9
+      },
+      "candidates": {
+        "total_found": 94,
+        "unique_executed": 10,
+        "execution_rate": 0.10638297872340426
+      },
+      "derived": {
+        "flows_per_action": 0.0,
+        "flows_per_second": 0.0
+      }
+    }
+  ],
+  "rankings": {
+    "flows_found": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    },
+    "vulnerabilities": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    },
+    "coverage": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    },
+    "efficiency": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    }
+  },
+  "summary_table": [
+    {
+      "strategy": "Random Walk",
+      "flows": 0,
+      "vulnerabilities": 0,
+      "coverage": "0.0%",
+      "efficiency": "0.00",
+      "duration": "65.6s"
+    },
+    {
+      "strategy": "Model-Guided",
+      "flows": 0,
+      "vulnerabilities": 0,
+      "coverage": "0.0%",
+      "efficiency": "0.00",
+      "duration": "128.9s"
+    },
+    {
+      "strategy": "DOM Maximizer",
+      "flows": 0,
+      "vulnerabilities": 0,
+      "coverage": "0.0%",
+      "efficiency": "0.00",
+      "duration": "75.6s"
+    }
+  ],
+  "winners": {
+    "flows_found": "Random Walk",
+    "vulnerabilities": "Random Walk",
+    "coverage": "Random Walk",
+    "efficiency": "Random Walk"
+  }
+}

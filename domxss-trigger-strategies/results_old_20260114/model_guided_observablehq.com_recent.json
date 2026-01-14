@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T10:03:58.474314",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://observablehq.com/recent",
+    "run_id": "Model-Guided_20260107_100358",
+    "timestamp": "2026-01-07T10:01:00.506778",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 0,
+      "unique_flows": 0,
+      "exploitable_flows": 0,
+      "unique_source_sink_pairs": 0,
+      "by_source": {
+        "url": 0,
+        "storage": 0,
+        "dom": 0,
+        "user_input": 0
+      },
+      "by_sink": {
+        "html_injection": 0,
+        "js_execution": 0,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 177.956207,
+      "actions_performed": 42,
+      "actions_successful": 18,
+      "actions_failed": 24,
+      "actions_per_second": 0.23601312203737854,
+      "success_rate": 0.42857142857142855
+    },
+    "dom": {
+      "initial_size": 997,
+      "final_size": 2944,
+      "max_size": 2944,
+      "growth_ratio": 2.9528585757271815,
+      "states_visited": 8
+    },
+    "candidates": {
+      "total_found": 359,
+      "unique_executed": 12,
+      "execution_rate": 0.033426183844011144
+    },
+    "derived": {
+      "flows_per_action": 0.0,
+      "flows_per_second": 0.0
+    }
+  }
+}

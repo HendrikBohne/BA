@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T09:23:48.165827",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://www.airbnb.com",
+    "run_id": "Model-Guided_20260107_092348",
+    "timestamp": "2026-01-07T09:21:09.041235",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 0,
+      "unique_flows": 0,
+      "exploitable_flows": 0,
+      "unique_source_sink_pairs": 0,
+      "by_source": {
+        "url": 0,
+        "storage": 0,
+        "dom": 0,
+        "user_input": 0
+      },
+      "by_sink": {
+        "html_injection": 0,
+        "js_execution": 0,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 159.112254,
+      "actions_performed": 30,
+      "actions_successful": 15,
+      "actions_failed": 15,
+      "actions_per_second": 0.18854613171402876,
+      "success_rate": 0.5
+    },
+    "dom": {
+      "initial_size": 699,
+      "final_size": 763,
+      "max_size": 4255,
+      "growth_ratio": 1.0915593705293276,
+      "states_visited": 5
+    },
+    "candidates": {
+      "total_found": 233,
+      "unique_executed": 6,
+      "execution_rate": 0.02575107296137339
+    },
+    "derived": {
+      "flows_per_action": 0.0,
+      "flows_per_second": 0.0
+    }
+  }
+}

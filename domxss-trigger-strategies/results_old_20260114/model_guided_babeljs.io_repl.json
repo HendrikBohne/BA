@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T09:56:40.310414",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://babeljs.io/repl",
+    "run_id": "Model-Guided_20260107_095640",
+    "timestamp": "2026-01-07T09:48:59.938594",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 4,
+      "unique_flows": 4,
+      "exploitable_flows": 4,
+      "unique_source_sink_pairs": 4,
+      "by_source": {
+        "url": 0,
+        "storage": 1,
+        "dom": 2,
+        "user_input": 1
+      },
+      "by_sink": {
+        "html_injection": 3,
+        "js_execution": 1,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 1,
+        "high": 2,
+        "medium": 1,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 460.329305,
+      "actions_performed": 50,
+      "actions_successful": 50,
+      "actions_failed": 0,
+      "actions_per_second": 0.10861789474819554,
+      "success_rate": 1.0
+    },
+    "dom": {
+      "initial_size": 81,
+      "final_size": 605,
+      "max_size": 1245,
+      "growth_ratio": 7.469135802469136,
+      "states_visited": 10
+    },
+    "candidates": {
+      "total_found": 105,
+      "unique_executed": 17,
+      "execution_rate": 0.1619047619047619
+    },
+    "derived": {
+      "flows_per_action": 0.08,
+      "flows_per_second": 0.008689431579855644
+    }
+  }
+}

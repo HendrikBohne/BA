@@ -1,0 +1,263 @@
+{
+  "report_type": "strategy_comparison",
+  "generated_at": "2026-01-07T10:46:57.027191",
+  "url": "https://www.forbes.com",
+  "comparison_timestamp": "2026-01-07T10:46:57.026924",
+  "strategies": [
+    {
+      "strategy_name": "Random Walk",
+      "url": "https://www.forbes.com",
+      "run_id": "Random Walk_20260107_104631",
+      "timestamp": "2026-01-07T10:46:22.311226",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 1,
+        "unique_flows": 1,
+        "exploitable_flows": 1,
+        "unique_source_sink_pairs": 1,
+        "by_source": {
+          "url": 0,
+          "storage": 0,
+          "dom": 1,
+          "user_input": 0
+        },
+        "by_sink": {
+          "html_injection": 0,
+          "js_execution": 1,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 1,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 9.110398,
+        "actions_performed": 10,
+        "actions_successful": 0,
+        "actions_failed": 10,
+        "actions_per_second": 1.0976468865575357,
+        "success_rate": 0.0
+      },
+      "dom": {
+        "initial_size": 4670,
+        "final_size": 4670,
+        "max_size": 4670,
+        "growth_ratio": 1.0,
+        "states_visited": 1
+      },
+      "candidates": {
+        "total_found": 425,
+        "unique_executed": 0,
+        "execution_rate": 0.0
+      },
+      "derived": {
+        "flows_per_action": 0.1,
+        "flows_per_second": 0.10976468865575358
+      }
+    },
+    {
+      "strategy_name": "Model-Guided",
+      "url": "https://www.forbes.com",
+      "run_id": "Model-Guided_20260107_104643",
+      "timestamp": "2026-01-07T10:46:34.555092",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 1,
+        "unique_flows": 1,
+        "exploitable_flows": 1,
+        "unique_source_sink_pairs": 1,
+        "by_source": {
+          "url": 0,
+          "storage": 0,
+          "dom": 1,
+          "user_input": 0
+        },
+        "by_sink": {
+          "html_injection": 0,
+          "js_execution": 1,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 1,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 9.135895,
+        "actions_performed": 10,
+        "actions_successful": 0,
+        "actions_failed": 10,
+        "actions_per_second": 1.0945835082386564,
+        "success_rate": 0.0
+      },
+      "dom": {
+        "initial_size": 4674,
+        "final_size": 4674,
+        "max_size": 4674,
+        "growth_ratio": 1.0,
+        "states_visited": 1
+      },
+      "candidates": {
+        "total_found": 425,
+        "unique_executed": 0,
+        "execution_rate": 0.0
+      },
+      "derived": {
+        "flows_per_action": 0.1,
+        "flows_per_second": 0.10945835082386565
+      }
+    },
+    {
+      "strategy_name": "DOM Maximizer",
+      "url": "https://www.forbes.com",
+      "run_id": "DOM Maximizer_20260107_104657",
+      "timestamp": "2026-01-07T10:46:47.821855",
+      "coverage": {
+        "js_functions_total": 0,
+        "js_functions_executed": 0,
+        "js_function_coverage": 0.0,
+        "js_lines_total": 0,
+        "js_lines_executed": 0,
+        "js_line_coverage": 0.0,
+        "event_handlers_total": 0,
+        "event_handlers_triggered": 0,
+        "event_handler_coverage": 0.0,
+        "dom_elements_total": 0,
+        "dom_elements_interacted": 0,
+        "dom_coverage": 0.0
+      },
+      "taint": {
+        "total_flows": 1,
+        "unique_flows": 1,
+        "exploitable_flows": 1,
+        "unique_source_sink_pairs": 1,
+        "by_source": {
+          "url": 0,
+          "storage": 0,
+          "dom": 1,
+          "user_input": 0
+        },
+        "by_sink": {
+          "html_injection": 0,
+          "js_execution": 1,
+          "url_redirect": 0
+        },
+        "by_severity": {
+          "critical": 1,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        }
+      },
+      "efficiency": {
+        "duration_seconds": 9.186467,
+        "actions_performed": 10,
+        "actions_successful": 0,
+        "actions_failed": 10,
+        "actions_per_second": 1.0885577665494253,
+        "success_rate": 0.0
+      },
+      "dom": {
+        "initial_size": 4670,
+        "final_size": 4670,
+        "max_size": 4670,
+        "growth_ratio": 1.0,
+        "states_visited": 1
+      },
+      "candidates": {
+        "total_found": 425,
+        "unique_executed": 0,
+        "execution_rate": 0.0
+      },
+      "derived": {
+        "flows_per_action": 0.1,
+        "flows_per_second": 0.10885577665494253
+      }
+    }
+  ],
+  "rankings": {
+    "flows_found": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    },
+    "vulnerabilities": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    },
+    "coverage": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    },
+    "efficiency": {
+      "Random Walk": 1,
+      "Model-Guided": 2,
+      "DOM Maximizer": 3
+    }
+  },
+  "summary_table": [
+    {
+      "strategy": "Random Walk",
+      "flows": 1,
+      "vulnerabilities": 1,
+      "coverage": "0.0%",
+      "efficiency": "0.10",
+      "duration": "9.1s"
+    },
+    {
+      "strategy": "Model-Guided",
+      "flows": 1,
+      "vulnerabilities": 1,
+      "coverage": "0.0%",
+      "efficiency": "0.10",
+      "duration": "9.1s"
+    },
+    {
+      "strategy": "DOM Maximizer",
+      "flows": 1,
+      "vulnerabilities": 1,
+      "coverage": "0.0%",
+      "efficiency": "0.10",
+      "duration": "9.2s"
+    }
+  ],
+  "winners": {
+    "flows_found": "Random Walk",
+    "vulnerabilities": "Random Walk",
+    "coverage": "Random Walk",
+    "efficiency": "Random Walk"
+  }
+}

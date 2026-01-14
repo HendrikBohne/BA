@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T10:00:07.417242",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://codepen.io/",
+    "run_id": "Model-Guided_20260107_100007",
+    "timestamp": "2026-01-07T09:58:59.048970",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 2,
+      "unique_flows": 2,
+      "exploitable_flows": 2,
+      "unique_source_sink_pairs": 2,
+      "by_source": {
+        "url": 1,
+        "storage": 0,
+        "dom": 1,
+        "user_input": 0
+      },
+      "by_sink": {
+        "html_injection": 1,
+        "js_execution": 1,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 2,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 68.341906,
+      "actions_performed": 13,
+      "actions_successful": 1,
+      "actions_failed": 12,
+      "actions_per_second": 0.19022003863925013,
+      "success_rate": 0.07692307692307693
+    },
+    "dom": {
+      "initial_size": 38,
+      "final_size": 673,
+      "max_size": 673,
+      "growth_ratio": 17.710526315789473,
+      "states_visited": 1
+    },
+    "candidates": {
+      "total_found": 106,
+      "unique_executed": 1,
+      "execution_rate": 0.009433962264150943
+    },
+    "derived": {
+      "flows_per_action": 0.15384615384615385,
+      "flows_per_second": 0.029264621329115406
+    }
+  }
+}

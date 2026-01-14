@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T09:35:16.876515",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://www.photopea.com/",
+    "run_id": "Model-Guided_20260107_093516",
+    "timestamp": "2026-01-07T09:23:51.291860",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 4,
+      "unique_flows": 4,
+      "exploitable_flows": 4,
+      "unique_source_sink_pairs": 4,
+      "by_source": {
+        "url": 1,
+        "storage": 0,
+        "dom": 2,
+        "user_input": 1
+      },
+      "by_sink": {
+        "html_injection": 3,
+        "js_execution": 1,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 2,
+        "high": 1,
+        "medium": 1,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 682.595077,
+      "actions_performed": 50,
+      "actions_successful": 49,
+      "actions_failed": 1,
+      "actions_per_second": 0.07324986904351788,
+      "success_rate": 0.98
+    },
+    "dom": {
+      "initial_size": 160,
+      "final_size": 417,
+      "max_size": 513,
+      "growth_ratio": 2.60625,
+      "states_visited": 5
+    },
+    "candidates": {
+      "total_found": 53,
+      "unique_executed": 25,
+      "execution_rate": 0.4716981132075472
+    },
+    "derived": {
+      "flows_per_action": 0.08,
+      "flows_per_second": 0.00585998952348143
+    }
+  }
+}

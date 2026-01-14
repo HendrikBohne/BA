@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T09:57:14.005620",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://play.vuejs.org/",
+    "run_id": "Model-Guided_20260107_095714",
+    "timestamp": "2026-01-07T09:56:52.332817",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 2,
+      "unique_flows": 2,
+      "exploitable_flows": 2,
+      "unique_source_sink_pairs": 2,
+      "by_source": {
+        "url": 0,
+        "storage": 0,
+        "dom": 1,
+        "user_input": 1
+      },
+      "by_sink": {
+        "html_injection": 1,
+        "js_execution": 1,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 1,
+        "high": 0,
+        "medium": 1,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 21.654954,
+      "actions_performed": 10,
+      "actions_successful": 0,
+      "actions_failed": 10,
+      "actions_per_second": 0.46178809707931034,
+      "success_rate": 0.0
+    },
+    "dom": {
+      "initial_size": 267,
+      "final_size": 269,
+      "max_size": 269,
+      "growth_ratio": 1.0074906367041199,
+      "states_visited": 1
+    },
+    "candidates": {
+      "total_found": 13,
+      "unique_executed": 0,
+      "execution_rate": 0.0
+    },
+    "derived": {
+      "flows_per_action": 0.2,
+      "flows_per_second": 0.09235761941586207
+    }
+  }
+}

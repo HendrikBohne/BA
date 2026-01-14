@@ -2,6 +2,10 @@
 """
 DOM XSS Trigger Strategies - Main CLI Entry Point
 Automatisierte Erkennung von DOM-basierten XSS in Single-Page Applications
+
+Änderungen:
+- Automatischer Export im Betreuer-Format (findings_*.json)
+- Besseres Error-Handling
 """
 import sys
 import asyncio
@@ -25,14 +29,26 @@ from reporting.comparison import ComparisonReporter
 logger = get_logger(__name__)
 
 
+def url_to_filename(url: str) -> str:
+    """Konvertiert URL zu sicherem Dateinamen"""
+    import re
+    # Entferne Protokoll
+    name = re.sub(r'^https?://', '', url)
+    # Ersetze unsichere Zeichen
+    name = re.sub(r'[^\w\-.]', '_', name)
+    # Kürze
+    return name[:50]
+
+
 class DOMXSSAnalyzer:
     """
     Hauptklasse für DOM XSS Analyse.
     Koordiniert Strategien, Foxhound und Analyse.
     """
     
-    def __init__(self, config: dict = None):
+    def __init__(self, config: dict = None, output_dir: Path = None):
         self.config = config or {}
+        self.output_dir = output_dir or Path('results')
         self.foxhound = None
         self.taint_parser = TaintLogParser()
         self.vuln_detector = VulnerabilityDetector()
@@ -102,10 +118,20 @@ class DOMXSSAnalyzer:
         await self.foxhound.start_taint_tracking()
         
         # Führe Strategie aus
-        result: StrategyResult = await strategy.execute(page, url)
+        result: StrategyResult = await strategy.execute(page, url, max_actions)
         
         # Sammle Taint-Logs
         taint_logs = await self.foxhound.get_taint_logs()
+        
+        # ============================================
+        # NEU: Export im Betreuer-Format
+        # ============================================
+        try:
+            findings_file = self.output_dir / f"findings_{strategy_name}_{url_to_filename(url)}.json"
+            self.foxhound.export_findings_betreuer_format(str(findings_file), url)
+            logger.info(f"📁 Findings exportiert: {findings_file}")
+        except Exception as e:
+            logger.warning(f"⚠️ Findings-Export fehlgeschlagen: {e}")
         
         # Parse Taint-Flows
         taint_flows = self.taint_parser.parse(taint_logs)
@@ -124,10 +150,20 @@ class DOMXSSAnalyzer:
         # Coverage analysieren (falls verfügbar)
         coverage = await self.coverage_analyzer.analyze(page)
         
-        # Erstelle Metriken
-        metrics = self._create_metrics(result, coverage)
+        # Zeige Coverage
+        if coverage:
+            dom_cov = coverage.get('dom_coverage', 0)
+            handler_cov = coverage.get('handler_coverage', 0)
+            logger.info(f"📊 Coverage: DOM {dom_cov:.1%}, Handlers {handler_cov:.1%}")
         
-        return metrics
+        # Erstelle Metriken
+        try:
+            metrics = self._create_metrics(result, coverage)
+            return metrics
+        except Exception as e:
+            logger.error(f"❌ Fehler bei Metriken-Erstellung: {e}")
+            # Fallback: Gib None zurück aber exportiere trotzdem
+            return None
     
     async def compare_strategies(
         self,
@@ -217,23 +253,23 @@ class DOMXSSAnalyzer:
         
         metrics.taint = TaintMetrics(
             total_flows=len(flows),
-            unique_flows=len(set(flows)),
+            unique_flows=len(set(flows)) if flows else 0,
             exploitable_flows=len([v for v in vulns if v.confidence >= 0.7]),
             unique_source_sink_pairs=len(set((f.source.name, f.sink.name) for f in flows)) if flows else 0,
             # Nach Source
-            flows_from_url=len([f for f in flows if f.source.type == SourceType.URL]),
-            flows_from_storage=len([f for f in flows if f.source.type == SourceType.STORAGE]),
-            flows_from_dom=len([f for f in flows if f.source.type == SourceType.DOM]),
-            flows_from_user_input=len([f for f in flows if f.source.type == SourceType.USER_INPUT]),
+            flows_from_url=len([f for f in flows if hasattr(f, 'source') and f.source.type == SourceType.URL]),
+            flows_from_storage=len([f for f in flows if hasattr(f, 'source') and f.source.type == SourceType.STORAGE]),
+            flows_from_dom=len([f for f in flows if hasattr(f, 'source') and f.source.type == SourceType.DOM]),
+            flows_from_user_input=len([f for f in flows if hasattr(f, 'source') and f.source.type == SourceType.USER_INPUT]),
             # Nach Sink
-            flows_to_html_injection=len([f for f in flows if f.sink.type == SinkType.HTML_INJECTION]),
-            flows_to_js_execution=len([f for f in flows if f.sink.type == SinkType.JS_EXECUTION]),
-            flows_to_url_redirect=len([f for f in flows if f.sink.type == SinkType.URL_REDIRECT]),
+            flows_to_html_injection=len([f for f in flows if hasattr(f, 'sink') and f.sink.type == SinkType.HTML_INJECTION]),
+            flows_to_js_execution=len([f for f in flows if hasattr(f, 'sink') and f.sink.type == SinkType.JS_EXECUTION]),
+            flows_to_url_redirect=len([f for f in flows if hasattr(f, 'sink') and f.sink.type == SinkType.URL_REDIRECT]),
             # Nach Severity
-            critical_count=len([v for v in vulns if v.severity == Severity.CRITICAL]),
-            high_count=len([v for v in vulns if v.severity == Severity.HIGH]),
-            medium_count=len([v for v in vulns if v.severity == Severity.MEDIUM]),
-            low_count=len([v for v in vulns if v.severity == Severity.LOW])
+            critical_count=len([v for v in vulns if hasattr(v, 'severity') and v.severity == Severity.CRITICAL]),
+            high_count=len([v for v in vulns if hasattr(v, 'severity') and v.severity == Severity.HIGH]),
+            medium_count=len([v for v in vulns if hasattr(v, 'severity') and v.severity == Severity.MEDIUM]),
+            low_count=len([v for v in vulns if hasattr(v, 'severity') and v.severity == Severity.LOW])
         )
         
         # Coverage (falls vorhanden)
@@ -388,7 +424,7 @@ Beispiele:
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Analyzer initialisieren
-    analyzer = DOMXSSAnalyzer()
+    analyzer = DOMXSSAnalyzer(output_dir=output_dir)
     
     try:
         await analyzer.setup(
@@ -399,46 +435,65 @@ Beispiele:
         all_results = []
         
         for url in urls:
-            if args.compare_all:
-                # Vergleiche alle Strategien
-                comparison = await analyzer.compare_strategies(
-                    url=url,
-                    max_actions=args.max_actions
-                )
-                all_results.append(comparison)
-                
-                # Reports generieren
-                if args.format in ['json', 'both']:
-                    JSONReporter.save_comparison(comparison, output_dir / f"comparison_{url_to_filename(url)}.json")
-                if args.format in ['html', 'both']:
-                    HTMLReporter.save_comparison(comparison, output_dir / f"comparison_{url_to_filename(url)}.html")
-            else:
-                # Einzelne Strategie
-                metrics = await analyzer.analyze_url(
-                    url=url,
-                    strategy_name=args.strategy,
-                    max_actions=args.max_actions
-                )
-                
-                if metrics:
-                    all_results.append(metrics)
+            try:
+                if args.compare_all:
+                    # Vergleiche alle Strategien
+                    comparison = await analyzer.compare_strategies(
+                        url=url,
+                        max_actions=args.max_actions
+                    )
+                    all_results.append(comparison)
                     
                     # Reports generieren
-                    if args.format in ['json', 'both']:
-                        JSONReporter.save_metrics(metrics, output_dir / f"{args.strategy}_{url_to_filename(url)}.json")
-                    if args.format in ['html', 'both']:
-                        HTMLReporter.save_metrics(metrics, output_dir / f"{args.strategy}_{url_to_filename(url)}.html")
+                    try:
+                        if args.format in ['json', 'both']:
+                            JSONReporter.save_comparison(comparison, output_dir / f"comparison_{url_to_filename(url)}.json")
+                        if args.format in ['html', 'both']:
+                            HTMLReporter.save_comparison(comparison, output_dir / f"comparison_{url_to_filename(url)}.html")
+                    except Exception as e:
+                        logger.warning(f"⚠️ Report-Generierung fehlgeschlagen: {e}")
+                else:
+                    # Einzelne Strategie
+                    metrics = await analyzer.analyze_url(
+                        url=url,
+                        strategy_name=args.strategy,
+                        max_actions=args.max_actions
+                    )
+                    
+                    if metrics:
+                        all_results.append(metrics)
+                        
+                        # Reports generieren
+                        try:
+                            if args.format in ['json', 'both']:
+                                JSONReporter.save_metrics(metrics, output_dir / f"{args.strategy}_{url_to_filename(url)}.json")
+                            if args.format in ['html', 'both']:
+                                HTMLReporter.save_metrics(metrics, output_dir / f"{args.strategy}_{url_to_filename(url)}.html")
+                        except Exception as e:
+                            logger.warning(f"⚠️ Report-Generierung fehlgeschlagen: {e}")
+                            
+            except Exception as e:
+                logger.error(f"❌ Fehler bei {url}: {e}")
+                continue
         
         # Zusammenfassung
         if not args.quiet:
             print(f"\n✅ Analyse abgeschlossen")
             print(f"📁 Reports gespeichert in: {output_dir.absolute()}")
+            
+            # Zeige welche Dateien erstellt wurden
+            findings_files = list(output_dir.glob("findings_*.json"))
+            if findings_files:
+                print(f"\n📄 Findings-Dateien (Betreuer-Format):")
+                for f in findings_files[-5:]:  # Letzte 5 zeigen
+                    print(f"   - {f.name}")
         
         # Exit-Code basierend auf Vulnerabilities
-        total_vulns = sum(
-            r.taint.exploitable_flows if hasattr(r, 'taint') else 0
-            for r in all_results
-        )
+        total_vulns = 0
+        for r in all_results:
+            if hasattr(r, 'taint') and hasattr(r.taint, 'exploitable_flows'):
+                total_vulns += r.taint.exploitable_flows
+        
         sys.exit(0 if total_vulns == 0 else 1)
         
     except KeyboardInterrupt:
@@ -452,17 +507,6 @@ Beispiele:
         sys.exit(2)
     finally:
         await analyzer.cleanup()
-
-
-def url_to_filename(url: str) -> str:
-    """Konvertiert URL zu sicherem Dateinamen"""
-    import re
-    # Entferne Protokoll
-    name = re.sub(r'^https?://', '', url)
-    # Ersetze unsichere Zeichen
-    name = re.sub(r'[^\w\-.]', '_', name)
-    # Kürze
-    return name[:50]
 
 
 if __name__ == "__main__":

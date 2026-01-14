@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T09:48:44.241787",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://www.typescriptlang.org/play/",
+    "run_id": "Model-Guided_20260107_094844",
+    "timestamp": "2026-01-07T09:48:06.498845",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 3,
+      "unique_flows": 3,
+      "exploitable_flows": 3,
+      "unique_source_sink_pairs": 3,
+      "by_source": {
+        "url": 1,
+        "storage": 0,
+        "dom": 1,
+        "user_input": 1
+      },
+      "by_sink": {
+        "html_injection": 2,
+        "js_execution": 1,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 2,
+        "high": 0,
+        "medium": 1,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 37.716492,
+      "actions_performed": 17,
+      "actions_successful": 1,
+      "actions_failed": 16,
+      "actions_per_second": 0.4507312079819088,
+      "success_rate": 0.058823529411764705
+    },
+    "dom": {
+      "initial_size": 451,
+      "final_size": 1492,
+      "max_size": 1506,
+      "growth_ratio": 3.3082039911308203,
+      "states_visited": 2
+    },
+    "candidates": {
+      "total_found": 112,
+      "unique_executed": 1,
+      "execution_rate": 0.008928571428571428
+    },
+    "derived": {
+      "flows_per_action": 0.17647058823529413,
+      "flows_per_second": 0.07954080140857214
+    }
+  }
+}

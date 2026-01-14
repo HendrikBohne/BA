@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T09:37:47.367027",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://app.diagrams.net/",
+    "run_id": "Model-Guided_20260107_093747",
+    "timestamp": "2026-01-07T09:37:15.257504",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 4,
+      "unique_flows": 4,
+      "exploitable_flows": 4,
+      "unique_source_sink_pairs": 4,
+      "by_source": {
+        "url": 0,
+        "storage": 1,
+        "dom": 2,
+        "user_input": 1
+      },
+      "by_sink": {
+        "html_injection": 3,
+        "js_execution": 1,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 1,
+        "high": 2,
+        "medium": 1,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 32.092302,
+      "actions_performed": 5,
+      "actions_successful": 0,
+      "actions_failed": 5,
+      "actions_per_second": 0.15580060289847705,
+      "success_rate": 0.0
+    },
+    "dom": {
+      "initial_size": 35,
+      "final_size": 3209,
+      "max_size": 3209,
+      "growth_ratio": 91.68571428571428,
+      "states_visited": 2
+    },
+    "candidates": {
+      "total_found": 110,
+      "unique_executed": 0,
+      "execution_rate": 0.0
+    },
+    "derived": {
+      "flows_per_action": 0.8,
+      "flows_per_second": 0.12464048231878164
+    }
+  }
+}

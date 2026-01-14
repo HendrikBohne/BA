@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T09:46:50.624629",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://www.windy.com/",
+    "run_id": "Model-Guided_20260107_094650",
+    "timestamp": "2026-01-07T09:39:45.206526",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 5,
+      "unique_flows": 5,
+      "exploitable_flows": 5,
+      "unique_source_sink_pairs": 5,
+      "by_source": {
+        "url": 1,
+        "storage": 0,
+        "dom": 2,
+        "user_input": 2
+      },
+      "by_sink": {
+        "html_injection": 4,
+        "js_execution": 1,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 2,
+        "high": 1,
+        "medium": 2,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 423.966875,
+      "actions_performed": 50,
+      "actions_successful": 17,
+      "actions_failed": 33,
+      "actions_per_second": 0.11793374187547082,
+      "success_rate": 0.34
+    },
+    "dom": {
+      "initial_size": 222,
+      "final_size": 2998,
+      "max_size": 3048,
+      "growth_ratio": 13.504504504504505,
+      "states_visited": 14
+    },
+    "candidates": {
+      "total_found": 116,
+      "unique_executed": 17,
+      "execution_rate": 0.14655172413793102
+    },
+    "derived": {
+      "flows_per_action": 0.1,
+      "flows_per_second": 0.01179337418754708
+    }
+  }
+}

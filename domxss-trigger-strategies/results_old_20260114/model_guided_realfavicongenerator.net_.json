@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T10:09:42.463278",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://realfavicongenerator.net/",
+    "run_id": "Model-Guided_20260107_100942",
+    "timestamp": "2026-01-07T10:04:27.743407",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 0,
+      "unique_flows": 0,
+      "exploitable_flows": 0,
+      "unique_source_sink_pairs": 0,
+      "by_source": {
+        "url": 0,
+        "storage": 0,
+        "dom": 0,
+        "user_input": 0
+      },
+      "by_sink": {
+        "html_injection": 0,
+        "js_execution": 0,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 312.705846,
+      "actions_performed": 48,
+      "actions_successful": 30,
+      "actions_failed": 18,
+      "actions_per_second": 0.15349888917650742,
+      "success_rate": 0.625
+    },
+    "dom": {
+      "initial_size": 325,
+      "final_size": 231,
+      "max_size": 329,
+      "growth_ratio": 0.7107692307692308,
+      "states_visited": 10
+    },
+    "candidates": {
+      "total_found": 37,
+      "unique_executed": 12,
+      "execution_rate": 0.32432432432432434
+    },
+    "derived": {
+      "flows_per_action": 0.0,
+      "flows_per_second": 0.0
+    }
+  }
+}

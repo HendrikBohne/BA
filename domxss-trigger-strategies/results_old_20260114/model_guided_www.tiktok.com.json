@@ -1,0 +1,71 @@
+{
+  "report_type": "strategy_metrics",
+  "generated_at": "2026-01-07T09:16:06.923083",
+  "metrics": {
+    "strategy_name": "Model-Guided",
+    "url": "https://www.tiktok.com",
+    "run_id": "Model-Guided_20260107_091606",
+    "timestamp": "2026-01-07T09:13:59.595376",
+    "coverage": {
+      "js_functions_total": 0,
+      "js_functions_executed": 0,
+      "js_function_coverage": 0.0,
+      "js_lines_total": 0,
+      "js_lines_executed": 0,
+      "js_line_coverage": 0.0,
+      "event_handlers_total": 0,
+      "event_handlers_triggered": 0,
+      "event_handler_coverage": 0.0,
+      "dom_elements_total": 0,
+      "dom_elements_interacted": 0,
+      "dom_coverage": 0.0
+    },
+    "taint": {
+      "total_flows": 0,
+      "unique_flows": 0,
+      "exploitable_flows": 0,
+      "unique_source_sink_pairs": 0,
+      "by_source": {
+        "url": 0,
+        "storage": 0,
+        "dom": 0,
+        "user_input": 0
+      },
+      "by_sink": {
+        "html_injection": 0,
+        "js_execution": 0,
+        "url_redirect": 0
+      },
+      "by_severity": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "efficiency": {
+      "duration_seconds": 127.138907,
+      "actions_performed": 12,
+      "actions_successful": 2,
+      "actions_failed": 10,
+      "actions_per_second": 0.0943849548745924,
+      "success_rate": 0.16666666666666666
+    },
+    "dom": {
+      "initial_size": 121,
+      "final_size": 749,
+      "max_size": 749,
+      "growth_ratio": 6.190082644628099,
+      "states_visited": 3
+    },
+    "candidates": {
+      "total_found": 47,
+      "unique_executed": 2,
+      "execution_rate": 0.0425531914893617
+    },
+    "derived": {
+      "flows_per_action": 0.0,
+      "flows_per_second": 0.0
+    }
+  }
+}
