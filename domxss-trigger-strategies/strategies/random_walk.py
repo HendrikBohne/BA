@@ -32,8 +32,10 @@ class RandomWalkStrategy(BaseStrategy):
     """
     
     def __init__(self, config: dict = None):
-        super().__init__(name="random_walk")
-        self.config = config or {}
+        config = config or {}
+        passive = config.get('passive', False)
+        super().__init__(name="random_walk", passive=passive)
+        self.config = config
     
     async def run(self, page: Page, max_actions: int = 50) -> StrategyResult:
         """Führt Random Walk aus"""

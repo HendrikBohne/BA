@@ -154,8 +154,9 @@ class BaseStrategy(ABC):
     Robuste Implementierung mit Fehlertoleranz.
     """
     
-    def __init__(self, name: str = "base"):
+    def __init__(self, name: str = "base", passive: bool = False):
         self.name = name
+        self.passive = passive  # Passiv-Modus: keine Payloads senden
         self.url = ""
         self.started_at = ""
         self.actions_performed = 0
@@ -487,6 +488,7 @@ class BaseStrategy(ABC):
     async def perform_action(self, page: Page, candidate: ActionCandidate) -> ActionResult:
         """
         Führt eine Aktion auf einem Element aus.
+        Im Passiv-Modus werden Input-Felder übersprungen (keine Payloads).
         """
         import time
         start_time = time.time()
@@ -500,14 +502,21 @@ class BaseStrategy(ABC):
         
         try:
             if element_type == 'input':
-                payload = self.get_next_payload()
-                success = await self.safe_fill(page, selector, payload, label)
-                
-                if success:
-                    self.inputs_filled += 1
-                    self.payloads_injected += 1
-                    logger.info(f"💉 Payload in '{label[:20] or selector[:20]}': {payload[:40]}...")
-                    await self._try_submit(page)
+                # PASSIV-MODUS: Keine Payloads senden!
+                if self.passive:
+                    logger.debug(f"[PASSIV] Überspringe Input: {label[:20] if label else selector[:20]}")
+                    # Nur klicken um Event-Handler zu triggern, aber nicht füllen
+                    success = await self.safe_click(page, selector, label)
+                else:
+                    # AKTIV-MODUS: Payload senden
+                    payload = self.get_next_payload()
+                    success = await self.safe_fill(page, selector, payload, label)
+                    
+                    if success:
+                        self.inputs_filled += 1
+                        self.payloads_injected += 1
+                        logger.info(f"💉 Payload in '{label[:20] or selector[:20]}': {payload[:40]}...")
+                        await self._try_submit(page)
             else:
                 success = await self.safe_click(page, selector, label)
             

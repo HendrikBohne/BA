@@ -24,8 +24,10 @@ class ModelGuidedStrategy(BaseStrategy):
     """
     
     def __init__(self, config: dict = None):
-        super().__init__(name="model_guided")
-        self.config = config or {}
+        config = config or {}
+        passive = config.get('passive', False)
+        super().__init__(name="model_guided", passive=passive)
+        self.config = config
         
         # Model: Welche Kandidaten führen zu welchen neuen Kandidaten?
         self.successor_map: Dict[str, Set[str]] = {}

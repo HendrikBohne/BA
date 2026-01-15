@@ -28,8 +28,10 @@ class DOMMaximizerStrategy(BaseStrategy):
     """
     
     def __init__(self, config: dict = None):
-        super().__init__(name="dom_maximizer")
-        self.config = config or {}
+        config = config or {}
+        passive = config.get('passive', False)
+        super().__init__(name="dom_maximizer", passive=passive)
+        self.config = config
         self.max_dom_seen = 0
         self.dom_growing_candidates: Dict[str, int] = {}
         self.candidate_history: Dict[str, int] = {}

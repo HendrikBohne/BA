@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-01-14T14:02:10.042553",
+  "total_urls": 1,
+  "results": [
+    {
+      "url": "https://www.forbes.com",
+      "strategy": "random_walk",
+      "timestamp": "2026-01-14T14:01:38.853892",
+      "coverage": {
+        "percent": 89.11,
+        "total_bytes": 13901556,
+        "used_bytes": 12387040,
+        "scripts_total": 30
+      },
+      "security": {
+        "taint_flows": 0,
+        "confirmed_bugs": 0
+      },
+      "duration": {
+        "foxhound_seconds": 0.1567704677581787,
+        "total_seconds": 31.185181856155396
+      }
+    }
+  ]
+}

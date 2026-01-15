@@ -1,0 +1,2 @@
+url,strategy,coverage_percent,js_bytes_total,js_bytes_used,taint_flows,confirmed_bugs,foxhound_duration_s,total_duration_s
+https://www.forbes.com,random_walk,89.1,13901556,12387040,0,0,0.2,31.2

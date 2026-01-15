@@ -22,6 +22,7 @@ from foxhound.taint_parser import TaintLogParser
 from analysis.vulnerability import VulnerabilityDetector
 from analysis.coverage import CoverageAnalyzer
 from analysis.metrics import StrategyMetrics, ComparisonResult
+from analysis.evaluation import EvaluationManager
 from reporting.json_reporter import JSONReporter
 from reporting.html_reporter import HTMLReporter
 from reporting.comparison import ComparisonReporter
@@ -53,6 +54,10 @@ class DOMXSSAnalyzer:
         self.taint_parser = TaintLogParser()
         self.vuln_detector = VulnerabilityDetector()
         self.coverage_analyzer = CoverageAnalyzer()
+        
+        # Evaluation Manager für Statistiken
+        dataset_name = self.config.get('dataset_name', 'evaluation')
+        self.evaluation = EvaluationManager(dataset_name=dataset_name)
         
     async def setup(self, foxhound_path: str = None, headless: bool = False):
         """Initialisiert Foxhound Browser"""
@@ -93,6 +98,8 @@ class DOMXSSAnalyzer:
         logger.info(f"\n{'='*60}")
         logger.info(f"🔍 Analysiere: {url}")
         logger.info(f"📋 Strategie: {strategy_name}")
+        if self.config.get('passive'):
+            logger.info(f"🛡️  PASSIV-MODUS: Keine Payloads werden gesendet")
         logger.info(f"{'='*60}\n")
         
         # Strategie instantiieren
@@ -103,6 +110,7 @@ class DOMXSSAnalyzer:
         strategy_class = STRATEGIES[strategy_name]
         strategy = strategy_class(config={
             'max_actions': max_actions,
+            'passive': self.config.get('passive', False),
             **self.config.get('strategies', {}).get(strategy_name, {})
         })
         
@@ -355,6 +363,11 @@ Beispiele:
         default=50,
         help='Maximale Aktionen pro URL (default: 50)'
     )
+    strategy_group.add_argument(
+        '--passive',
+        action='store_true',
+        help='Passiv-Modus: Keine XSS-Payloads senden (für echte Websites)'
+    )
     
     # Foxhound-Optionen
     foxhound_group = parser.add_argument_group('Foxhound-Optionen')
@@ -424,7 +437,10 @@ Beispiele:
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Analyzer initialisieren
-    analyzer = DOMXSSAnalyzer(output_dir=output_dir)
+    analyzer = DOMXSSAnalyzer(
+        output_dir=output_dir,
+        config={'passive': args.passive}
+    )
     
     try:
         await analyzer.setup(
@@ -487,6 +503,16 @@ Beispiele:
                 print(f"\n📄 Findings-Dateien (Betreuer-Format):")
                 for f in findings_files[-5:]:  # Letzte 5 zeigen
                     print(f"   - {f.name}")
+            
+            # Evaluation Summary
+            if hasattr(analyzer, 'evaluation') and analyzer.evaluation.runs:
+                analyzer.evaluation.print_summary()
+                
+                # Export evaluation
+                eval_json = output_dir / "evaluation_summary.json"
+                eval_csv = output_dir / "evaluation_summary.csv"
+                analyzer.evaluation.export_json(str(eval_json))
+                analyzer.evaluation.export_csv(str(eval_csv))
         
         # Exit-Code basierend auf Vulnerabilities
         total_vulns = 0
